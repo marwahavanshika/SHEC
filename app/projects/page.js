@@ -1,17 +1,10 @@
 "use client";
-import React from "react";
+import {useState,useEffect} from 'react';
+import { useSpring,animated,config } from "@react-spring/web";
 
-import { useSpring, animated, config } from "@react-spring/web";
-
-function Num({ n }) {
-  const { width } = useSpring({
-    from: { width: 0 },
-    width: n,
-    config: config.slow,
-    delay: 200,
-    loop: true,
-  });
-  return <animated.div>{width.to((n) => Math.floor(n))}</animated.div>;
+function Num({ n,isloaded }) {
+  const props =useSpring({width:isloaded?n:0 , config:config.slow})
+  return <animated.div >{props.width.to(x => x.toFixed(0))}</animated.div>;
 }
 
 const page = () => {
@@ -22,13 +15,18 @@ const page = () => {
     "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-3.jpg",
     "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-4.jpg",
     "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-5.jpg",
-    "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-5.jpg",
-    "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-5.jpg",
-    "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-5.jpg",
   ];
-  const factor = gallery.length %2==0?Math.floor(gallery.length / 2):Math.floor(gallery.length / 2)+1;
-  const firstgallery = gallery.slice(0,factor);
+  const factor =
+    gallery.length % 2 == 0
+      ? Math.floor(gallery.length / 2)
+      : Math.floor(gallery.length / 2) + 1;
+  const firstgallery = gallery.slice(0, factor);
   const secondgallery = gallery.slice(factor);
+
+  const [isloaded,setLoading] =useState(false);
+  useEffect(()=>{
+    setLoading(true);
+  },[]);
   return (
     <>
       <div
@@ -55,12 +53,12 @@ const page = () => {
               at debitis modi ex consequatur nostrum.
             </p>
           </div>
-          <Num n={100} />
+          <Num n={100} isloaded={isloaded} />
         </div>
       </div>
 
       <div>
-        <div className="grid grid-cols-2 md:grid-cols-2 p-20 gap-10">
+        <div className="grid grid-cols-2 md:grid-cols-2 p-10 gap-10">
           <div className="grid gap-10">
             {firstgallery.map((link, i) => (
               <div key={i}>
@@ -71,19 +69,18 @@ const page = () => {
           <div className="grid gap-10 translate-y-1">
             <nav className="self-center w-full max-w-xl ">
               <div className="flex flex-col lg:flex-row justify-between items-center md:items-start border-b-2 border-blue-900">
-                <ul className="flex flex-col lg:flex-row items-center text-sm md:text-lg font-bold md:px-4 lg:px-10 my-2">
-                  <li className="hover:underline underline-offset-4 decoration-2 decoration-cyan-500 py-2 rounded-lg px-2 md:px-3 lg:px-5 mb-2 lg:mb-0">
-                    <a href="#">Home</a>
-                  </li>
-                  <li className="hover:underline underline-offset-4 decoration-2 decoration-cyan-500 py-2 rounded-lg px-2 md:px-3 lg:px-5 mb-2 lg:mb-0">
-                    <a href="#">Contact</a>
-                  </li>
-                  <li className="hover:underline underline-offset-4 decoration-2 decoration-cyan-500 py-2 rounded-lg px-2 md:px-3 lg:px-5 mb-2 lg:mb-0">
-                    <a href="#">Services</a>
-                  </li>
-                  <li className="hover:underline underline-offset-4 decoration-2 decoration-cyan-500 py-2 rounded-lg px-2 md:px-3 lg:px-5 mb-2 lg:mb-0">
-                    <a href="#">About</a>
-                  </li>
+                <ul className="flex flex-col lg:flex-row items-center text-sm md:text-lg my-2">
+                  {[
+                    "All",
+                    "Commercial",
+                    "Industrial",
+                    "Residential",
+                    "Educational",
+                  ].map((tag, i) => (
+                    <li key={i} className="hover:underline underline-offset-4 decoration-2 decoration-cyan-500 py-2 rounded-lg px-2 md:px-3 lg:px-5 mb-2 lg:mb-0">
+                      <a href="#">{tag}</a>
+                    </li>
+                  ))}
                 </ul>
               </div>
             </nav>
