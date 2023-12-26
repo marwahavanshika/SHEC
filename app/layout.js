@@ -13,7 +13,7 @@ export default function RootLayout({ children }) {
 
   const header = (
     <header>
-      <div>
+      <div className="text-center">
         <h1>Navbar Hoga yaha</h1>
         <br />
       </div>
@@ -22,7 +22,7 @@ export default function RootLayout({ children }) {
 
   const footer = (
     <footer>
-      <div>
+      <div className="text-center">
         <br />
         <h3>Footer hoga yaha</h3>
       </div>
