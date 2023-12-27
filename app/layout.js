@@ -1,8 +1,6 @@
-import { Inter } from 'next/font/google'
 import './globals.css'
+import Navbar from '../components/Navbar'
 
-
-const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
   title: 'blogs',
@@ -11,31 +9,13 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
 
-  const header = (
-    <header>
-      <div>
-        <h1>Navbar Hoga yaha</h1>
-        <br />
-      </div>
-    </header>
-  );
-
-  const footer = (
-    <footer>
-      <div>
-        <br />
-        <h3>Footer hoga yaha</h3>
-      </div>
-    </footer>
-  );
 
   return (
     <html lang="en">
       <head />
-      <body className={inter.className}>
-        {header}
+      <body className={' font-popins'}>
+        <Navbar />
         {children}
-        {footer}
         </body>
     </html>
   )
