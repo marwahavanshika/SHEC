@@ -22,9 +22,9 @@ export default function Home() {
 
   return (
     <div>
-      <Parallax pages={8} ref={parallaxRef} className={' h-screen snap-y snap-mandatory'}>
+      <Parallax pages={8} ref={parallaxRef}>
         <ParallaxLayer className={' text-white flex items-center justify-start px-32'} style={{backgroundImage:"url('/head.jpg')",backgroundSize:'cover',backgroundPosition:'cover'}}>
-          <p className={'font-[10] text-7xl'}>You Ask It<br />We Engineer it</p>
+          <div className={' text-[100px] special '}>You Ask It<br />We Engineer it</div>
         </ParallaxLayer>
         <ParallaxLayer offset={1} speed={0.25} className={' h-fit flex flex-col lg:flex-row items-center justify-center gap-5 md:gap-10 px-10'}>
           <div className={'flex flex-col flex-1 p-10'}>

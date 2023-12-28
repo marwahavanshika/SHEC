@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 export default function Navbar ()  {
     return (
-        <header className="text-gray-600 body-font fixed w-full z-10 bg-white">
+        <header className="text-gray-600 body-font sticky t-0 w-full z-10 bg-white">
             <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
                 <Link className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0" href={'/'}>
                     <span className="ml-3 text-xl" >Tailblocks</span>
