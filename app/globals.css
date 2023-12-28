@@ -2,11 +2,31 @@
 @tailwind components;
 @tailwind utilities;
 
-html{
-  ::-webkit-scrollbar{
-    display: none;
-  }
+::-webkit-scrollbar{
+  display: none;
 }
 .head-image {
   height: 100vh;
+}
+body{
+  font-family: 'Popins sans-serif';
+}
+.perspective{
+  perspective: 1000px;
+}
+.threed{
+  transform-style: preserve-3d;
+}
+
+.slider>:nth-child(1),.slider>:last-child{
+  height: 250px;
+}
+.slider>:nth-child(2),.slider>:nth-last-child(2){
+  height: 300px;
+}
+.slider>:nth-child(3),.slider>:nth-last-child(3){
+  height: 350px;
+}
+.slider>:nth-child(4),slider>:nth-last-child(4){
+  height: 400px;
 }
