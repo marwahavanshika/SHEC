@@ -125,14 +125,14 @@ export default function Blog () {
                 </nav>
             </div>
 
-            <hr className=" h-px bg-gray-200 border-0 dark:bg-gray-700"/>
+            <hr className=" h-px bg-gray-200 border-0 dark:bg-gray-700 w-11/12 mx-auto"/>
             <br/>
             <br/>
 
 
-            <div className='ml-8 flex flex-1'>
-                    <div className='border border-indigo-600'> 
-                            <div className='category-container ml-10'>
+            <div className='ml-8 flex flex-1 mb-48'>
+                    <div className='flex flex-1 border-2 border-grey-600 py-8 px-4 pb-0'> 
+                            <div className='category-container w-4/5'>
                                 {category.map(category => (
                                     <Categorycard
                                         timeline={category.categoryTimeline} 
@@ -141,11 +141,10 @@ export default function Blog () {
                                     />
                                 ))
                                 }
-                            </div>
-                            <div className="grid gap-10 translate-y-1 ">
-                                <nav className="self-center w-full max-w-xl ml-5">
+
+                                <nav className="self-center w-full max-w-xl ml-5 -translate-x-8 font-bold">
                                     <div className="flex flex-col lg:flex-row justify-between items-center md:items-start ">
-                                        <ul className="flex flex-col lg:flex-row items-center text-sm md:text-lg my-2">
+                                        <ul className="flex flex-col lg:flex-row items-center text-sm md:text-lg my-2 underline underline-offset-8">
                                         {[ 
                                             "View Post",
                                         ].map((tag,i) => (
@@ -157,9 +156,9 @@ export default function Blog () {
                                     </div>
                                 </nav>
                             </div>
-                    </div>
+                    {/* </div> */}
 
-                    <div className='horizontal-container'>
+                    <div className='horizontal-container pl-8'>
                                 {horizontal.map(horizontal => (
                                     <Horizontalcard 
                                     title={horizontal.horizontalTitle}
@@ -169,9 +168,10 @@ export default function Blog () {
                                 ))
                                 }
                     </div>
+                </div>
                 
 
-                <div className='horizontal-container ml-14'>
+                <div className='horizontal-container ml-14 py-4'>
                     {horizontal.map(horizontal => (
                         <Horizontalcard 
                             title={horizontal.horizontalTitle}
