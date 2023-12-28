@@ -1,48 +1,110 @@
 "use client";
-import {useState,useEffect} from 'react';
-import { useSpring,animated,config } from "@react-spring/web";
+import { useState, useEffect } from "react";
+import { useSpring, animated, config } from "@react-spring/web";
+import { useRouter } from "next/navigation";
 
-function Num({ n,isloaded }) {
-  const props =useSpring({width:isloaded?n:0 , config:config.slow})
-  return <animated.div >{props.width.to(x => x.toFixed(0))}</animated.div>;
+function ImageComponent({ src, alt, category }) {
+  const [loaded, setLoad] = useState(false);
+  const props = useSpring({
+    from: { opacity: 0, transform: "translateY(100px)" },
+    to: { opacity: 1, transform: "translateY(0)" },
+    reset: true,
+    key: category,
+    immediate: !loaded,
+  });
+  useEffect(() => {
+    setLoad(true);
+  }, []);
+
+  return (
+    <animated.img
+      style={props}
+      src={src}
+      alt={alt}
+      className={"h-auto max-w-full"}
+    />
+  );
+}
+
+function Num({ n, isloaded }) {
+  const props = useSpring({ width: isloaded ? n : 0, config: config.slow });
+  return <animated.div>{props.width.to((x) => x.toFixed(0))}</animated.div>;
 }
 
 const page = () => {
   const gallery = [
-    {link:"https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image.jpg",tag:'Commercial'},
-    {link:"https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image.jpg",tag:'Commercial'},
-    {link:"https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-1.jpg",tag:'Residential'},
-    {link:"https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-1.jpg",tag:'Residential'},
-    {link:"https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-1.jpg",tag:'Residential'},
-    {link:"https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-2.jpg",tag:'Educational'},
-    {link:"https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-2.jpg",tag:'Educational'},
-    {link:"https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-2.jpg",tag:'Educational'},
-    {link:"https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-3.jpg",tag:'Industrial'},
-    {link:"https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-3.jpg",tag:'Industrial'},
-    {link:"https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-4.jpg",tag:'Industrial'},
-    {link:"https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-5.jpg",tag:'Commercial'},
+    {
+      link: "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image.jpg",
+      tag: "Commercial",
+    },
+    {
+      link: "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image.jpg",
+      tag: "Commercial",
+    },
+    {
+      link: "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-1.jpg",
+      tag: "Residential",
+    },
+    {
+      link: "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-1.jpg",
+      tag: "Residential",
+    },
+    {
+      link: "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-1.jpg",
+      tag: "Residential",
+    },
+    {
+      link: "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-2.jpg",
+      tag: "Educational",
+    },
+    {
+      link: "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-2.jpg",
+      tag: "Educational",
+    },
+    {
+      link: "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-2.jpg",
+      tag: "Educational",
+    },
+    {
+      link: "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-3.jpg",
+      tag: "Industrial",
+    },
+    {
+      link: "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-3.jpg",
+      tag: "Industrial",
+    },
+    {
+      link: "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-4.jpg",
+      tag: "Industrial",
+    },
+    {
+      link: "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-5.jpg",
+      tag: "Commercial",
+    },
   ];
 
-  const [leftgallery,setLeft]=useState([]);
-  const [rightgallery,setRight]=useState([]);
-  const [active,setTag] =useState('All');
-  
-  const sortgallery=(tag)=>{
-    let newgallery =gallery;
-    if(tag!='All'){
-      newgallery=gallery.filter((image)=>(image.tag===tag));
-      setTag(tag);
+  const route = useRouter();
+
+  const [leftgallery, setLeft] = useState([]);
+  const [rightgallery, setRight] = useState([]);
+  const [active, setTag] = useState("All");
+
+  const sortgallery = (tag) => {
+    let newgallery = gallery;
+    if (tag != "All") {
+      newgallery = gallery.filter((image) => image.tag === tag);
     }
-    const factor =Math.floor(newgallery.length/2);
-    setLeft(newgallery.slice(0,factor+1));
-    setRight(newgallery.slice(factor+1));
-  }
-  
-  const [isloaded,setLoading] =useState(false);
-  useEffect(()=>{
+    setTag(tag);
+    const factor = Math.floor(newgallery.length / 2);
+    setLeft(newgallery.slice(0, factor + 1));
+    setRight(newgallery.slice(factor + 1));
+  };
+
+  const [isloaded, setLoading] = useState(false);
+  useEffect(() => {
     setLoading(true);
-    sortgallery('All');
-  },[]);
+    sortgallery("All");
+  }, []);
   return (
     <>
       <div
@@ -74,12 +136,22 @@ const page = () => {
       </div>
 
       <div>
-        <div className="grid grid-cols-2 md:grid-cols-2 px-10 py-20 gap-10">
+        <div className="grid grid-cols-2 md:grid-cols-2 px-10 py-20 gap-10 place-items-start">
           <div className="grid gap-10">
-            {leftgallery.map((value,i)=>{
-              return <div key={i}>
-                <img src={value.link} alt='' className={'h-auto max-w-full'} />
-              </div>
+            {leftgallery.map((value, i) => {
+              return (
+                <div
+                  key={i}
+                  onClick={() => route.push(`/projects/${i}`)}
+                  className={"cursor-pointer"}
+                >
+                  <ImageComponent
+                    src={value.link}
+                    alt={"hello"}
+                    category={active}
+                  />
+                </div>
+              );
             })}
           </div>
           <div className="grid gap-10 translate-y-1">
@@ -93,17 +165,25 @@ const page = () => {
                     "Residential",
                     "Educational",
                   ].map((tag, i) => (
-                    <li key={i} >
-                      <button onClick={()=>sortgallery(tag)} className="hover:underline underline-offset-4 decoration-2 decoration-cyan-500 py-2 rounded-lg px-2 md:px-3 lg:px-5 mb-2 lg:mb-0" style={{fontSize:(tag===active)?'x-large':'large'}}>{tag}</button>
+                    <li key={i}>
+                      <button
+                        onClick={() => sortgallery(tag)}
+                        className="hover:underline underline-offset-4 decoration-2 decoration-cyan-500 py-2 rounded-lg px-2 md:px-3 lg:px-5 mb-2 lg:mb-0"
+                        style={{
+                          fontSize: tag === active ? "x-large" : "large",
+                        }}
+                      >
+                        {tag}
+                      </button>
                     </li>
                   ))}
                 </ul>
               </div>
             </nav>
 
-            {rightgallery.map((link, i) => (
+            {rightgallery.map((value, i) => (
               <div key={i}>
-                <img src={link.link} alt="" className={"h-auto max-w-full"} />
+                <ImageComponent src={value.link} alt={""} category={active} />
               </div>
             ))}
           </div>
