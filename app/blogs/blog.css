@@ -41,7 +41,7 @@ body{
     margin: auto;
 }
 
-.blogcard{
+.blog-card{
         background-color: black;
         border-radius: 50%;
         height: 40px;
@@ -64,3 +64,32 @@ body{
     row-gap: 50px;
 }
 
+.category-card{
+    background-color: black;
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    position: relative;
+    left: 300px;
+}
+
+.horizontal-container{
+    display: grid;
+    row-gap: 20px;
+    justify-content: center;
+    top: 100px;
+}
+
+.flex{
+    column-gap: 20px;
+}
+
+.hor-img {
+    height: 107px;
+    width: 107px;
+}
+
+.rec-img {
+    height: 107px;
+    width: 257px;
+}

@@ -1,4 +1,4 @@
-"use client"
+"use client" // Serverside rendering overriden , 
 import { ParallaxLayer, Parallax } from "@react-spring/parallax"
 import { useScroll, animated, config } from "@react-spring/web";
 import { useRef, useEffect, useState } from "react"
