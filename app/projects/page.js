@@ -110,26 +110,19 @@ const page = () => {
       <div
         className="flex justify-center  bg-no-repeat  bg-cover h-screen md:bg-center"
         style={{
-          backgroundImage: "url('https://source.unsplash.com/700x400/?white')",
+          backgroundImage: "url('/images/projbg.jpg')",
         }}
       >
         <div className="flex flex-col items-center ">
           <div className="flex flex-col justify-center items-center text-center  max-w-7xl   my-8 py-4 px-10">
-            <div className="flex flex-col text-gray-700mt-5">
-              <h1 className="text-4xl md:text-[50px] font-semibold">lorem5</h1>
-              <p className="text-xl mt-2 md:mt-4 tracking-wide">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eaque,
-                aspernatur!
-              </p>
+            <div className="flex flex-col items-center text-gray-700mt-5">
+              <h1 className="text-white text-[50px] not-italic font-semibold leading-[60px] font-popins">
+                SUCCESSFULLY DELIVERED <br />
+                HUMONGOUS AND
+                <br />
+                GLORIOUS PROJECTS
+              </h1>
             </div>
-            <p className="mt-4 text-sm md:w-[52%] tracking-wide leading-7">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Praesentium minima iusto beatae nesciunt et rerum quis ullam atque
-              dolores alias! Voluptatum repellendus culpa quidem ducimus, quae
-              sapiente porro corporis at atque asperiores quibusdam cumque harum
-              laborum, fuga officia ipsa obcaecati doloribus ipsum. Aliquid quia
-              at debitis modi ex consequatur nostrum.
-            </p>
           </div>
           <Num n={100} isloaded={isloaded} />
         </div>
