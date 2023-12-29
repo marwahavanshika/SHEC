@@ -70,7 +70,7 @@ const horizontal = [{
 
 
 export default function Blog () {
-    const an = ["1","2","3","4","5"];
+    {/*const an = ["1","2","3","4","5"];*/}
     return (
         <>
             <div className="parent text-center">
