@@ -20,13 +20,25 @@ body{
 
 .slider>:nth-child(1),.slider>:last-child{
   height: 250px;
+  @media (max-width:640px) {
+    height: 150px;
+  }
 }
 .slider>:nth-child(2),.slider>:nth-last-child(2){
   height: 300px;
+  @media (max-width:640px) {
+    height: 200px;
+  }
 }
 .slider>:nth-child(3),.slider>:nth-last-child(3){
   height: 350px;
+  @media (max-width:640px) {
+    height: 250px;
+  }
 }
 .slider>:nth-child(4),slider>:nth-last-child(4){
   height: 400px;
+  @media (max-width:640px) {
+    height: 300px;
+  }
 }

@@ -1,7 +1,7 @@
 
-const Card = ({ title='Dummy title', desc="Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima ducimus modi fugit quam corporis aspernatur odio nisi ab eligendi veniam officia, unde architecto illum, voluptatem et vitae vel sunt" }) => {
+const Card = ({ title='Dummy title', desc="Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima ducimus modi fugit quam corporis aspernatur odio nisi ab eligendi veniam officia, unde architecto illum, voluptatem et vitae vel sunt",className }) => {
     return (
-        <div>
+        <div className={className}>
             <div className=" w-[384px] min-w-60 ">
                 <a href="#">
                     <img className="rounded-3xl" src="https://www.searchenginejournal.com/wp-content/uploads/2020/08/7-ways-a-blog-can-help-your-business-right-now-5f3c06b9eb24e.png" alt="" />

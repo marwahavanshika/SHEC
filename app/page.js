@@ -173,7 +173,7 @@ export default function Home() {
           >
             Our Past Projects
           </h1>
-          <Gallery />
+          <Gallery className={"rotate-180"} />
           <h3
             className={
               "text-black text-center text-[2rem] not-italic font-semibold leading-[2.9375rem] font-sans"
@@ -212,12 +212,12 @@ export default function Home() {
           </h1>
           <div
             className={
-              "flex flex-row flex-wrap items-center gap-10 mt-10 justify-center"
+              "flex flex-row items-center gap-10 mt-10 justify-center"
             }
           >
-            {[1, 2, 3].map((value) => (
-              <Card key={value} />
-            ))}
+            <Card />
+            <Card className={"hidden md:block"} />
+            <Card className={"hidden xl:block"}/>
           </div>
           <h3>
             <Link
@@ -232,8 +232,36 @@ export default function Home() {
         </ParallaxLayer>
         <ParallaxLayer
           offset={7}
-          className={"h-screen"}
-        >Contact Us</ParallaxLayer>
+          className={"flex flex-row flex-wrap items-center justify-center gap-5"}
+        >
+          <div className={"flex flex-col flex-1 item-start justify-start max-w-[28.07725rem]"}>
+            <h1
+              className={
+                "text-black text-[3.07606rem] not-italic font-bold leading-[normal] font-popins"
+              }
+            >
+              Contact{" "}
+              <span
+                className={
+                  "text-[#1B4896] text-[3.07606rem] not-italic font-bold leading-[normal] font-popins"
+                }
+              >
+                us
+              </span>
+            </h1>
+            <h2
+              className={
+                " text-black text-[0.7975rem] not-italic font-semibold leading-[1.36713rem] tracking-[0.008rem] font-popins"
+              }
+            >
+              Connect with us for seamless collaboration and expert solutions -
+              where innovation meets excellence.
+            </h2>
+          </div>
+          <div className="w-[28.07725rem] h-[36.0625rem] shrink">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5267467.328243882!2d79.79308074695561!3d24.895329786126055!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd5b347eb62d%3A0x52c2b7494e204dce!2sNew%20Delhi%2C%20Delhi!5e0!3m2!1sen!2sin!4v1703830862216!5m2!1sen!2sin"  allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </ParallaxLayer>
       </Parallax>
     </div>
   );
