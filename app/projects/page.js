@@ -21,7 +21,7 @@ function ImageComponent({ src, alt, category }) {
       style={props}
       src={src}
       alt={alt}
-      className={"h-auto max-w-full"}
+      className={"h-auto max-w-full p-2"}
     />
   );
 }
@@ -129,8 +129,8 @@ const page = () => {
       </div>
 
       <div>
-        <div className="grid grid-cols-2 md:grid-cols-2 px-10 py-20 gap-10 place-items-start">
-          <div className="grid gap-10">
+        <div className="grid grid-cols-2 md:grid-cols-2 place-items-start pt-10 lg:pt-20">
+          <div className="grid gap-10 m-auto">
             {leftgallery.map((value, i) => {
               return (
                 <div
@@ -147,7 +147,7 @@ const page = () => {
               );
             })}
           </div>
-          <div className="grid gap-10 translate-y-1">
+          <div className="grid gap-10 translate-y-1 mx-auto">
             <nav className="self-center w-full max-w-xl ">
               <div className="flex flex-col lg:flex-row justify-between items-center md:items-start border-b-2 border-blue-900">
                 <ul className="flex flex-col lg:flex-row items-center text-sm md:text-lg my-2">
