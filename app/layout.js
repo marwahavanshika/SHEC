@@ -1,5 +1,6 @@
 import './globals.scss'
 import Navbar from '../components/Navbar'
+import Footer from '../components/Footer'
 
 
 export const metadata = {
@@ -16,6 +17,7 @@ export default function RootLayout({ children }) {
       <body className={' font-popins'}>
         <Navbar />
         {children}
+        <Footer/>
         </body>
     </html>
   )

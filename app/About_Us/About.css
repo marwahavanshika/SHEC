@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;400&display=swap');
+
+.head-image {
+    height: 90vh;
+    border: 10px;
+}
+
+.parent  {
+    position: relative;
+}
+
+.img-text {
+    position: absolute;
+    top: 340px;
+    color: white;
+    /* font-weight: thin; */
+    left: 134px;
+    font-size: 100px;
+    font-variant: small-caps;
+    font-family: 'Poppins';
+}
+
+.img-text p {
+    position: relative;
+    left: 158px;
+    top: -65px;
+    font-weight: 200;
+}
+
+.img-text h3{
+    font-weight: 200;
+}

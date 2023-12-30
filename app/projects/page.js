@@ -5,8 +5,8 @@ import { useRouter } from "next/navigation";
 import Carousal from "../../components/Projects";
 
 function Num({ n, isloaded }) {
-  const props = useSpring({ width: isloaded ? n : 0, config: config.slow });
-  return <animated.div>{props.width.to((x) => x.toFixed(0))}</animated.div>;
+  const props = useSpring({ width: isloaded ? n : 0, config: {mass:1,tension:30,friction:10} });
+  return <animated.div className={"text-white text-[88px] not-italic leading-[60px] font-popins"}>{props.width.to((x) => x.toFixed(0))}</animated.div>;
 }
 
 const page = () => {
@@ -153,30 +153,34 @@ const page = () => {
   return (
     <>
       <div
-        className="flex justify-center  bg-no-repeat  bg-cover h-screen md:bg-center"
+        className="flex justify-center  bg-no-repeat  bg-cover h-screen md:bg-center "
         style={{
-          backgroundImage: "url('https://source.unsplash.com/700x400/?white')",
+           backgroundImage: "linear-gradient(0deg, rgba(0, 0, 0, 0.50) 0%, rgba(0, 0, 0, 0.50) 10%), url('/images/projbg.jpg')",
+        
         }}
       >
         <div className="flex flex-col items-center ">
           <div className="flex flex-col justify-center items-center text-center  max-w-7xl   my-8 py-4 px-10">
-            <div className="flex flex-col text-gray-700mt-5">
-              <h1 className="text-4xl md:text-[50px] font-semibold">lorem5</h1>
-              <p className="text-xl mt-2 md:mt-4 tracking-wide">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eaque,
-                aspernatur!
-              </p>
+            <div className="flex flex-col items-center text-gray-700mt-5">
+              <h1 className="text-white text-left text-[50px] not-italic font-semibold leading-[60px] font-popins">
+                SUCCESSFULLY<span className=" font-extralight"> DELIVERED</span> <br />
+                HUMONGOUS<span className=" font-extralight">  AND</span>
+                <br />
+               <span className=" text-[45px]"> GLORIOUS PROJECTS </span>
+              </h1>
             </div>
-            <p className="mt-4 text-sm md:w-[52%] tracking-wide leading-7">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Praesentium minima iusto beatae nesciunt et rerum quis ullam atque
-              dolores alias! Voluptatum repellendus culpa quidem ducimus, quae
-              sapiente porro corporis at atque asperiores quibusdam cumque harum
-              laborum, fuga officia ipsa obcaecati doloribus ipsum. Aliquid quia
-              at debitis modi ex consequatur nostrum.
-            </p>
           </div>
+          <div className="border-b w-4/5 border-2 border-white-400 mb-8"></div>
+          <div className="flex flex-row items-center justify-around w-screen font-popins">
+          <div className="flex flex-col gap-3 justify-center items-center">
           <Num n={100} isloaded={isloaded} />
+          <h1 className="text-white text-[40px] not-italic font-normal leading-[60px]"> Projects</h1>
+          </div>
+          <div className="flex flex-col gap-3 justify-center items-center">
+          <Num n={15489219} isloaded={isloaded} />
+          <h1 className="text-white text-[40px] not-italic font-normal leading-[60px]">Area Delivered</h1>
+          </div>
+          </div>
         </div>
       </div>
 

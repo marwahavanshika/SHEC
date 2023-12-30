@@ -1,27 +1,33 @@
-const imgs =[
-    "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-3.jpg",
-    "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-3.jpg",
-    "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-3.jpg",
-    "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-3.jpg",
-    "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-3.jpg",
-    "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-3.jpg",
-    "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-3.jpg"
+const imgs = [
+  {link:"https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-3.jpg",type:"Cafe",name:"Katty",post:"Fashion Director"},
+  {link:"https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-3.jpg",type:"Cafe",name:"Katty",post:"Fashion Director"},
+  {link:"https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-3.jpg",type:"Cafe",name:"Katty",post:"Fashion Director"},
+  {link:"https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-3.jpg",type:"Cafe",name:"Katty",post:"Fashion Director"},
+  {link:"https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-3.jpg",type:"Cafe",name:"Katty",post:"Fashion Director"},
+  {link:"https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-3.jpg",type:"Cafe",name:"Katty",post:"Fashion Director"},
+  {link:"https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-3.jpg",type:"Cafe",name:"Katty",post:"Fashion Director"},
 ]
 
 export default function Gallery() {
   return (
-    <div className="flex justify-center items-center h-screen gap-2 md:gap-5 slider">
-      {imgs.map((value,i)=>(
-        <img 
-        src={value}
-        className={"w-8 md:w-20 object-cover filter grayscale hover:grayscale-0 transform transition-all duration-500 ease-in-out flex-grow-0 hover:w-[16rem] md:hover:w-[25rem] hover:h-[300px] md:hover:h-[400px] hover:transition-all hover:duration-500 hover:ease-in-out focus:w-[16rem] md:focus:w-[25rem] focus:h-[300px] md:focus:h-[400px] focus:transition-all focus:duration-500 focus:ease-in-out active:w-[16rem] md:active:w-[25rem] active:h-[300px] md:active:h-[400px] active:transition-all active:duration-500 active:ease-in-out"}
-        alt="Random"
-        key={i}
-        />
+    <div className="flex relative justify-center items-center h-screen gap-2 md:gap-5 slider">
+      {imgs.map((value, i) => (
+        <div key={i} className="w-8 group relative md:w-20 hover:w-[16rem] md:hover:w-[25rem] hover:h-[300px] md:hover:h-[400px] hover:transition-all hover:duration-500 hover:ease-in-out transform transition-all duration-500 ease-in-out flex-grow-0  focus:w-[16rem] md:focus:w-[25rem] focus:h-[300px] md:focus:h-[400px] focus:transition-all focus:duration-500 focus:ease-in-out active:w-[16rem] md:active:w-[25rem] active:h-[300px] md:active:h-[400px] active:transition-all active:duration-500 active:ease-in-out">
+          <img
+            src={value.link}
+            className={
+              " h-full w-full top-0 object-cover"
+            }
+            alt="Random"
+            key={i}
+          />
+          <div className=" absolute inset-0 z-10 bg-[rgba(0,0,0,0.5)] group-hover:bg-transparent group-hover:transition-all group-hover:duration-500 transition-all duration-500 text-white text-lg md:text-[1.6685rem] not-italic font-bold leading-[165%] tracking-[0.95106rem] capitalize font-popins flex items-center justify-center"><span className=" -rotate-90 group-hover:opacity-0 group-hover:transition-all group-hover:duration-500 transition-all duration-500">{value.type}</span></div>
+          <div className=" opacity-0 group-hover:opacity-100 absolute bottom-5 left-5 group-hover:transition-all group-hover:duration-500 transition-all duration-500">
+            <h1 className="text-white text-lg md:text-xl not-italic font-bold leading-[165%] capitalize font-popins">{value.name}</h1>
+            <h2 className="text-white text-base md:text-lg not-italic font-normal leading-[0.859rem] tracking-[0.01544rem]">{value.post}</h2>
+          </div>
+        </div>
       ))}
     </div>
   );
-};
-
-
-
+}

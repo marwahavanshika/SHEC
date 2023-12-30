@@ -5,6 +5,7 @@ import Animation from "../components/Animation";
 import Card from "../components/Blog";
 import Gallery from "../components/Projects_Home";
 import Contact from "../components/Contact";
+import Heading from "../components/Heading"
 import Link from "next/link";
 
 export default function Home() {
@@ -39,7 +40,7 @@ export default function Home() {
   ];
 
   return (
-    <div>
+    <div className=" h-screen">
       <Parallax pages={8} ref={parallaxRef}>
         <ParallaxLayer
           style={{
@@ -47,11 +48,9 @@ export default function Home() {
             backgroundSize: "cover",
             backgroundPosition: "cover",
           }}
+          className=" relative"
         >
-          <div className="special">
-            <h1>YOU ASK IT </h1>
-            <h2>WE ENGINEER IT</h2>
-          </div>
+          <Heading />
         </ParallaxLayer>
         <ParallaxLayer
           offset={1}
@@ -161,14 +160,14 @@ export default function Home() {
         >
           <h2
             className={
-              "text-black text-center text-xl md:text-[1.2125rem] not-italic font-medium leading-[normal] tracking-[0.18188rem] uppercase font-popins "
+              "text-black text-center shrink text-xl md:text-[1.2125rem] not-italic font-medium leading-[normal] tracking-[0.18188rem] uppercase font-popins "
             }
           >
             some of our works
           </h2>
           <h1
             className={
-              "text-black text-center text-4xl md:text-[2.4875rem] not-italic font-semibold leading-[2.9375rem] font-sans"
+              "text-black text-center shrink text-4xl md:text-[2.4875rem] not-italic font-semibold leading-[2.9375rem] font-sans"
             }
           >
             Our Past Projects
@@ -176,7 +175,7 @@ export default function Home() {
           <Gallery />
           <h3
             className={
-              "text-black text-center text-[2rem] not-italic font-semibold leading-[2.9375rem] font-sans"
+              "text-black text-center shrink text-[2rem] not-italic font-semibold leading-[2.9375rem] font-sans"
             }
           >
             Interior Design
@@ -184,7 +183,7 @@ export default function Home() {
           <h4>
             <Link
               className={
-                "text-[#0487C9] text-center text-[1.2125rem] not-italic font-medium leading-[normal] tracking-[0.18188rem] lowercase font-popins"
+                "text-[#0487C9] text-center shrink text-[1.2125rem] not-italic font-medium leading-[normal] tracking-[0.18188rem] lowercase font-popins"
               }
               href={"/projects"}
             >
