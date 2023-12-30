@@ -38,7 +38,7 @@ export default function Home() {
   ];
 
   return (
-    <div>
+    <div className=" h-screen">
       <Parallax pages={8} ref={parallaxRef}>
         <ParallaxLayer
           className={" text-white flex items-center justify-start px-32"}

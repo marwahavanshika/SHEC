@@ -27,8 +27,8 @@ function ImageComponent({ src, alt, category }) {
 }
 
 function Num({ n, isloaded }) {
-  const props = useSpring({ width: isloaded ? n : 0, config: config.slow });
-  return <animated.div>{props.width.to((x) => x.toFixed(0))}</animated.div>;
+  const props = useSpring({ width: isloaded ? n : 0, config: {mass:1,tension:30,friction:10} });
+  return <animated.div className={"text-white text-[88px] not-italic leading-[60px] font-popins"}>{props.width.to((x) => x.toFixed(0))}</animated.div>;
 }
 
 const page = () => {
@@ -108,23 +108,34 @@ const page = () => {
   return (
     <>
       <div
-        className="flex justify-center  bg-no-repeat  bg-cover h-screen md:bg-center"
+        className="flex justify-center  bg-no-repeat  bg-cover h-screen md:bg-center "
         style={{
-          backgroundImage: "url('/images/projbg.jpg')",
+           backgroundImage: "linear-gradient(0deg, rgba(0, 0, 0, 0.50) 0%, rgba(0, 0, 0, 0.50) 10%), url('/images/projbg.jpg')",
+        
         }}
       >
         <div className="flex flex-col items-center ">
           <div className="flex flex-col justify-center items-center text-center  max-w-7xl   my-8 py-4 px-10">
             <div className="flex flex-col items-center text-gray-700mt-5">
-              <h1 className="text-white text-[50px] not-italic font-semibold leading-[60px] font-popins">
-                SUCCESSFULLY DELIVERED <br />
-                HUMONGOUS AND
+              <h1 className="text-white text-left text-[50px] not-italic font-semibold leading-[60px] font-popins">
+                SUCCESSFULLY<span className=" font-extralight"> DELIVERED</span> <br />
+                HUMONGOUS<span className=" font-extralight">  AND</span>
                 <br />
-                GLORIOUS PROJECTS
+               <span className=" text-[45px]"> GLORIOUS PROJECTS </span>
               </h1>
             </div>
           </div>
+          <div className="border-b w-4/5 border-2 border-white-400 mb-8"></div>
+          <div className="flex flex-row items-center justify-around w-screen font-popins">
+          <div className="flex flex-col gap-3 justify-center items-center">
           <Num n={100} isloaded={isloaded} />
+          <h1 className="text-white text-[40px] not-italic font-normal leading-[60px]"> Projects</h1>
+          </div>
+          <div className="flex flex-col gap-3 justify-center items-center">
+          <Num n={15489219} isloaded={isloaded} />
+          <h1 className="text-white text-[40px] not-italic font-normal leading-[60px]">Area Delivered</h1>
+          </div>
+          </div>
         </div>
       </div>
 
