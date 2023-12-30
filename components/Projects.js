@@ -49,7 +49,7 @@ export default function Carousal({length=4,links,className,direction=-1}) {
             <img
               alt=""
               key={id}
-              className={"absolute w-full h-full flex items-center justify-center rounded-lg shadow-[4px_10px_30px_0px_rgba(0,0,0,0.06)] left-0 top-0"}
+              className={"absolute w-full h-full transition-transform duration-500 ease-linear flex items-center justify-center rounded-lg shadow-[4px_10px_30px_0px_rgba(0,0,0,0.06)] left-0 top-0"}
               style={{ transform: getTransform(id) }}
               src={links[id]}
             />  
@@ -57,7 +57,7 @@ export default function Carousal({length=4,links,className,direction=-1}) {
       </div>
       
       <div
-        className="w-full h-full absolute left-0 top-0 threed"
+        className="w-full h-full absolute left-0 top-0 threed transition-transform duration-500 ease-linear"
         style={{ transform: `translateZ(-${z}px) rotateY(0deg)` }}
       >
       </div>
