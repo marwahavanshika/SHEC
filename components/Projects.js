@@ -5,7 +5,7 @@ export default function Carousal({length=4,links,className,direction=-1}) {
   const [index, setIndex] = useState(0)
   const items = [...new Array(length).keys()]
   const [size, setsize] = useState(window.innerWidth)
-  const factor = size >=1024?55:size>=768?37:18
+  const factor = size >=1024?56:size>=768?37:18
   const z = length * factor
   
   const angle = index / length * -360;
@@ -49,7 +49,7 @@ export default function Carousal({length=4,links,className,direction=-1}) {
             <img
               alt=""
               key={id}
-              className={"absolute w-full h-full flex items-center justify-center shadow-[0px_8px_16px_rgba(0,0,0,0.1)] rounded-lg border-4 border-solid border-[white] left-0 top-0"}
+              className={"absolute w-full h-full flex items-center justify-center rounded-lg shadow-[4px_10px_30px_0px_rgba(0,0,0,0.06)] left-0 top-0"}
               style={{ transform: getTransform(id) }}
               src={links[id]}
             />  

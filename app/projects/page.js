@@ -197,6 +197,7 @@ const page = () => {
                     links={value.links}
                     className={"w-[150px] h-[200px] md:w-[300px] md:h-[400px] lg:w-[450px] lg:h-[500px] "}
                   />
+                  <h1 className="text-[#2B4248] text-xl md:text-[1.5625rem] not-italic font-normal leading-[129.7%] capitalize w-full bg-[#f6f6f6] font-popins h-10 md:h-16 pt-1 ps-3 md:pt-5 md:ps-10">{value.tag}</h1>
                 </animated.div>
               );
             })}
@@ -236,6 +237,7 @@ const page = () => {
                     className={" w-[150px] h-[200px] md:w-[300px] md:h-[400px] lg:w-[450px] lg:h-[500px] "}
                     direction={1}
                   />
+                  <h1 className="text-[#2B4248] text-xl md:text-[1.5625rem] not-italic font-normal leading-[129.7%] capitalize w-full bg-[#f6f6f6] font-popins h-10 md:h-16 pt-1 ps-3 md:pt-5 md:ps-10">{value.tag}</h1>
               </animated.div>
              ))} 
           </div>
