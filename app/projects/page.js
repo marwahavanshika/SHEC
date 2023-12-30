@@ -2,29 +2,7 @@
 import { useState, useEffect } from "react";
 import { useSpring, animated, config } from "@react-spring/web";
 import { useRouter } from "next/navigation";
-
-function ImageComponent({ src, alt, category }) {
-  const [loaded, setLoad] = useState(false);
-  const props = useSpring({
-    from: { opacity: 0, transform: "translateY(100px)" },
-    to: { opacity: 1, transform: "translateY(0)" },
-    reset: true,
-    key: category,
-    immediate: !loaded,
-  });
-  useEffect(() => {
-    setLoad(true);
-  }, []);
-
-  return (
-    <animated.img
-      style={props}
-      src={src}
-      alt={alt}
-      className={"h-auto max-w-full p-2"}
-    />
-  );
-}
+import Carousal from "../../components/Projects";
 
 function Num({ n, isloaded }) {
   const props = useSpring({ width: isloaded ? n : 0, config: config.slow });
@@ -34,51 +12,111 @@ function Num({ n, isloaded }) {
 const page = () => {
   const gallery = [
     {
-      link: "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image.jpg",
+      links: [
+        "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image.jpg",
+        "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image.jpg",
+        "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image.jpg",
+        "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image.jpg",
+      ],
       tag: "Commercial",
     },
     {
-      link: "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image.jpg",
+      links: [
+        "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image.jpg",
+        "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image.jpg",
+        "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image.jpg",
+        "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image.jpg",
+      ],
       tag: "Commercial",
     },
     {
-      link: "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-1.jpg",
+      links: [
+        "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-1.jpg",
+        "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-1.jpg",
+        "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-1.jpg",
+        "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-1.jpg",
+      ],
       tag: "Residential",
     },
     {
-      link: "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-1.jpg",
+      links: [
+        "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-1.jpg",
+        "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-1.jpg",
+        "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-1.jpg",
+        "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-1.jpg",
+      ],
       tag: "Residential",
     },
     {
-      link: "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-1.jpg",
+      links: [
+        "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-1.jpg",
+        "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-1.jpg",
+        "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-1.jpg",
+        "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-1.jpg",
+      ],
       tag: "Residential",
     },
     {
-      link: "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-2.jpg",
+      links: [
+        "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-2.jpg",
+        "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-2.jpg",
+        "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-2.jpg",
+        "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-2.jpg",
+      ],
       tag: "Educational",
     },
     {
-      link: "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-2.jpg",
+      links: [
+        "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-2.jpg",
+        "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-2.jpg",
+        "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-2.jpg",
+        "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-2.jpg",
+      ],
       tag: "Educational",
     },
     {
-      link: "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-2.jpg",
+      links: [
+        "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-2.jpg",
+        "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-2.jpg",
+        "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-2.jpg",
+        "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-2.jpg",
+      ],
       tag: "Educational",
     },
     {
-      link: "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-3.jpg",
+      links: [
+        "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-3.jpg",
+        "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-3.jpg",
+        "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-3.jpg",
+        "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-3.jpg",
+      ],
       tag: "Industrial",
     },
     {
-      link: "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-3.jpg",
+      links: [
+        "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-3.jpg",
+        "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-3.jpg",
+        "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-3.jpg",
+        "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-3.jpg",
+      ],
       tag: "Industrial",
     },
     {
-      link: "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-4.jpg",
+      links: [
+        "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-4.jpg",
+        "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-4.jpg",
+        "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-4.jpg",
+        "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-4.jpg",
+      ],
       tag: "Industrial",
     },
     {
-      link: "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-5.jpg",
+      links: [
+        "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-5.jpg",
+        "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-5.jpg",
+        "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-5.jpg",
+        "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-5.jpg",
+      ],
       tag: "Commercial",
     },
   ];
@@ -101,6 +139,13 @@ const page = () => {
   };
 
   const [isloaded, setLoading] = useState(false);
+  const props = useSpring({
+    from: { opacity: 0, transform: "translateY(100px)" },
+    to: { opacity: 1, transform: "translateY(0)" },
+    reset: true,
+    key: active,
+    immediate: !isloaded,
+  });
   useEffect(() => {
     setLoading(true);
     sortgallery("All");
@@ -136,25 +181,27 @@ const page = () => {
       </div>
 
       <div>
-        <div className="grid grid-cols-2 md:grid-cols-2 place-items-start pt-10 lg:pt-20">
-          <div className="grid gap-10 m-auto">
+        <div className="grid grid-cols-[50%_50%] place-items-start mt-10">
+          <div className="grid gap-10 place-self-center">
             {leftgallery.map((value, i) => {
               return (
-                <div
+                <animated.div
+                  style={props}
                   key={i}
                   onClick={() => route.push(`/projects/${i}`)}
                   className={"cursor-pointer"}
                 >
-                  <ImageComponent
-                    src={value.link}
-                    alt={"hello"}
-                    category={active}
+                  <Carousal
+                    key={i}
+                    length={value.links.length}
+                    links={value.links}
+                    className={"w-[150px] h-[200px] md:w-[300px] md:h-[400px] lg:w-[450px] lg:h-[500px] "}
                   />
-                </div>
+                </animated.div>
               );
             })}
           </div>
-          <div className="grid gap-10 translate-y-1 mx-auto">
+          <div className="grid gap-10 translate-y-1 justify-self-center justify-items-center">
             <nav className="self-center w-full max-w-xl ">
               <div className="flex flex-col lg:flex-row justify-between items-center md:items-start border-b-2 border-blue-900">
                 <ul className="flex flex-col lg:flex-row items-center text-sm md:text-lg my-2">
@@ -182,10 +229,15 @@ const page = () => {
             </nav>
 
             {rightgallery.map((value, i) => (
-              <div key={i}>
-                <ImageComponent src={value.link} alt={""} category={active} />
-              </div>
-            ))}
+              <animated.div style={props} className={"cursor-pointer overflow-hidden"} key={i}>
+                <Carousal
+                    links={value.links}
+                    length={value.links.length}
+                    className={" w-[150px] h-[200px] md:w-[300px] md:h-[400px] lg:w-[450px] lg:h-[500px] "}
+                    direction={1}
+                  />
+              </animated.div>
+             ))} 
           </div>
         </div>
       </div>

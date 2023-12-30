@@ -1,48 +1,69 @@
 "use client"
-import { useState } from "react"
-const length = 8
-const items = [...new Array(length).keys()]
-const z = length * 50
-  
-export default function Carousal() {
+import { useState, useLayoutEffect } from "react"
+
+export default function Carousal({length=4,links,className,direction=-1}) {
   const [index, setIndex] = useState(0)
+  const items = [...new Array(length).keys()]
+  const [size, setsize] = useState(window.innerWidth)
+  const factor = size >=1024?55:size>=768?37:18
+  const z = length * factor
   
   const angle = index / length * -360;
   const transform = `translateZ(-${z}px) rotateY(${angle}deg)`
+
+  const [isHovered, setIsHovered] = useState(false);
+
+  const resize=()=>{
+    setsize(window.innerWidth);
+  }
+
+  useLayoutEffect(() => {
+    let timer;
+
+    const decreaseCount = () => {
+      if (isHovered) {
+        setIndex((prevCount) => prevCount +direction);
+        timer = setTimeout(decreaseCount, 2000);
+      }
+    };
+
+    decreaseCount();
+    window.addEventListener('resize',resize);
+
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener('resize',resize)
+    };
+  }, [isHovered]);
+
+  function getTransform(id) {
+    const deg = id * (360 / length)
+    return `rotateY(${deg}deg) translateZ(${z}px)`
+  }
   
   return (
-    <div className={' w-[300px] h-[185px] relative mx-auto my-10 perspective'}>
-      <div className="w-[300px] threed h-[185px] absolute transition-transform duration-[400ms] will-change-transform left-0 top-0" style={{ transform }}>
+    <div className={className}>
+      <div className={'w-full h-full relative mx-auto my-10 perspective'} onMouseEnter={()=>setIsHovered(true)} onMouseLeave={()=>setIsHovered(false)} onTouchStart={()=>setIsHovered(true)}  onTouchEnd={()=>setIsHovered(false)}>
+      <div className="w-full h-full threed absolute transition-transform duration-[400ms] will-change-transform left-0 top-0" style={{ transform }}>
           {items.map((id) => (
             <img
               alt=""
               key={id}
-              className={"absolute w-[300px] h-[185px] flex items-center justify-center shadow-[0px_8px_16px_rgba(0,0,0,0.1)] rounded-lg border-4 border-solid border-[white] left-0 top-0"}
+              className={"absolute w-full h-full flex items-center justify-center shadow-[0px_8px_16px_rgba(0,0,0,0.1)] rounded-lg border-4 border-solid border-[white] left-0 top-0"}
               style={{ transform: getTransform(id) }}
-              src={`https://picsum.photos/500/350?image=${(id + 5) * 11}`}
+              src={links[id]}
             />  
           ))}
       </div>
       
       <div
-        className="w-[300px] h-[185px] absolute left-0 top-0 threed"
+        className="w-full h-full absolute left-0 top-0 threed"
         style={{ transform: `translateZ(-${z}px) rotateY(0deg)` }}
       >
-        <button
-          style={{ transform: getTransform(length - 1) }}
-          onClick={() => setIndex(index - 1)}
-          className={'absolute w-[$width] h-[$height] opacity-0 cursor-pointer rounded-lg border-4 border-solid border-[white] left-0.5 top-0.5 active:opacity-10'}
-        />
-        <button
-          style={{ transform: getTransform(1) }}
-          onClick={() => setIndex(index + 1)}
-        />
       </div>
+    </div>
     </div>
   )
 }
 
-function getTransform(id) {
-  const deg = id * (360 / length)
-  return `rotateY(${deg}deg) translateZ(${z}px)`
-}
+
