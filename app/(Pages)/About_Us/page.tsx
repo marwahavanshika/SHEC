@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import './About.css'
-import Licencecard from './Aboutcomponents/Licencecard';
+import Licencecard from "./Aboutcomponents/Licencecard";
 
 const licence = [{
     licenceTitle: "Directorate General of Dubai Civil Defence",
