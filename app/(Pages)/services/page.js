@@ -2,10 +2,10 @@
 import { useEffect } from "react";
 
 function page() {
-  const team = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+  const team = [1, 2, 3, 4, 5,6,7,8,9];
 
   return (
-    <div>
+    <div className=" overflow-x-hidden">
       <div
         className="flex justify-center  bg-no-repeat  bg-cover h-screen md:bg-center "
         style={{
@@ -119,17 +119,20 @@ function page() {
           ea inventore blanditiis dolore.
         </h2>
         <div
-          className=" flex flex-row team items-center justify-evenly w-full"
+          className=" flex flex-row gap-44 justify-center overflow-visible team items-center"
           id="carousal"
         >
-          {team.map((_, i) => (
-            <div className="aspect-square rounded-full overflow-hidden" key={i}>
-              <img src="/images/projbg.jpg" alt="" />
+          {team.map((value ,i) => (
+            <div className="aspect-square rounded-full overflow-hidden p-1 border-4" style={{borderColor:(value==5)?"blue":"transparent"}} key={i}>
+              <img src="/images/projbg.jpg" alt="" className=" w-full h-full object-cover rounded-full" />
             </div>
           ))}
         </div>
+        
+        <button>Move</button>
+          <button>Move</button>
       </div>
-      <div className=" flex flex-row py-20 justify-around flex-wrap-reverse gap-5">
+      <div className=" flex flex-row p-20 justify-around flex-wrap-reverse gap-5 md:gap-10">
         <div className=" flex flex-col min-w-96 max-w-[50%] flex-1 items-start justify-between ">
           <h1 className="text-[#1E1F4B] text-xl md:text-[2.5rem] not-italic font-bold leading-[3.25rem] tracking-[0.0125rem] capitalize font-popins">
             How we can help you
@@ -138,29 +141,47 @@ function page() {
             Follow our newsletter. We will regulary update our latest project
             and availability.
           </h2>
-          <div className="relative mb-6 h-20 w-full">
-            <div className="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
-              <svg
-                className=" w-6 h-6 text-[#2E3E5C]"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
-                viewBox="0 0 20 16"
+
+          <form className=" w-full">
+            <div className="relative w-full">
+              <div className="absolute inset-y-0 start-0 flex items-center mx-3 pointer-events-none">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="#2E3E5C"
+                >
+                  <g opacity="0.7">
+                    <path
+                      d="M12.6942 15.0318C12.4675 15.1735 12.2125 15.2302 11.9858 15.2302C11.7591 15.2302 11.5041 15.1735 11.2774 15.0318L0 8.14636V17.2987C0 19.2538 1.58678 20.8406 3.54191 20.8406H20.4581C22.4132 20.8406 24 19.2538 24 17.2987V8.14636L12.6942 15.0318Z"
+                      fill="#2E3E5C"
+                    />
+                    <path
+                      d="M20.458 3.15942H3.54185C1.87007 3.15942 0.453305 4.34951 0.113281 5.93628L12.0141 13.1901L23.8866 5.93628C23.5466 4.34951 22.1298 3.15942 20.458 3.15942Z"
+                      fill="#2E3E5C"
+                    />
+                  </g>
+                </svg>
+              </div>
+              <input
+                type="search"
+                id="default-search"
+                className="block w-full p-5 ps-10 text-sm text-gray-900 border border-gray-300 rounded bg-[rgba(27,72,150,0.1)] placeholder:text-[#2E3E5C] focus:ring-blue-500 focus:border-blue-500"
+                placeholder="Enter your email address"
+                required
+              />
+              <button
+                type="submit"
+                className="text-white absolute end-2.5 bottom-2.5 bg-[#1B4896] hover:bg-blue-950 hover:transition-colors transition-colors focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-xl text-sm px-10 py-2"
+                style={{
+                  boxShadow: "0px 6px 20px 0px rgba(112, 111, 229, 0.50);",
+                }}
               >
-                <path d="m10.036 8.278 9.258-7.79A1.979 1.979 0 0 0 18 0H2A1.987 1.987 0 0 0 .641.541l9.395 7.737Z" />
-                <path d="M11.241 9.817c-.36.275-.801.425-1.255.427-.428 0-.845-.138-1.187-.395L0 2.6V14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2.5l-8.759 7.317Z" />
-              </svg>
+                Subscribe
+              </button>
             </div>
-            <input
-              type="text"
-              id="input-group-1"
-              className="bg-[#1B4896] opacity-10 h-full border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-[#2E3E5C] text-base not-italic font-normal leading-[normal] font-popins"
-              placeholder="Enter your Email Here"
-            />
-            <button className=" py-3 px-10 bg-blue-700 text-white rounded-xl absolute right-5 top-4 ">
-              Subscribe
-            </button>
-          </div>
+          </form>
         </div>
         <div className="flex flex-col gap-8">
           <div className="flex flex-col">
@@ -203,7 +224,6 @@ function page() {
               height="50"
               viewBox="0 0 50 50"
               fill="none"
-              className=" relative"
             >
               <rect
                 opacity="0.15"
@@ -212,7 +232,17 @@ function page() {
                 rx="12"
                 fill="#1B4896"
               />
-              <path
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="15"
+                height="24"
+                viewBox="0 0 15 24"
+                fill="none"
+                x="50%"
+                y="50%"
+                // style={{transform: "translate(-50%, -50%)"}}
+              >
+                <path
                   d="M12.5625 6.70312C12.5625 3.78243 10.1863 1.40625 7.26562 1.40625C4.34493 1.40625 1.96875 3.78243 1.96875 6.70312C1.96875 9.62382 4.34493 12 7.26562 12C10.1863 12 12.5625 9.62382 12.5625 6.70312Z"
                   fill="#1B4896"
                 />
@@ -240,9 +270,89 @@ function page() {
                   rx="0.726562"
                   fill="#EAE9FB"
                 />
+              </svg>
             </svg>
             <h1 className="text-[#1E1F4B] text-xl not-italic font-semibold leading-7 font-popins">
               Interior Design
+            </h1>
+            <h2 className="text-[#2e3e5c] text-base not-italic font-normal leading-7 font-popins opacity-80">
+              Sometimes features require a short description
+            </h2>
+          </div>
+        </div>
+        <div className="flex flex-col gap-8">
+          <div className="flex flex-col">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="49"
+              height="50"
+              viewBox="0 0 49 50"
+              fill="none"
+            >
+              <rect
+                opacity="0.15"
+                x="-1"
+                width="50"
+                height="50"
+                rx="12"
+                fill="#1B4896"
+              />
+              <path
+                d="M12.9473 27.8977C12.4241 27.8977 12 27.4736 12 26.9504C12 26.4272 12.4241 26.0031 12.9473 26.0031H35.0525C35.5757 26.0031 35.9998 26.4272 35.9998 26.9504C35.9998 27.4736 35.5757 27.8977 35.0525 27.8977H12.9473Z"
+                fill="#1B4896"
+              />
+              <path
+                d="M24.0027 22.8414C21.5612 22.8414 19.582 20.8622 19.582 18.4207C19.582 15.9792 21.5612 14 24.0027 14C26.4442 14 28.4234 15.9792 28.4234 18.4207C28.4234 20.8622 26.4442 22.8414 24.0027 22.8414Z"
+                fill="#706FE5"
+              />
+              <path
+                d="M24.0026 19.0522C24.3514 19.0522 24.6341 18.7695 24.6341 18.4207C24.6341 18.0719 24.3514 17.7892 24.0026 17.7892C23.6538 17.7892 23.3711 18.0719 23.3711 18.4207C23.3711 18.7695 23.6538 19.0522 24.0026 19.0522Z"
+                fill="#1B4896"
+              />
+              <path
+                d="M21.4763 23.5144C19.8725 26.4333 15.328 34.7534 15.1144 35.1437C14.9445 35.454 14.5529 35.5643 14.2461 35.3882C12.1012 34.1572 11.3657 31.4285 12.6017 29.3004L18.3624 19.1409C18.6055 21.0632 19.8087 22.6862 21.4763 23.5144Z"
+                fill="#2E3E5C"
+              />
+              <path
+                d="M29.6396 19.1362L35.3986 29.2959C36.636 31.4291 35.9016 34.1571 33.7596 35.388C33.4525 35.5645 33.0603 35.4539 32.8906 35.143C29.0249 28.0604 27.3132 24.9275 26.5312 23.5113C28.1971 22.6816 29.3982 21.0582 29.6396 19.1362V19.1362Z"
+                fill="#2E3E5C"
+              />
+            </svg>
+            <h1 className="text-[#1E1F4B] text-xl not-italic font-semibold leading-7 font-popins">
+              Modeling
+            </h1>
+            <h2 className="text-[#2e3e5c] text-base not-italic font-normal leading-7 font-popins opacity-80">
+              Sometimes features require a short description
+            </h2>
+          </div>
+          <div className="flex flex-col">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="50"
+              height="50"
+              viewBox="0 0 50 50"
+              fill="none"
+            >
+              <rect
+                opacity="0.15"
+                width="50"
+                height="50"
+                rx="12"
+                fill="#1B4896"
+              />
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M27.6101 30.28L28.3781 34.12H29.7991C30.0642 34.12 30.2791 34.3349 30.2791 34.6C30.2791 34.8651 30.0642 35.08 29.7991 35.08H20.1991C19.934 35.08 19.7191 34.8651 19.7191 34.6C19.7191 34.3349 19.934 34.12 20.1991 34.12H21.8311L22.5991 30.28H18.2791C16.5864 30.28 15.186 29.0283 14.9531 27.4H35.0451C34.8122 29.0283 33.4118 30.28 31.7191 30.28H27.6101Z"
+                fill="#2E3E5C"
+              />
+              <path
+                d="M14.9199 26.44V16.36C14.9199 15.5648 15.5646 14.92 16.3599 14.92H33.6399C34.4352 14.92 35.0799 15.5648 35.0799 16.36V26.44H14.9199Z"
+                fill="#1B4896"
+              />
+            </svg>
+            <h1 className="text-[#1E1F4B] text-xl not-italic font-semibold leading-7 font-popins">
+              Structural Design
             </h1>
             <h2 className="text-[#2e3e5c] text-base not-italic font-normal leading-7 font-popins opacity-80">
               Sometimes features require a short description

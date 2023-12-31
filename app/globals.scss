@@ -3,10 +3,7 @@
 @tailwind utilities;
 
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
-
-// Import Montserrat font
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Montserrat:wght@400;700&family=Post+No+Bills+Jaffna&display=swap');
 
 
 ::-webkit-scrollbar {
@@ -30,7 +27,7 @@ body {
   .slider > :nth-child(#{$i}),
   .slider > :nth-last-child(#{$i}) {
     height: 200px + (50px * $i);
-    @media (max-width: 640px) {
+    @media (max-width: 768px) {
       height: 100px + (50px * $i);
     }
   }
@@ -39,7 +36,7 @@ body {
 @for $i from 1 through 5{
   .team >:nth-child(#{$i}),
   .team>:nth-last-child(#{$i}){
-    height: 30px + ( 20px * $i);
+    height: 50px + ( 20px * $i);
   }
 }
 
@@ -58,21 +55,17 @@ body {
     }
 }
 
-.moveleft {
-  animation: moveleft 0.65s ease-out;
+.team{
+  animation: moveright 0.65s ease-out;
   animation-fill-mode: forwards;
 }
 
-@keyframes moveleft {
+@keyframes moveright {
   0% {
       transform: translateX(0);
   }
 
   100% {
-      transform: translateX(20rem);
+      transform: translateX(-20rem);
   }
-}
-
-input::placeholder{
-  @apply text-[#2E3E5C] text-base not-italic font-normal leading-[normal] font-popins;
 }

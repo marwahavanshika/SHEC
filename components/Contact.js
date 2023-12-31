@@ -17,12 +17,11 @@ function Contact() {
       <div>
         <select
           id="countries"
-          className=" w-full min-w-[200px] h-10 outline outline-1"
+          defaultValue={"How did you find us?"}            
+          className="text-black  w-full min-w-[200px] h-10 outline outline-1 text-[0.7975rem] not-italic font-normal leading-[1.36713rem] tracking-[0.008rem] font-[Montserrat]"
         >
           <option
-            selected
             hidden
-            className="text-black text-[0.7975rem] not-italic font-normal leading-[1.36713rem] tracking-[0.008rem] font-[Montserrat]"
           >
             How did you find us?
           </option>
@@ -39,7 +38,7 @@ function Contact() {
       >
         SEND
       </button>
-      <div className={"flex flex-row justify-around"}>
+      <div className={"flex flex-row gap-3 justify-around"}>
         <div className={"flex flex-row gap-5"}>
           <svg
             width="27"

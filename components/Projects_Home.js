@@ -10,13 +10,13 @@ const imgs = [
 
 export default function Gallery() {
   return (
-    <div className="flex relative justify-center items-center h-screen gap-2 md:gap-5 slider">
+    <div className="flex relative justify-center items-center h-screen gap-1 md:gap-2 slider">
       {imgs.map((value, i) => (
-        <div key={i} className="w-8 group relative md:w-20 hover:w-[16rem] md:hover:w-[25rem] hover:h-[300px] md:hover:h-[400px] hover:transition-all hover:duration-500 hover:ease-in-out transform transition-all duration-500 ease-in-out flex-grow-0  focus:w-[16rem] md:focus:w-[25rem] focus:h-[300px] md:focus:h-[400px] focus:transition-all focus:duration-500 focus:ease-in-out active:w-[16rem] md:active:w-[25rem] active:h-[300px] md:active:h-[400px] active:transition-all active:duration-500 active:ease-in-out">
+        <div key={i} className="w-6 group relative md:w-20 hover:w-[14rem] md:hover:w-[25rem] hover:h-[300px] md:hover:h-[400px] hover:transition-all hover:duration-500 hover:ease-in-out transform transition-all duration-500 ease-in-out flex-grow-0  focus:w-[16rem] md:focus:w-[25rem] focus:h-[300px] md:focus:h-[400px] focus:transition-all focus:duration-500 focus:ease-in-out active:w-[16rem] md:active:w-[25rem] active:h-[300px] md:active:h-[400px] active:transition-all active:duration-500 active:ease-in-out">
           <img
             src={value.link}
             className={
-              " h-full w-full top-0 object-cover"
+              " h-full w-full top-0 object-cover rounded"
             }
             alt="Random"
             key={i}
