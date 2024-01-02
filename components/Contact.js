@@ -2,7 +2,7 @@ function Contact() {
   return (
     <form className="flex flex-col p-4 gap-5 md:gap-10">
       {["Name", "Email", "Phone No."].map((label, i) => (
-        <div className="relative w-full min-w-[200px] h-10" key={i}>
+        <div className="relative flex-1 px-2 h-10" key={i}>
           <input
             className="peer w-full h-full bg-transparent text-blue-gray-700 font-sans font-normal outline outline-1 focus:outline-0 disabled:bg-blue-gray-50 disabled:border-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 border-t-transparent focus:border-t-transparent text-sm px-3 py-2.5 focus:border-[#0487C9]"
             placeholder=" "
@@ -17,12 +17,11 @@ function Contact() {
       <div>
         <select
           id="countries"
-          className=" w-full min-w-[200px] h-10 outline outline-1"
+          defaultValue={"How did you find us?"}            
+          className="text-black  w-full min-w-[200px] shrink h-10 outline outline-1 text-[0.7975rem] not-italic font-normal leading-[1.36713rem] tracking-[0.008rem] font-[Montserrat]"
         >
           <option
-            selected
             hidden
-            className="text-black text-[0.7975rem] not-italic font-normal leading-[1.36713rem] tracking-[0.008rem] font-[Montserrat]"
           >
             How did you find us?
           </option>
@@ -34,12 +33,12 @@ function Contact() {
       </div>
       <button
         className={
-          "h-10 w-full min-w-[200px] bg-[#1B4896] text-white text-[0.91144rem] not-italic font-bold leading-[normal] uppercase font-[Montserrat]"
+          "h-10 w-full min-w-[150px] bg-[#1B4896] px-2 text-white text-[0.91144rem] not-italic font-bold leading-[normal] uppercase font-[Montserrat]"
         }
       >
         SEND
       </button>
-      <div className={"flex flex-row justify-around"}>
+      <div className={"flex flex-row gap-3 justify-around"}>
         <div className={"flex flex-row gap-5"}>
           <svg
             width="27"

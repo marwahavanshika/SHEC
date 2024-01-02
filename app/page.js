@@ -7,6 +7,8 @@ import Gallery from "../components/Projects_Home";
 import Contact from "../components/Contact";
 import Heading from "../components/Heading"
 import Link from "next/link";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 export default function Home() {
   const parallaxRef = useRef();
@@ -21,9 +23,11 @@ export default function Home() {
         setpage(Math.round(parallaxRef.current.current / window.innerHeight));
       }
     };
+    window.addEventListener("touchmove",handle);
     window.addEventListener("wheel", handle);
     return () => {
       window.removeEventListener("wheel", handle);
+      window.removeEventListener("touchmove",handle);
     };
   }, []);
 
@@ -42,6 +46,9 @@ export default function Home() {
   return (
     <div className=" h-screen">
       <Parallax pages={8} ref={parallaxRef}>
+        <ParallaxLayer  className="z-20" style={{height:"100px"}} sticky={{start:0,end:8}} >
+          <Navbar />
+        </ParallaxLayer>
         <ParallaxLayer
           style={{
             backgroundImage: "url('/head.jpg')",
@@ -237,7 +244,7 @@ export default function Home() {
         >
           <div
             className={
-              "flex flex-col flex-1 item-start justify-start max-w-[28.07725rem]"
+              "flex flex-col flex-1 item-start px-10 justify-start max-w-[28.07725rem]"
             }
           >
             <h1
@@ -267,12 +274,14 @@ export default function Home() {
           <div className="w-[28.07725rem] h-[36.0625rem] min-h-96 shrink">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5267467.328243882!2d79.79308074695561!3d24.895329786126055!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd5b347eb62d%3A0x52c2b7494e204dce!2sNew%20Delhi%2C%20Delhi!5e0!3m2!1sen!2sin!4v1703830862216!5m2!1sen!2sin"
-              allowfullscreen=""
               loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
+              referrerPolicy="no-referrer-when-downgrade"
               className={"w-full h-full rounded-md"}
             ></iframe>
           </div>
+        </ParallaxLayer>
+        <ParallaxLayer sticky={{start:8,end:8}}  style={{height:'10px'}}>
+          <Footer />
         </ParallaxLayer>
       </Parallax>
     </div>
