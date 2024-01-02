@@ -19,8 +19,7 @@ function page() {
     "dummy 9",
   ];
 
-  useEffect(() => {
-    const intervalId = setInterval(() => {
+  useEffect(() => {setInterval(() => {
       let direction = 1;
       setCurrentProgress((prevProgress) => {
         if (prevProgress === 100 || prevProgress === 0) {
@@ -28,8 +27,7 @@ function page() {
         }
         return prevProgress + direction;
       });
-    }, 200);
-    return () => clearInterval(intervalId);
+    },250);
   }, []);
 
   const strokeDashoffset =
