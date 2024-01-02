@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Montserrat:wght@400;700&family=Post+No+Bills+Jaffna&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&family=Montserrat:wght@400;700&family=Post+No+Bills+Jaffna&display=swap');
 
 
 ::-webkit-scrollbar {
@@ -36,11 +36,27 @@ body {
 @for $i from 1 through 5{
   .team >:nth-child(#{$i}),
   .team>:nth-last-child(#{$i}){
-    height: 50px + ( 20px * $i);
+    height: 30px +(20px *$i);
+    transition: all 0.65s ease-out;
   }
 }
 
 
+.moveleft {
+  animation: moveleft 0.65s infinite ease-out;
+  animation-delay: 1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes moveleft {
+  0% {
+    transform: translateX(0);
+  }
+  
+  100% {
+    transform: translateX(calc(11rem + 70px));
+  }
+}
 .special {
   position: absolute;
     top: 340px;
@@ -53,19 +69,4 @@ body {
     h1{
       font-weight: 200;
     }
-}
-
-.team{
-  animation: moveright 0.65s ease-out;
-  animation-fill-mode: forwards;
-}
-
-@keyframes moveright {
-  0% {
-      transform: translateX(0);
-  }
-
-  100% {
-      transform: translateX(-20rem);
-  }
 }

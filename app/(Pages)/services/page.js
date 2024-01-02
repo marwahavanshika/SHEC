@@ -1,18 +1,111 @@
 "use client";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 
 function page() {
-  const team = [1, 2, 3, 4, 5,6,7,8,9];
+  const team = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+  const [currentProgress, setCurrentProgress] = useState(0);
+  const strokeWidth = 20;
+  const radius = 200;
+  const circumference = 2 * Math.PI * radius;
+  const dummy = [
+    "dummy 1",
+    "dummy 2",
+    "dummy 3",
+    "dummy 4",
+    "dummy 5",
+    "dummy 6",
+    "dummy 7",
+    "dummy 8",
+    "dummy 9",
+  ];
 
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      let direction = 1;
+      setCurrentProgress((prevProgress) => {
+        if (prevProgress === 100 || prevProgress === 0) {
+          direction = -1 * direction;
+        }
+        return prevProgress + direction;
+      });
+    }, 200);
+    return () => clearInterval(intervalId);
+  }, []);
+
+  const strokeDashoffset =
+    circumference - (currentProgress / 100) * circumference;
   return (
-    <div className=" overflow-x-hidden">
+    <div className=" overflow-x-hidden relative">
+      <div className=" absolute h-screen inset-0 flex items-center justify-center">
+        <div className=" relative w-[400px] -rotate-12 h-[400px] z-[1] border-4 border-white border-opacity-50 rounded-full">
+          {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((item, index) => {
+            const theta = ((2 * Math.PI) / 9) * index;
+            const x = radius * Math.cos(theta); // subtract 10 (half of child div size) to center
+            const y = radius * Math.sin(theta); // subtract 10 (half of child div size) to center
+            return (
+              <div
+                key={item}
+                className="absolute w-16 h-16 border-2 border-white z-10 -translate-x-1/2 -translate-y-1/2 rounded-full bg-no-repeat  bg-cover  md:bg-center "
+                style={{
+                  top: `calc(50% + ${y}px)`,
+                  left: `calc(50% + ${x}px)`,
+                  backgroundImage:"url('/images/projbg.jpg')"
+                }}
+              ></div>
+            );
+          })}
+        </div>
+      </div>
       <div
-        className="flex justify-center  bg-no-repeat  bg-cover h-screen md:bg-center "
+        className=" relative h-screen bg-no-repeat  bg-cover  md:bg-center "
         style={{
           backgroundImage:
             "linear-gradient(0deg, rgba(0, 0, 0, 0.50) 0%, rgba(0, 0, 0, 0.50) 10%), url('/images/projbg.jpg')",
         }}
-      ></div>
+      >
+        <svg
+          width={radius * 2 + strokeWidth * 2}
+          className="flex items-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -rotate-90 justify-center"
+          height={radius * 2 + strokeWidth * 2}
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <circle
+            stroke="" // Tailwind's coolGray-200
+            fill="#0487C98A"
+            className=" z-10"
+            strokeWidth={strokeWidth}
+            r={radius - strokeWidth/1.25}
+            cx={radius + strokeWidth}
+            cy={radius + strokeWidth}
+          />
+          <text
+            x={radius / 2}
+            y={-1.25 * radius}
+            fill="white"
+            className=" not-italic font-bold leading-[5.81638rem] tracking-[0.02406rem] rotate-90 text-4xl font-popins"
+          >
+            SilverHeights
+          </text>
+          <text
+            x={radius/2+30}
+            y={-1*radius}
+            fill="white"
+            className=" rotate-90 text-2xl transition-all duration-200 ease-out"
+          
+          >{dummy[(Math.round(currentProgress / 11 -0.5)%dummy.length)]}</text>
+          <circle
+            className=" transition-all duration-150 ease-out"
+            stroke="#24A6E0"
+            fill="transparent"
+            strokeWidth={strokeWidth}
+            strokeDasharray={circumference + " " + circumference}
+            style={{ strokeDashoffset }}
+            r={radius}
+            cx={radius + strokeWidth}
+            cy={radius + strokeWidth}
+          />
+        </svg>
+      </div>
       <div className=" flex flex-col justify-center py-20 px-10 md:px-32">
         <h1 className="text-[#1E1F4B] text-lg sm:text-2xl md:text-4xl not-italic font-bold leading-[3.25rem] tracking-[0.0125rem] capitalize font-popins ps-5 ">
           We create world-className Architectural Designs
@@ -119,21 +212,22 @@ function page() {
           ea inventore blanditiis dolore.
         </h2>
         <div
-          className=" flex flex-row gap-44 justify-center overflow-visible team items-center"
+          className=" flex flex-row gap-44 h-[130px] justify-center overflow-visible items-center relative"
           id="carousal"
         >
-          {team.map((value ,i) => (
-            <div className="aspect-square rounded-full overflow-hidden p-1 border-4" style={{borderColor:(value==5)?"blue":"transparent"}} key={i}>
-              <img src="/images/projbg.jpg" alt="" className=" w-full h-full object-cover rounded-full" />
+          {team.map((_, i) => (
+            <div className="aspect-square rounded-full overflow-hidden" key={i}>
+              <img
+                src="/images/projbg.jpg"
+                alt=""
+                className=" w-full h-full object-cover rounded-full"
+              />
             </div>
           ))}
         </div>
-        
-        <button>Move</button>
-          <button>Move</button>
       </div>
       <div className=" flex flex-row p-20 justify-around flex-wrap-reverse gap-5 md:gap-10">
-        <div className=" flex flex-col min-w-96 max-w-[50%] flex-1 items-start justify-between ">
+        <div className=" flex flex-col px-10 min-w-96 max-w-[50%] flex-1 items-start justify-between ">
           <h1 className="text-[#1E1F4B] text-xl md:text-[2.5rem] not-italic font-bold leading-[3.25rem] tracking-[0.0125rem] capitalize font-popins">
             How we can help you
           </h1>
@@ -175,7 +269,7 @@ function page() {
                 type="submit"
                 className="text-white absolute end-2.5 bottom-2.5 bg-[#1B4896] hover:bg-blue-950 hover:transition-colors transition-colors focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-xl text-sm px-10 py-2"
                 style={{
-                  boxShadow: "0px 6px 20px 0px rgba(112, 111, 229, 0.50);",
+                  boxShadow: "0px 6px 20px 0px rgba(112,111,229,0.50)",
                 }}
               >
                 Subscribe
@@ -233,14 +327,12 @@ function page() {
                 fill="#1B4896"
               />
               <svg
-                xmlns="http://www.w3.org/2000/svg"
+                x="17.5"
+                y="13"
                 width="15"
                 height="24"
                 viewBox="0 0 15 24"
                 fill="none"
-                x="50%"
-                y="50%"
-                // style={{transform: "translate(-50%, -50%)"}}
               >
                 <path
                   d="M12.5625 6.70312C12.5625 3.78243 10.1863 1.40625 7.26562 1.40625C4.34493 1.40625 1.96875 3.78243 1.96875 6.70312C1.96875 9.62382 4.34493 12 7.26562 12C10.1863 12 12.5625 9.62382 12.5625 6.70312Z"
@@ -341,8 +433,8 @@ function page() {
                 fill="#1B4896"
               />
               <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
+                fillRule="evenodd"
+                clipRule="evenodd"
                 d="M27.6101 30.28L28.3781 34.12H29.7991C30.0642 34.12 30.2791 34.3349 30.2791 34.6C30.2791 34.8651 30.0642 35.08 29.7991 35.08H20.1991C19.934 35.08 19.7191 34.8651 19.7191 34.6C19.7191 34.3349 19.934 34.12 20.1991 34.12H21.8311L22.5991 30.28H18.2791C16.5864 30.28 15.186 29.0283 14.9531 27.4H35.0451C34.8122 29.0283 33.4118 30.28 31.7191 30.28H27.6101Z"
                 fill="#2E3E5C"
               />

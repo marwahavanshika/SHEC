@@ -244,7 +244,7 @@ export default function Home() {
         >
           <div
             className={
-              "flex flex-col flex-1 item-start justify-start max-w-[28.07725rem]"
+              "flex flex-col flex-1 item-start px-10 justify-start max-w-[28.07725rem]"
             }
           >
             <h1
