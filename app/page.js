@@ -15,30 +15,38 @@ import { useSpring } from "@react-spring/web";
 export default function Home() {
   const parallaxRef = useRef();
   const [page, setpage] = useState(-1);
-  const [isloading, setIsloading] = useState(true);
+  const [isloading, setIsLoading] = useState(true);
 
-  const { opacity }= useSpring({
-    opacity:isloading?1:0
-  })
 
+
+  // Let create async method to fetch fake data
   useEffect(() => {
+    const fakeDataFetch = () => {
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 3000);
+    };
+  
     const handle = () => {
       if (
         parallaxRef.current &&
-        page != Math.round(parallaxRef.current.current / window.innerHeight)
+        page !== Math.round(parallaxRef.current.current / window.innerHeight)
       ) {
         setpage(Math.round(parallaxRef.current.current / window.innerHeight));
       }
     };
+  
     window.addEventListener("touchmove", handle);
     window.addEventListener("wheel", handle);
-    setIsloading(false);
+  
+    fakeDataFetch();
+  
     return () => {
       window.removeEventListener("wheel", handle);
       window.removeEventListener("touchmove", handle);
     };
-  }, []);
-
+  }, [page, parallaxRef]);
+  
   const secondsection = [
     "Master Planing",
     "Architectural Design",
