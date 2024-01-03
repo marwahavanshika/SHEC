@@ -2,9 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&family=Montserrat:wght@400;700&family=Post+No+Bills+Jaffna&display=swap");
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&family=Montserrat:wght@400;700&family=Post+No+Bills+Jaffna&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Stick+No+Bills:wght@200&display=swap");
 
 ::-webkit-scrollbar {
   display: none;
@@ -33,14 +33,13 @@ body {
   }
 }
 
-@for $i from 1 through 5{
-  .team >:nth-child(#{$i}),
-  .team>:nth-last-child(#{$i}){
-    height: 30px +(20px *$i);
+@for $i from 1 through 5 {
+  .team > :nth-child(#{$i}),
+  .team > :nth-last-child(#{$i}) {
+    height: 30px + (20px * $i);
     transition: all 0.65s ease-out;
   }
 }
-
 
 .moveleft {
   animation: moveleft 0.65s infinite ease-out;
@@ -52,21 +51,21 @@ body {
   0% {
     transform: translateX(0);
   }
-  
+
   100% {
     transform: translateX(calc(11rem + 70px));
   }
 }
 .special {
   position: absolute;
-    top: 340px;
-    color: white;
-    /* font-weight: thin; */
-    left: 134px;
-    font-size: 100px;
-    font-variant: small-caps;
-    font-family: 'Poppins';
-    h1{
-      font-weight: 200;
-    }
+  top: 340px;
+  color: white;
+  /* font-weight: thin; */
+  left: 134px;
+  font-size: 100px;
+  font-variant: small-caps;
+  font-family: "Poppins";
+  h1 {
+    font-weight: 200;
+  }
 }
