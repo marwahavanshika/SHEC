@@ -31,7 +31,18 @@
     font-weight: 200;
 }
 
-.ceo-img{
-width:  320.1px;
-height:  394.95px;
+.ceo-card{
+    width: 980.91px;
+    height: 390.95px;
+    
+}
+
+/* .ceo-img{
+    width: 240px;
+    height: 300px;
+    
+    
+} */
+.client{
+
 }

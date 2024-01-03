@@ -26,7 +26,7 @@ const licence = [{
 
 export default function AboutUs () {
     return (
-        <>
+        <div>
             <div className="parent text-center">
                 <Image src="/images/About_first.jpg" alt="head" width="1519"  height="0" className='head-image' />
             </div>
@@ -78,8 +78,8 @@ export default function AboutUs () {
             </div>
 
             <div>
-                <p className='font-bold text-5xl/[30px] ml-14 mb-16'>Certifications</p>
-                <div className='ml-14 flex flex-1 gap-x-8 mb-36'>
+                <p className='font-bold text-5xl/[30px] ml-64 mb-16 justify-center'>Certifications</p>
+                <div className='ml-14 flex flex-1 gap-x-8 mb-36 justify-center'>
                     <div className="parent text-center">
                         <Image src="/images/certificate1.jpg" alt="bldg1" width="337"  height="0" className='about-image1 mb-12' />
                         <div className='w-80'>
@@ -107,30 +107,48 @@ export default function AboutUs () {
                 </div>
             </div>
 
+
             <div>
-                <p className='font-bold text-4xl/[30px] ml-14 mb-16'>Client Reviews</p>
+                <div className='justify-center'>
+                    <p className='font-bold text-4xl/[30px] ml-80 mb-16'>Client Reviews</p>
+                </div>                    
+                <div className="ml-14 flex flex-1 gap-x-8 mb-4 justify-center">
+                    <Image src="/images/client.jpg" alt="bldg2" width="280"  height="0" className='about-image2 mb-12' />
+                    <Image src="/images/client.jpg" alt="bldg2" width="280"  height="0" className='about-image2 mb-12' />
+                    <Image src="/images/client.jpg" alt="bldg2" width="280"  height="0" className='about-image2 mb-12' />
+                </div>
+
+                <div className="ml-14 flex flex-1 gap-x-8 mb-36 justify-center">
+                    <Image src="/images/client.jpg" alt="bldg2" width="280"  height="0" className='about-image2 mb-12' />
+                    <Image src="/images/client.jpg" alt="bldg2" width="280"  height="0" className='about-image2 mb-12' />
+                    <Image src="/images/client.jpg" alt="bldg2" width="280"  height="0" className='about-image2 mb-12' />
+                </div>
             </div>
+            
 
             
-            <div className="max-w-sm w-full lg:max-w-full lg:flex">
-                <div className="h-48 lg:h-auto  flex-none  rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden" title="Woman holding a mug">
+            <div className='flex justify-center'>
+            <div className="ceo-card ml-14 max-w-md w-full lg:max-w-full lg:flex">
+                <div className=" flex-none  rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden" title="Woman holding a mug">
                         <a href="#"> 
-                        <Image  src="/images/ceo.jpg" alt="ceo image" width="324" height="394" className="ceo-img"/>
+                        <Image  src="/images/ceo.jpg" alt="ceo image" width="360" height="450" className="ceo-img"/>
                         </a>
                 </div>
-                    <div className="bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
-                        <div className="mb-8">
-                            <div className="text-gray-900 font-bold text-sm mb-2">
+                    <div className="bg-white rounded-b lg:rounded-b-none lg:rounded-r p-20 flex flex-col justify-between leading-normal">
+                        <div className="mb-10">
+                            <div className="text-gray-900 font-bold text-3xl/[46px] mb-6">
                             Hear What our ceo says
                             </div>
-                            <p className="text-gray-700 text-xs">
+                            <p className="text-gray-700 font-normal text-base/[38px] mb-10">
                             Silver Heights, a premier UAE consulting firm since 2016, pioneers engineering and architecture, delivering world-class design and project management, transforming visions into reality with quality service
                             </p>
+                            <p className='font-bold text-lg/[14px]'>Al Shaikh Zayed</p>
                         </div>
                 </div>
             </div>
             
-        </>
+        </div>
+        </div>
    
     );
 };
