@@ -1,4 +1,5 @@
 import './globals.scss'
+import Loading_screen from '../components/Loading_screen'
 
 
 export const metadata = {
