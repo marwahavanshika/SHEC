@@ -9,7 +9,7 @@ interface CardProps {
 
 const Card: React.FC<CardProps> = ({title, desc}) => {
   return (
-    <div>
+    <div className='w-11/12'>
       <div className=" max-w-xs ">
                 <a href="#">
                     <img className="rounded-3xl" src="https://www.searchenginejournal.com/wp-content/uploads/2020/08/7-ways-a-blog-can-help-your-business-right-now-5f3c06b9eb24e.png" alt="" />
