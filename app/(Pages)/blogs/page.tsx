@@ -93,7 +93,7 @@ export default function Blog () {
                 <br/>
             </div>
 
-            <div className='blog-container'>
+            <div className='blog-container p-8'>
                 {blogs.map(blog => (
                     <Card 
                         title={blog.blogTitle}
@@ -106,7 +106,7 @@ export default function Blog () {
             <br/>
             <br/>
 
-            <div className="grid gap-10 translate-y-1 sm:justify-center ">
+            <div className="grid gap-10 translate-y-1 justify-center sm:justify-start ">
                 <nav className="w-3/4  self-center sm:w-full max-w-xl ml-14 ">
                 <div className="flex flex-wrap lg:flex-row sm:justify-between justify-around items-center md:items-start ">
                     <ul className="flex flex-wrap lg:flex-row items-center justify-around text-sm md:text-lg my-2">
@@ -143,7 +143,7 @@ export default function Blog () {
                                 }
 
                                 <nav className="self-center w-full max-w-xl ml-5 -translate-x-8 font-bold">
-                                    <div className="flex flex-col lg:flex-row justify-between items-center md:items-start ">
+                                    <div className="view flex flex-col lg:flex-row justify-between items-center md:items-start ">
                                         <ul className="flex flex-col lg:flex-row items-center text-sm md:text-lg my-2 underline underline-offset-8">
                                         {[ 
                                             "View Post",

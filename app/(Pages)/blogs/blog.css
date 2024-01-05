@@ -8,6 +8,7 @@ body{
 .head-image {
     height: 90vh;
     border: 10px;
+    width: 100vw;
 }
 
 .par  {
@@ -47,7 +48,7 @@ body{
         height: 40px;
         width: 40px;
         position: relative;
-        left: 300px;
+        left: 340px;
 }
 /* @media screen and (max-width: 768px) {
     .img-text {
@@ -59,7 +60,9 @@ body{
     display: grid;
     /* align-items: center; */
     justify-content: center;
-    grid-template-columns: 400px 400px 400px;
+    justify-items: center;
+    /* grid-template-columns: 400px 400px 400px; */
+    grid-template-columns: 1fr 1fr 1fr;
     column-gap: 50px;
     row-gap: 50px;
 }
@@ -79,6 +82,7 @@ body{
     justify-content: center;
     align-items: center;
     top: 100px;
+    margin-top: -20px;
 }
 
 .horizontal-container2{
@@ -87,6 +91,7 @@ body{
     justify-content: center;
     align-items: center;
     top: 100px;
+    margin-right: 28px;
 }
 
 .flex{
@@ -103,12 +108,16 @@ body{
     width: 257px;
 }
 
-@media  screen and (max-width: 430px) {
+@media  screen and (max-width: 431px) {
     
     
     .blog-container{
-        grid-template-columns: 400px;
-        margin-left: 50px;
+        grid-template-columns: 350px;
+        margin-left: -4px;
+    }
+    .view{
+        margin-bottom: 30px;
+        margin-right: 140px;
     }
     .horizontal-container2{
         display: none;
@@ -142,7 +151,7 @@ body{
         height: 40px;
         width: 40px;
         position: relative;
-        left: 275px;
+        left: 265px;
 }
 .tablet{
     align-items: center;
@@ -158,7 +167,7 @@ body{
 }
 }
 
-@media  screen and (min-width:430px) and ( max-width:770px) {
+@media  screen and (min-width:431px) and ( max-width:770px) {
     .blog-container{
         grid-template-columns: 300px 300px;
     }
@@ -169,6 +178,9 @@ body{
         width: 40px;
         position: relative;
         left: 230px;
+}
+.view{
+    margin-bottom: 40px;
 }
     .img-text p {
         position: relative;
@@ -212,6 +224,21 @@ body{
 }
 
 @media screen and (min-width: 771px) and (max-width: 1024px ) {
+    .img-text {
+        position: absolute;
+        top: 208px;
+        color: white;
+        left: 115px;
+        font-size: 56px;
+        font-variant: small-caps;
+        font-family: 'Poppins';
+    }
+    .img-text p {
+        position: relative;
+        left: 91px;
+        top: -49px;
+        font-weight: 200;
+    }
     .blog-container{
         grid-template-columns: 250px 250px 250px;
     }
@@ -221,10 +248,18 @@ body{
         height: 40px;
         width: 40px;
         position: relative;
-        left: 202px;
+        left: 185px;
 }
 .par{
     height: 50vh;
+}
+.horizontal-container1{
+    display: grid;
+    row-gap: 20px;
+    justify-content: center;
+    align-items: center;
+    top: 100px;
+    margin-top: -5px;
 }
 .horizontal-container2{
     margin-right: -72px;
