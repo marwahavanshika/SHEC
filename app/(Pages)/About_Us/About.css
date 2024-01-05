@@ -9,6 +9,10 @@
     position: relative;
 }
 
+.cer img {
+    height: 475px;
+}
+
 .img-text {
     position: absolute;
     top: 340px;
@@ -43,6 +47,7 @@
     
     
 } */
-.client{
 
+.ceo-thought{
+    box-shadow: 16.187px 11.331px 32.373px 0px rgba(0, 0, 0, 0.08);
 }

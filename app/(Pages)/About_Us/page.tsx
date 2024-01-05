@@ -26,7 +26,7 @@ const licence = [{
 
 export default function AboutUs () {
     return (
-        <div>
+        <>
             <div className="parent text-center">
                 <Image src="/images/About_first.jpg" alt="head" width="1519"  height="0" className='head-image' />
             </div>
@@ -80,7 +80,7 @@ export default function AboutUs () {
             <div>
                 <p className='font-bold text-5xl/[30px] ml-64 mb-16 justify-center'>Certifications</p>
                 <div className='ml-14 flex flex-1 gap-x-8 mb-36 justify-center'>
-                    <div className="parent text-center">
+                    <div className="cer text-center">
                         <Image src="/images/certificate1.jpg" alt="bldg1" width="337"  height="0" className='about-image1 mb-12' />
                         <div className='w-80'>
                             <p className='text-center font-semibold text-sm text-[#1B4896]'>
@@ -88,7 +88,7 @@ export default function AboutUs () {
                             </p>
                         </div>
                     </div>
-                    <div className="parent text-center">
+                    <div className="cer text-center">
                         <Image src="/images/certificate2.jpg" alt="bldg2" width="337"  height="0" className='about-image2 mb-12' />
                         <div className='w-80'>
                             <p className='text-center font-semibold text-sm text-[#1B4896]'>
@@ -96,7 +96,7 @@ export default function AboutUs () {
                             </p>
                         </div>
                     </div>
-                    <div className="parent text-center ">
+                    <div className="cer text-center ">
                         <Image src="/images/certificate3.jpg" alt="bldg3" width="337"  height="0" className='about-image3 mb-12' />
                         <div className='w-80'>
                             <p className='text-center font-semibold text-sm text-[#1B4896]'>
@@ -113,42 +113,44 @@ export default function AboutUs () {
                     <p className='font-bold text-4xl/[30px] ml-80 mb-16'>Client Reviews</p>
                 </div>                    
                 <div className="ml-14 flex flex-1 gap-x-8 mb-4 justify-center">
-                    <Image src="/images/client.jpg" alt="bldg2" width="280"  height="0" className='about-image2 mb-12' />
-                    <Image src="/images/client.jpg" alt="bldg2" width="280"  height="0" className='about-image2 mb-12' />
-                    <Image src="/images/client.jpg" alt="bldg2" width="280"  height="0" className='about-image2 mb-12' />
+                    <Image src="/images/client.jpg" alt="bldg2" width="280"  height="0" className='about-image2 mb-12 rounded-2xl' />
+                    <Image src="/images/client.jpg" alt="bldg2" width="280"  height="0" className='about-image2 mb-12 rounded-2xl' />
+                    <Image src="/images/client.jpg" alt="bldg2" width="280"  height="0" className='about-image2 mb-12 rounded-2xl' />
                 </div>
 
                 <div className="ml-14 flex flex-1 gap-x-8 mb-36 justify-center">
-                    <Image src="/images/client.jpg" alt="bldg2" width="280"  height="0" className='about-image2 mb-12' />
-                    <Image src="/images/client.jpg" alt="bldg2" width="280"  height="0" className='about-image2 mb-12' />
-                    <Image src="/images/client.jpg" alt="bldg2" width="280"  height="0" className='about-image2 mb-12' />
+                    <Image src="/images/client.jpg" alt="bldg2" width="280"  height="0" className='about-image2 mb-12 rounded-2xl ' />
+                    <Image src="/images/client.jpg" alt="bldg2" width="280"  height="0" className='about-image2 mb-12 rounded-2xl' />
+                    <Image src="/images/client.jpg" alt="bldg2" width="280"  height="0" className='about-image2 mb-12 rounded-2xl' />
                 </div>
             </div>
             
 
             
             <div className='flex justify-center'>
-            <div className="ceo-card ml-14 max-w-md w-full lg:max-w-full lg:flex">
-                <div className=" flex-none  rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden" title="Woman holding a mug">
-                        <a href="#"> 
-                        <Image  src="/images/ceo.jpg" alt="ceo image" width="360" height="450" className="ceo-img"/>
-                        </a>
-                </div>
-                    <div className="bg-white rounded-b lg:rounded-b-none lg:rounded-r p-20 flex flex-col justify-between leading-normal">
-                        <div className="mb-10">
-                            <div className="text-gray-900 font-bold text-3xl/[46px] mb-6">
-                            Hear What our ceo says
-                            </div>
-                            <p className="text-gray-700 font-normal text-base/[38px] mb-10">
-                            Silver Heights, a premier UAE consulting firm since 2016, pioneers engineering and architecture, delivering world-class design and project management, transforming visions into reality with quality service
-                            </p>
-                            <p className='font-bold text-lg/[14px]'>Al Shaikh Zayed</p>
+                <div className="ceo-card max-w-md w-full lg:max-w-full lg:flex ">
+                        <div className=" flex-none text-center overflow-hidden rounded-bl-3xl" title="Woman holding a mug">
+                            <a href="#"> 
+                            <Image  src="/images/ceo.jpg" alt="ceo image" width="360" height="450" className="ceo-img"/>
+                            </a>
                         </div>
-                </div>
-            </div>
+                        <div className="ceo-thought bg-white rounded-b p-20 flex flex-col justify-between leading-normal rounded-br-3xl">
+                            <div className="mb-10">
+                                <div className="text-gray-900 font-bold text-3xl/[46px] mb-6">
+                                Hear What our ceo says
+                                </div>
+                                <p className="text-gray-700 font-normal text-base/[38px] mb-10">
+                                Silver Heights, a premier UAE consulting firm since 2016, pioneers engineering and architecture, delivering world-class design and project management, transforming visions into reality with quality service
+                                </p>
+                                <p className='font-bold text-lg/[14px]'>Al Shaikh Zayed</p>
+                            </div>
+                        </div>
+                    </div>
             
-        </div>
-        </div>
+                </div>
+
+
+            </>
    
     );
 };

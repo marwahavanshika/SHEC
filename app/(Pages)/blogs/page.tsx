@@ -73,7 +73,7 @@ export default function Blog () {
     {/*const an = ["1","2","3","4","5"];*/}
     return (
         <>
-            <div className="parent text-center">
+            <div className="par text-center flex justify-center  bg-no-repeat  bg-cover h-screen md:bg-center w-full">
                 <Image src="/head.jpg" alt="head" width="1519"  height="0" className='head-image' />
             </div>
 
@@ -106,10 +106,10 @@ export default function Blog () {
             <br/>
             <br/>
 
-            <div className="grid gap-10 translate-y-1 ">
-                <nav className="self-center w-full max-w-xl ml-14">
-                <div className="flex flex-col lg:flex-row justify-between items-center md:items-start ">
-                    <ul className="flex flex-col lg:flex-row items-center text-sm md:text-lg my-2">
+            <div className="grid gap-10 translate-y-1 sm:justify-center ">
+                <nav className="w-3/4  self-center sm:w-full max-w-xl ml-14 ">
+                <div className="flex flex-wrap lg:flex-row sm:justify-between justify-around items-center md:items-start ">
+                    <ul className="flex flex-wrap lg:flex-row items-center justify-around text-sm md:text-lg my-2">
                     {[
                         "Category 1",
                         "Category 2",
@@ -125,13 +125,13 @@ export default function Blog () {
                 </nav>
             </div>
 
-            <hr className=" h-px bg-gray-200 border-0 dark:bg-gray-700 w-11/12 mx-auto"/>
+            <hr className="line h-px bg-gray-200 border-0 dark:bg-gray-700 w-11/12  mx-auto"/>
             <br/>
             <br/>
 
 
-            <div className='ml-8 flex flex-1 mb-48'>
-                    <div className='flex flex-1 border-2 border-grey-600 py-8 px-4 pb-0'> 
+            <div className='cat-parent ml-8 flex flex-1 mb-24 sm:mb-48'>
+                    <div className='tablet flex flex-1 border-2 border-grey-600 py-8 px-4 pb-0 '> 
                             <div className='category-container w-4/5'>
                                 {category.map(category => (
                                     <Categorycard
@@ -158,7 +158,7 @@ export default function Blog () {
                             </div>
                     {/* </div> */}
 
-                    <div className='horizontal-container pl-8'>
+                    <div className='horizontal-container1 pl-8'>
                                 {horizontal.map(horizontal => (
                                     <Horizontalcard 
                                     title={horizontal.horizontalTitle}
@@ -171,7 +171,7 @@ export default function Blog () {
                 </div>
                 
 
-                <div className='horizontal-container ml-14 py-4'>
+                <div className='horizontal-container2 ml-14 py-4'>
                     {horizontal.map(horizontal => (
                         <Horizontalcard 
                             title={horizontal.horizontalTitle}
