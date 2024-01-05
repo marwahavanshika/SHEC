@@ -1,4 +1,5 @@
 "use client"
+import Image from "next/image"
 import { useState, useLayoutEffect } from "react"
 
 export default function Carousal({length=4,links,className,direction=-1}) {
@@ -44,12 +45,14 @@ export default function Carousal({length=4,links,className,direction=-1}) {
   return (
     <div className={className}>
       <div className={'w-full h-full relative mx-auto my-10 perspective'} onMouseEnter={()=>setIsHovered(true)} onMouseLeave={()=>setIsHovered(false)} onTouchStart={()=>setIsHovered(true)}  onTouchEnd={()=>setIsHovered(false)}>
-      <div className="w-full h-full threed absolute transition-transform duration-[400ms] will-change-transform left-0 top-0" style={{ transform }}>
+      <div className="w-full  h-full threed absolute transition-transform duration-[400ms] will-change-transform left-0 top-0" style={{ transform }}>
           {items.map((id) => (
-            <img
-              alt=""
+            <Image
+              width={1000}
+              height={1000}
+              alt="Project"
               key={id}
-              className={"absolute w-full h-full transition-transform duration-500 ease-linear flex items-center justify-center rounded-lg shadow-[4px_10px_30px_0px_rgba(0,0,0,0.06)] left-0 top-0"}
+              className={"absolute w-full border-4 border-white h-full transition-transform duration-500 ease-linear flex items-center justify-center rounded-lg shadow-[4px_10px_30px_0px_rgba(0,0,0,0.06)] left-0 top-0 object-cover"}
               style={{ transform: getTransform(id) }}
               src={links[id]}
             />  

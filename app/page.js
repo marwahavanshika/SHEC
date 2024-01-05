@@ -1,4 +1,5 @@
 "use client"; // Serverside rendering overriden ,
+import Image from "next/image";
 import { ParallaxLayer, Parallax } from "@react-spring/parallax";
 import { useRef, useEffect, useState } from "react";
 import Animation from "../components/Animation";
@@ -81,13 +82,9 @@ export default function Home() {
               <Navbar />
             </ParallaxLayer>
             <ParallaxLayer
-              style={{
-                backgroundImage: "url('/head.jpg')",
-                backgroundSize: "cover",
-                backgroundPosition: "cover",
-              }}
-              className=" flex items-center justify-start"
+              className=" relative flex items-center justify-start"
             >
+              <Image src={'/head.jpg'} alt={'Main'} width={1000} height={1000} className=" absolute w-screen h-screen" />
               <Heading />
             </ParallaxLayer>
             <ParallaxLayer
@@ -249,7 +246,7 @@ export default function Home() {
               </h1>
               <div
                 className={
-                  "flex flex-row items-center gap-10 mt-10 justify-center"
+                  "flex flex-row items-center gap-10 md:gap-20 mt-10 justify-center"
                 }
               >
                 <Card />
@@ -272,7 +269,6 @@ export default function Home() {
               className={
                 "flex flex-row flex-wrap items-center justify-around gap-5 md:gap-16 p-8"
               }
-              // speed={0.25}
             >
               <div
                 className={

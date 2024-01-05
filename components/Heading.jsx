@@ -1,7 +1,7 @@
 
 function Heading() {
   return (
-    <div className=' px-5 font-light text-3xl md:text-7xl font-popins text-white uppercase md:px-20'>
+    <div className=' px-5 font-light text-3xl md:text-7xl z-10 font-popins text-white uppercase md:px-20'>
       <h1 >
         you ask it
       </h1>

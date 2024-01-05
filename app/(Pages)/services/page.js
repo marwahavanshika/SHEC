@@ -1,15 +1,15 @@
 "use client";
 import { useState, useEffect } from "react";
-import { useSpring, animated } from "@react-spring/web";
-import ImageGallery from "../../../components/Services"
+import ImageGallery from "../../../components/Services";
+import Image from "next/image";
 
 function page() {
   const team = [
-    "/images/servicesbg1.jpeg",
-    "/images/servicesbg2.jpeg",
-    "/images/servicesbg3.jpeg",
-    "/images/servicesbg4.jpeg",
-    "/images/servicesbg5.jpeg",
+    "/images/servicesbg1.jpg",
+    "/images/servicesbg2.jpg",
+    "/images/servicesbg3.jpg",
+    "/images/servicesbg4.jpg",
+    "/images/servicesbg5.jpg",
   ];
   const [currentProgress, setCurrentProgress] = useState(0);
   const strokeWidth = 5;
@@ -37,15 +37,6 @@ function page() {
   const strokeDashoffset =
     circumference - (currentProgress / 100) * circumference;
 
-
-    const springProps = useSpring({
-      from:{opacity:0},
-      to:{opacity:1},
-      reset:currentProgress%20===0,
-      config:{tension:280,friction:30}
-    });
-
-
   return (
     <div className=" overflow-x-hidden relative">
       <div className=" absolute h-screen inset-0 flex items-center justify-center">
@@ -55,33 +46,59 @@ function page() {
             const x = radius * Math.cos(theta);
             const y = radius * Math.sin(theta);
             return (
-              <div
-                key={item}
-                className="absolute w-16 h-16 border-4 z-10 -translate-x-1/2 -translate-y-1/2 rounded-full bg-no-repeat  bg-cover  md:bg-center cursor-pointer "
-                style={{
-                  top: `calc(50% + ${y}px)`,
-                  left: `calc(50% + ${x}px)`,
-                  backgroundImage: `url('/images/servicesbg${index + 1}.jpeg')`,
-                  borderColor:
-                    Math.floor(currentProgress / 20) === index
-                      ? "#0487C9"
-                      : "#fff",
-                }}
-                onClick={() => setCurrentProgress(20 * index)}
-              ></div>
+              <div key={item}>
+                <div
+                  className="absolute w-16 h-16 border-4 z-10 -translate-x-1/2 -translate-y-1/2 rounded-full bg-no-repeat  bg-cover  md:bg-center cursor-pointer overflow-hidden "
+                  style={{
+                    top: `calc(50% + ${y}px)`,
+                    left: `calc(50% + ${x}px)`,
+                    borderColor:
+                      Math.floor(currentProgress / 20) === index
+                        ? "#0487C9"
+                        : "#fff",
+                  }}
+                  onClick={() => setCurrentProgress(20 * index)}
+                >
+                  <Image
+                    height={100}
+                    width={100}
+                    src={`/images/servicesbg${index + 1}.jpg`}
+                    alt=""
+                    className=" rotate-90 w-full h-full"
+                  />
+                </div>
+                <div
+                  className=" absolute text-center rotate-90 text-white"
+                  style={{
+                    top:
+                      index <= 2
+                        ? `calc(50% + ${y + 42 * index}px)`
+                        : index === 3
+                        ? `calc(50% + ${y - 40 * index}px)`
+                        : `calc(50% + ${y - 20 * index}px)`,
+                    left: `calc(50% + ${x}px)`,
+                  }}
+                >
+                  {dummy[index]}
+                </div>
+              </div>
             );
           })}
         </div>
       </div>
-      <animated.div
+      <div
         className=" relative h-screen bg-no-repeat  bg-cover  md:bg-center "
         style={{
-          backgroundImage: `linear-gradient(0deg, rgba(0, 0, 0, 0.50) 0%, rgba(0, 0, 0, 0.50) 10%), url('/images/servicesbg${
-            Math.floor(currentProgress / 20) + 1
-          }.jpeg')`,
-          ...springProps
+          backgroundImage: `linear-gradient(0deg, rgba(0, 0, 0, 0.50) 0%, rgba(0, 0, 0, 0.50) 10%)`,
         }}
       >
+        <Image
+          width={1000}
+          height={1000}
+          src={`/images/servicesbg${Math.floor(currentProgress / 20) + 1}.jpg`}
+          alt=""
+          className="w-full h-full absolute inset-0 -z-10"
+        />
         <svg
           width={radius * 2 + strokeWidth * 2}
           className="flex items-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -rotate-90 justify-center"
@@ -101,7 +118,7 @@ function page() {
             x={radius / 2}
             y={-1.25 * radius}
             fill="white"
-            className=" not-italic font-bold leading-[5.81638rem] tracking-[0.02406rem] rotate-90 text-4xl font-popins"
+            className=" not-italic font-bold leading-[5.81638rem] tracking-[0.02406rem] rotate-90 text-xl lg:text-4xl font-popins"
           >
             SilverHeights
           </text>
@@ -109,7 +126,7 @@ function page() {
             x={radius / 2 + 50}
             y={-1 * radius}
             fill="white"
-            className=" rotate-90 text-2xl transition-all duration-200 ease-out"
+            className=" rotate-90 text-base lg:text-2xl transition-all duration-200 ease-out"
           >
             {dummy[Math.floor(currentProgress / 20)]}
           </text>
@@ -136,7 +153,7 @@ function page() {
             cy={radius + strokeWidth}
           />
         </svg>
-      </animated.div>
+      </div>
       <div className=" flex flex-col justify-center py-20 px-10 md:px-32">
         <h1 className="text-[#1E1F4B] text-lg sm:text-2xl md:text-4xl not-italic font-bold leading-[3.25rem] tracking-[0.0125rem] capitalize font-popins ps-5 ">
           We create world-className Architectural Designs
@@ -147,8 +164,10 @@ function page() {
         </h2>
         <div className="grid max-lg:grid-rows-[50%_50%] lg:grid-cols-[50%_50%] gap-5">
           <div className="flex flex-col gap-3">
-            <img
-              src="/images/services1.png"
+            <Image
+              src={"/images/COMMERCIAL/EXTERIOR/1/1.jpg"}
+              width={1000}
+              height={1000}
               alt=""
               className=" h-full w-full rounded-lg"
             />
@@ -166,8 +185,10 @@ function page() {
           </div>
           <div className=" grid grid-cols-[50%_50%] gap-5">
             <div className="flex flex-col gap-3">
-              <img
-                src="/images/services2.png"
+              <Image
+                src={"/images/COMMERCIAL/EXTERIOR/1/2.jpg"}
+                width={1000}
+                height={1000}
                 alt=""
                 className=" h-full w-full rounded-md"
               />
@@ -179,8 +200,10 @@ function page() {
               </h2>
             </div>
             <div className="flex flex-col gap-3">
-              <img
-                src="/images/services3.png"
+              <Image
+                src={"/images/COMMERCIAL/EXTERIOR/1/1.jpg"}
+                width={1000}
+                height={1000}
                 alt=""
                 className=" h-full w-full rounded-md"
               />
@@ -192,8 +215,10 @@ function page() {
               </h2>
             </div>
             <div className="flex flex-col gap-3">
-              <img
-                src="/images/services4.png"
+              <Image
+                src={"/images/COMMERCIAL/EXTERIOR/1/3.jpg"}
+                width={1000}
+                height={1000}
                 alt=""
                 className=" h-full w-full rounded-md"
               />
@@ -205,8 +230,10 @@ function page() {
               </h2>
             </div>
             <div className="flex flex-col gap-3">
-              <img
-                src="/images/services5.png"
+              <Image
+                src={"/images/COMMERCIAL/EXTERIOR/1/4.jpg"}
+                width={1000}
+                height={1000}
                 alt=""
                 className=" h-full w-full rounded-md"
               />

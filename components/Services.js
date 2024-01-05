@@ -1,19 +1,20 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { useSprings, animated, useSpring } from "@react-spring/web";
+import Image from "next/image";
 
 const ImageGallery = () => {
   const images = [
-    "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image.jpg",
-    "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-1.jpg",
-    "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-2.jpg",
-    "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-3.jpg",
-    "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-4.jpg",
-    "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-5.jpg",
-    "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-6.jpg",
-    "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-7.jpg",
-    "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-8.jpg",
-    "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-9.jpg",
+    "/images/carousal1.jpg",
+    "/images/carousal2.jpg",
+    "/images/carousal3.jpg",
+    "/images/carousal4.jpg",
+    "/images/carousal5.jpg",
+    "/images/carousal6.jpg",
+    "/images/carousal7.jpg",
+    "/images/carousal1.jpg",
+    "/images/carousal2.jpg",
+    "/images/carousal3.jpg",
   ];
 
   const helper = [
@@ -125,7 +126,7 @@ const ImageGallery = () => {
 
   return (
     <div className="flex flex-col items-center justify-center my-10">
-      <h1 className="text-[#03014C] text-center text-[2.5rem] not-italic font-extrabold leading-[normal] capitalize font-popins">
+      <h1 className="text-[#03014C] text-center text-2xl md:text-4xl not-italic font-extrabold leading-[normal] capitalize font-popins">
         Let's hear
         <br />
         What they says
@@ -138,27 +139,50 @@ const ImageGallery = () => {
           &#8221;
         </h2>
       </div>
-      <animated.h2 className="text-[#03014C] max-w-[50%] text-center text-base not-italic font-normal leading-[normal] font-popins -translate-y-10" style={springReview}>
+      <animated.h2
+        className="text-[#03014C] max-w-[50%] text-center text-xs md:text-base not-italic font-normal leading-[normal] font-popins -translate-y-10"
+        style={springReview}
+      >
         {helper[(Index - 2 + helper.length) % helper.length].review}
       </animated.h2>
-      <div className=" flex flex-col gap-2 items-center">
-        <div className="flex items-center gap-32 m-10 overflow-x-hidden">
+      <div className=" flex flex-col gap-2 items-center justify-center ">
+        <div className="flex items-center justify-center  w-full gap-5 sm:gap-10 md:gap-32 m-10 overflow-x-hidden">
           {springs.map((props, index) => (
-            <animated.img
+            <animated.div
               style={{
                 ...props,
                 height: h[index],
                 border: index === 2 ? "4px solid darkblue" : "0px",
               }}
-              className=" p-2 aspect-square rounded-full"
+              className=" p-2 aspect-square overflow-hidden rounded-full"
               key={index}
-              src={displayImages[index]}
-              alt=""
-            />
+            >
+              <Image
+                width={100}
+                height={100}
+                src={displayImages[index]}
+                alt=""
+                className=" w-full h-full rounded-full"
+              />
+            </animated.div>
           ))}
         </div>
-        <animated.h1 style={springReview} className={'text-[#1E1F4B] text-center text-2xl not-italic font-bold leading-[normal] font-popins'} >{helper[(Index - 2 + helper.length) % helper.length].name}</animated.h1>
-        <animated.h1 style={springReview} className={'text-[#2E3E5C] text-center text-xl not-italic font-medium leading-[normal] font-popins'} >{helper[(Index - 2 + helper.length) % helper.length].post}</animated.h1>
+        <animated.h1
+          style={springReview}
+          className={
+            "text-[#1E1F4B] text-center text-2xl not-italic font-bold leading-[normal] font-popins"
+          }
+        >
+          {helper[(Index - 2 + helper.length) % helper.length].name}
+        </animated.h1>
+        <animated.h1
+          style={springReview}
+          className={
+            "text-[#2E3E5C] text-center text-xl not-italic font-medium leading-[normal] font-popins"
+          }
+        >
+          {helper[(Index - 2 + helper.length) % helper.length].post}
+        </animated.h1>
       </div>
     </div>
   );

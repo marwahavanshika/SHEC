@@ -39,7 +39,7 @@ function Contact() {
         SEND
       </button>
       <div className={"flex flex-row gap-3 justify-around"}>
-        <div className={"flex flex-row gap-5"}>
+        <div className={"flex flex-col md:flex-row gap-5 "}>
           <svg
             width="27"
             height="27"
@@ -67,7 +67,7 @@ function Contact() {
             </span>
           </h1>
         </div>
-        <div className={"flex flex-row gap-5"}>
+        <div className={"flex flex-col md:flex-row gap-5"}>
           <svg
             width="25"
             height="25"
@@ -100,7 +100,7 @@ function Contact() {
             </span>
           </h1>
         </div>
-        <div className={'flex flex-row gap-5'}>
+        <div className={'flex flex-col md:flex-row gap-5'}>
           <svg
             width="26"
             height="27"
