@@ -38,7 +38,7 @@ const gallery = [];
 // Function to generate project objects for a given category
 const generateProjects = (category) => {
   const projects = [];
-  for (let i = 1; i <= 2; i++) {
+  for (let i = 1; i <= 1; i++) {
     const project = {
       links: [
         `/images/${category.name}/${i}/1.jpg`,
