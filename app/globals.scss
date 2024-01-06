@@ -6,22 +6,6 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Stick+No+Bills:wght@200&display=swap");
 
-::-webkit-scrollbar {
-  display: none;
-}
-.head-image {
-  height: 100vh;
-}
-
-body {
-  font-family: "Popins sans-serif";
-}
-.perspective {
-  perspective: 1000px;
-}
-.threed {
-  transform-style: preserve-3d;
-}
 
 @for $i from 1 through 4 {
   .slider > :nth-child(#{$i}),
@@ -32,40 +16,17 @@ body {
     }
   }
 }
-
-@for $i from 1 through 5 {
-  .team > :nth-child(#{$i}),
-  .team > :nth-last-child(#{$i}) {
-    height: 30px + (20px * $i);
-    transition: all 0.65s ease-out;
-  }
+body {
+  font-family: "Popins sans-serif";
+}
+::-webkit-scrollbar {
+  display: none;
 }
 
-.moveleft {
-  animation: moveleft 0.65s infinite ease-out;
-  animation-delay: 1s;
-  animation-fill-mode: forwards;
+.perspective {
+  perspective: 1000px;
+}
+.threed {
+  transform-style: preserve-3d;
 }
 
-@keyframes moveleft {
-  0% {
-    transform: translateX(0);
-  }
-
-  100% {
-    transform: translateX(calc(11rem + 70px));
-  }
-}
-.special {
-  position: absolute;
-  top: 340px;
-  color: white;
-  /* font-weight: thin; */
-  left: 134px;
-  font-size: 100px;
-  font-variant: small-caps;
-  font-family: "Poppins";
-  h1 {
-    font-weight: 200;
-  }
-}

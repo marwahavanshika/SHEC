@@ -26,8 +26,6 @@ export default function Home() {
   });
 
 
-
-  // Let create async method to fetch fake data
   useEffect(() => {
     
     const handle = () => {
