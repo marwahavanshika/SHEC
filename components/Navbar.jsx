@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Navbar() {
   const links = [
@@ -155,7 +155,7 @@ export default function Navbar() {
           ></g>
           <g id="SVGRepo_iconCarrier">
             {" "}
-            <g clip-path="url(#1B4896clip0_429_11066)">
+            <g clipPath="url(#1B4896clip0_429_11066)">
               {" "}
               <path
                 d="M3 6.00092H21M3 12.0009H21M3 18.0009H21"
@@ -182,7 +182,7 @@ export default function Navbar() {
       </div>
       <div
         className="h-screen shadow-2xl z-50 w-[50vw] absolute top-0 right-0 bg-white flex items-center flex-col justify-start transition-transform duration-500 ease-out gap-10"
-        style={{ transform: isOpen ? "translateX(0%)" : "translateX(100%)" }}
+        style={{ transform: isOpen ? "translateX(0%)" : "translateX(110%)" }}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -204,19 +204,19 @@ export default function Navbar() {
               <path
                 d="M70.7 64.3c1.8 1.8 1.8 4.6 0 6.4-.9.9-2 1.3-3.2 1.3-1.2 0-2.3-.4-3.2-1.3L46 52.4 27.7 70.7c-.9.9-2 1.3-3.2 1.3s-2.3-.4-3.2-1.3c-1.8-1.8-1.8-4.6 0-6.4L39.6 46 21.3 27.7c-1.8-1.8-1.8-4.6 0-6.4 1.8-1.8 4.6-1.8 6.4 0L46 39.6l18.3-18.3c1.8-1.8 4.6-1.8 6.4 0 1.8 1.8 1.8 4.6 0 6.4L52.4 46l18.3 18.3z"
                 fill="#1B4896"
-                class="color000 svgShape"
               />
             </svg>
           </g>
         </svg>
-        <nav className="  h-[200px] w-[250px] mt-32 flex flex-col gap-5 ">
+        <nav className="  h-[200px] w-[min(110px,90%)] min-w-[110px] mt-32 flex flex-col gap-5 ">
           {links.map((value, i) => (
             <Link
               href={`/${value.link}`}
               key={i}
               className={
-                " w-full h-full grid place-items-center border-2 border-[#1B4896] bg-[#1B4896] rounded text-white hover:bg-white hover:text-[#1B4896] hover:border-2 hover:border-[#1B4896] transition-colors duration-200 ease-out hover:font-semibold "
+                "w-[min(110px,90%)] min-w-[110px] h-full grid place-items-center border-2 border-[#1B4896] bg-[#1B4896] rounded text-white hover:bg-white hover:text-[#1B4896] hover:border-2 hover:border-[#1B4896] transition-colors duration-200 ease-out hover:font-semibold "
               }
+              onClick={()=>setisOpen(false)}
             >
               <span>{value.name}</span>
             </Link>

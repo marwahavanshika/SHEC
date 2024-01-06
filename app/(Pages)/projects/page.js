@@ -25,12 +25,10 @@ const page = () => {
   
 // Define your categories and their corresponding project counts
 const categories = [
-  { name: 'COMMERCIAL/EXTERIOR', tag:'Commercial'},
-  { name: 'COMMERCIAL/INTERIOR', tag:'Commercial' },
-  { name: 'INDUSTRIAL', tag:'Industrial'},
-  { name: 'PUBLIC_BUILDINGS', tag:'Public_Buildings' },
-  { name: 'RESIDENTIAL/EXTERIOR', tag:'Residential' },
-  { name: 'RESIDENTIAL/INTERIOR', tag:'Residential'},
+  { name: 'COMMERCIAL', tag:'Commercial',num:2 },
+  { name: 'INDUSTRIAL', tag:'Industrial',num:1},
+  { name: 'PUBLIC_BUILDINGS', tag:'Public_Buildings',num:1 },
+  { name: 'RESIDENTIAL', tag:'Residential',num:2 },
 ];
 
 const gallery = [];
@@ -38,7 +36,7 @@ const gallery = [];
 // Function to generate project objects for a given category
 const generateProjects = (category) => {
   const projects = [];
-  for (let i = 1; i <= 1; i++) {
+  for (let i = 1; i <= category.num; i++) {
     const project = {
       links: [
         `/images/${category.name}/${i}/1.jpg`,

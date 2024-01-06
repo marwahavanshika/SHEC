@@ -3,10 +3,10 @@ import Image from "next/image";
 const imgs = [
   {link:"/images/carousal4.jpg",type:"FCA",name:"Katty",post:"Fashion Director"},
   {link:"/images/carousal3.jpg",type:"INTERIOR",name:"Katty",post:"Fashion Director"},
-  {link:"/images/COMMERCIAL/EXTERIOR/1/4.jpg",type:"TOWER",name:"Katty",post:"Fashion Director"},
+  {link:"/images/carousal2.jpg",type:"TOWER",name:"Katty",post:"Fashion Director"},
   {link:"/images/carousal1.jpg",type:"MAJLIS",name:"ISLAMIC MAJLIS",post:"Fashion Director"},
-  {link:"/images/COMMERCIAL/INTERIOR/4/2.jpg",type:"CAFE",name:"Katty",post:"Fashion Director"},
-  {link:"/images/COMMERCIAL/INTERIOR/8/3.jpg",type:"OFFICE",name:"Katty",post:"Fashion Director"},
+  {link:"/images/carousal5.jpg",type:"CAFE",name:"Katty",post:"Fashion Director"},
+  {link:"/images/carousal6.jpg",type:"OFFICE",name:"Katty",post:"Fashion Director"},
   {link:"/images/carousal7.jpg",type:"LIVING",name:"Katty",post:"Fashion Director"},
 ]
 
