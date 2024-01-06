@@ -113,11 +113,10 @@ body{
     
     .blog-container{
         grid-template-columns: 350px;
-        margin-left: -4px;
     }
     .view{
         margin-bottom: 30px;
-        margin-right: 140px;
+        margin-right: 120px;
     }
     .horizontal-container2{
         display: none;
@@ -125,7 +124,7 @@ body{
 
     .img-text {
         position: absolute;
-        top: 304px;
+        top: 152px;
         color: white;
         left: 31px;
         font-size: 36px;
@@ -160,11 +159,16 @@ body{
 
 }
 .horizontal-container1{
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
     padding: 0px;
     width: 80%;
     gap: 30px;
 }
+.hor-card{
+    display: flex;
+    flex-direction: row;
+}
+
 }
 
 @media  screen and (min-width:431px) and ( max-width:770px) {

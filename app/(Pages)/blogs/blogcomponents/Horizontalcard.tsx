@@ -21,10 +21,10 @@ const Horizontalcard: React.FC<HorizontalcardProps> = ({title, desc, type}) => {
             </div>
                 <div className="bg-white rounded-b lg:rounded-b-none lg:rounded-r pl-0 sm:p-0 sm:w-3/4 flex flex-col justify-between leading-normal">
                     <div className="mb-8 pl-[10px]">
-                        <div className="text-gray-900 font-light sm:font-semibold lg:font-bold text-xs sm:text-base lg:text-sm mb-2">
+                        <div className="text-gray-900 font-semibold sm:font-semibold lg:font-bold text-base sm:text-base lg:text-sm mb-2">
                             {title}
                         </div>
-                        <p className="text-gray-700 text-[8px] sm:text-xs">
+                        <p className="text-gray-700 text-xs sm:text-xs">
                             {desc}
                         </p>
                     </div>

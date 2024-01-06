@@ -1,7 +1,7 @@
 "use client";
 
 const page = () => {
-  const im= '/images/' + params.id.join('/')
+  // const im= '/images/' + params.id.join('/')
 
   function checkArrayConditions(arr) {
     const validFirstValues = ['COMMERCIAL', 'RESIDENTIAL', 'INDUSTRIAL', 'PUBLIC_BUILDINGS'];

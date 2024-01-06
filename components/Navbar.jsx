@@ -209,7 +209,7 @@ export default function Navbar() {
             </svg>
           </g>
         </svg>
-        <nav className="  h-[200px] w-[250px] mt-32 flex flex-col gap-5 ">
+        <nav className="  h-[200px] w-[250px] mt-32 flex flex-col gap-5 max-w-[90%]">
           {links.map((value, i) => (
             <Link
               href={`/${value.link}`}
