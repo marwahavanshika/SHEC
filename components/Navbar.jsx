@@ -36,7 +36,7 @@ export default function Navbar() {
           <div className=" hidden lg:flex relative flex-row gap-5 justify-center h-full items-center">
             <button
               onClick={() => handleclick()}
-              className=" h-2/3 peer w-[150px] flex transition-all duration-200 ease-out items-center justify-center gap-1 rounded-3xl bg-[#1B4896]"
+              className=" h-2/3 peer w-[150px] flex transition-all duration-200 ease-out items-center justify-center rounded-3xl bg-[#1B4896]"
             >
               <svg
                 width="27"
@@ -181,7 +181,7 @@ export default function Navbar() {
         </svg>
       </div>
       <div
-        className="h-screen w-[50vw] absolute top-0 right-0 bg-white flex items-center flex-col justify-start transition-transform duration-500 ease-out gap-10"
+        className="h-screen shadow-2xl z-50 w-[50vw] absolute top-0 right-0 bg-white flex items-center flex-col justify-start transition-transform duration-500 ease-out gap-10"
         style={{ transform: isOpen ? "translateX(0%)" : "translateX(100%)" }}
       >
         <svg

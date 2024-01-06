@@ -130,7 +130,7 @@ export default function Home() {
                 color: parallaxRef.current?.offset == 2 ? "white" : "black",
               }}
               className={
-                "h-screen w-[50vw] bg-transparent flex flex-col lg:flex-row gap-10 p-10 items-center justify-center"
+                "h-screen w-[50vw] bg-transparent flex flex-col lg:flex-row gap-10 p-20 items-center justify-center"
               }
             >
               <div className="flex-1 flex flex-col gap-5 md:gap-10">
