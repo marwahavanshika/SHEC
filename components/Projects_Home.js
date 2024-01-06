@@ -1,11 +1,11 @@
 const imgs = [
-  {link:"https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-3.jpg",type:"Cafe",name:"Katty",post:"Fashion Director"},
-  {link:"https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-3.jpg",type:"Cafe",name:"Katty",post:"Fashion Director"},
-  {link:"https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-3.jpg",type:"Cafe",name:"Katty",post:"Fashion Director"},
-  {link:"https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-3.jpg",type:"Cafe",name:"Katty",post:"Fashion Director"},
-  {link:"https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-3.jpg",type:"Cafe",name:"Katty",post:"Fashion Director"},
-  {link:"https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-3.jpg",type:"Cafe",name:"Katty",post:"Fashion Director"},
-  {link:"https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-3.jpg",type:"Cafe",name:"Katty",post:"Fashion Director"},
+  {link:"/images/carousal4.jpeg",type:"FCA",name:"Katty",post:"Fashion Director"},
+  {link:"/images/carousal3.jpeg",type:"INTERIOR",name:"Katty",post:"Fashion Director"},
+  {link:"/images/carousal2.jpeg",type:"TOWER",name:"Katty",post:"Fashion Director"},
+  {link:"/images/carousal1.jpeg",type:"MAJLIS",name:"ISLAMIC MAJLIS",post:"Fashion Director"},
+  {link:"/images/carousal5.jpeg",type:"CAFE",name:"Katty",post:"Fashion Director"},
+  {link:"/images/carousal6.jpeg",type:"OFFICE",name:"Katty",post:"Fashion Director"},
+  {link:"/images/carousal7.jpeg",type:"LIVING",name:"Katty",post:"Fashion Director"},
 ]
 
 export default function Gallery() {

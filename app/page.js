@@ -10,34 +10,41 @@ import Link from "next/link";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import LoadingScreen from "../components/Loading_screen";
-import { useSpring } from "@react-spring/web";
+import { useSpring,animated, config } from "@react-spring/web";
 
 export default function Home() {
   const parallaxRef = useRef();
   const [page, setpage] = useState(-1);
   const [isloading, setIsLoading] = useState(true);
 
+  const props = useSpring({
+    from: { opacity: 0, transform: "translateY(100%)" },
+    to: { opacity: 1, transform: "translateY(0)" },
+    immediate: isloading,
+    config:config.slow
+  });
+
 
 
   // Let create async method to fetch fake data
   useEffect(() => {
-    const fakeDataFetch = () => {
-      setTimeout(() => {
-        setIsLoading(false);
-      }, 3000);
-    };
-  
+    
     const handle = () => {
       if (
         parallaxRef.current &&
         page !== Math.round(parallaxRef.current.current / window.innerHeight)
-      ) {
-        setpage(Math.round(parallaxRef.current.current / window.innerHeight));
-      }
-    };
-  
-    window.addEventListener("touchmove", handle);
-    window.addEventListener("wheel", handle);
+        ) {
+          setpage(Math.round(parallaxRef.current.current / window.innerHeight));
+        }
+      };
+      
+      window.addEventListener("touchmove", handle);
+      window.addEventListener("wheel", handle);
+      const fakeDataFetch = () => {
+        setTimeout(() => {
+          setIsLoading(false);
+        }, 100);
+      };
   
     fakeDataFetch();
   
@@ -64,7 +71,7 @@ export default function Home() {
       {isloading ? (
         <LoadingScreen />
       ) : (
-        <div className=" h-screen">
+        <animated.div style={props} className=" h-screen">
           <Parallax pages={8} ref={parallaxRef}>
             <ParallaxLayer
               className="z-20"
@@ -79,13 +86,12 @@ export default function Home() {
                 backgroundSize: "cover",
                 backgroundPosition: "cover",
               }}
-              className=" relative"
+              className=" flex items-center justify-start"
             >
               <Heading />
             </ParallaxLayer>
             <ParallaxLayer
               offset={1}
-              speed={0.25}
               className={
                 " h-fit flex flex-col lg:flex-row items-center justify-center gap-5 md:gap-10 px-10"
               }
@@ -108,14 +114,14 @@ export default function Home() {
               </div>
               <div
                 className={
-                  "grid grid-cols-3 gap-5 md:gap-10 flex-1 min-w-[30rem] p-10"
+                  "grid grid-cols-3 gap-2 md:gap-10 flex-1 p-2 md:p-10"
                 }
               >
                 {secondsection.map((value) => (
                   <div
                     key={value}
                     className={
-                      "bg-gradient-to-b from-[#1B4896]  to-[#24A6E0] font-poppins text-white min-w-10 aspect-video rounded-lg flex items-center justify-center text-md md:text-xl text-center font-popins font-semibold"
+                      "bg-gradient-to-b from-[#1B4896]  to-[#24A6E0] p-2 font-poppins text-white min-w-3 w-full aspect-video rounded-lg flex items-center justify-center text-base md:text-xl text-center font-popins font-semibold"
                     }
                   >
                     {value}
@@ -194,7 +200,7 @@ export default function Home() {
             <ParallaxLayer
               offset={5}
               className={" flex flex-col items-center pt-20 justify-center"}
-              speed={0.25}
+              // speed={0.25}
             >
               <h2
                 className={
@@ -211,17 +217,10 @@ export default function Home() {
                 Our Past Projects
               </h1>
               <Gallery />
-              <h3
-                className={
-                  "text-black text-center shrink text-[2rem] not-italic font-semibold leading-[2.9375rem] font-sans"
-                }
-              >
-                Interior Design
-              </h3>
               <h4>
                 <Link
                   className={
-                    "text-[#0487C9] text-center shrink text-[1.2125rem] not-italic font-medium leading-[normal] tracking-[0.18188rem] lowercase font-popins"
+                    "text-[#0487C9] text-center shrink text-lg not-italic font-medium leading-[normal] tracking-[0.18188rem] lowercase font-popins"
                   }
                   href={"/projects"}
                 >
@@ -231,8 +230,8 @@ export default function Home() {
             </ParallaxLayer>
             <ParallaxLayer
               offset={6}
-              className={"flex flex-col items-center justify-center gap-5 "}
-              speed={0.25}
+              className={"flex flex-col items-center justify-around "}
+              // speed={0.25}
             >
               <h2
                 className={
@@ -243,7 +242,7 @@ export default function Home() {
               </h2>
               <h1
                 className={
-                  "text-black text-center text-4xl md:text-[2.4875rem] not-italic font-semibold leading-[2.9375rem]"
+                  "text-black text-center text-3xl md:text-[2.4875rem] not-italic font-semibold leading-[2.9375rem]"
                 }
               >
                 Latest Blogs & Posts
@@ -271,9 +270,9 @@ export default function Home() {
             <ParallaxLayer
               offset={7}
               className={
-                "flex flex-row flex-wrap items-center justify-center gap-5 md:gap-16 p-8"
+                "flex flex-row flex-wrap items-center justify-around gap-5 md:gap-16 p-8"
               }
-              speed={0.25}
+              // speed={0.25}
             >
               <div
                 className={
@@ -320,7 +319,7 @@ export default function Home() {
               <Footer />
             </ParallaxLayer>
           </Parallax>
-        </div>
+        </animated.div>
       )}
     </>
   );

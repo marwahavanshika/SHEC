@@ -1,12 +1,11 @@
-import './Heading.scss'
 
 function Heading() {
   return (
-    <div className="heading">
-      <h1 className='you'>
+    <div className=' px-5 font-light text-3xl md:text-7xl font-popins text-white uppercase md:px-20'>
+      <h1 >
         you ask it
       </h1>
-      <h1 className='we'>we engineer it</h1>
+      <h1 className=' ps-2 md:ps-10'>we engineer it</h1>
     </div>
   );
 }

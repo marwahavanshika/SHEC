@@ -5,8 +5,8 @@ import { useRouter } from "next/navigation";
 import Carousal from "../../../components/Projects";
 
 function Num({ n, isloaded }) {
-  const props = useSpring({ width: isloaded ? n : 0, config: {mass:1,tension:30,friction:10} });
-  return <animated.div className={"text-white text-3xl md:text-6xl not-italic leading-[60px] font-[Post_No_Bills_Jaffna] "}>{props.width.to((x) => x.toFixed(0))}</animated.div>;
+  const props = useSpring({ width: isloaded ? n : 0, config:{tension:280,friction:60} });
+  return <animated.div className={"text-white text-3xl md:text-6xl not-italic leading-[60px] font-['Stick_No_Bills'] "}>{props.width.to((x) => x.toFixed(0))}</animated.div>;
 }
 
 const page = () => {
@@ -143,8 +143,6 @@ const page = () => {
     from: { opacity: 0, transform: "translateY(100px)" },
     to: { opacity: 1, transform: "translateY(0)" },
     reset: true,
-    key: active,
-    immediate: !isloaded,
   });
   useEffect(() => {
     setLoading(true);
@@ -159,12 +157,12 @@ const page = () => {
         
         }}
       >
-        <div className="flex flex-col items-center ">
+        <div className="flex flex-col items-center justify-evenly ">
           <div className="flex flex-col justify-center items-center text-center  max-w-7xl   my-8 py-4 px-10">
             <div className="flex flex-col items-center text-gray-700mt-5">
               <h1 className="text-white text-left text-xl md:text-3xl lg:text-5xl not-italic font-semibold leading-[60px] font-popins">
-                SUCCESSFULLY<span className=" font-extralight"> DELIVERED</span> <br />
-                HUMONGOUS<span className=" font-extralight">  AND</span>
+                SUCCESSFULLY<span className=" font-thin"> DELIVERED</span> <br />
+                HUMONGOUS<span className=" font-thin">  AND</span>
                 <br />
                <span className=" text-xl md:text-3xl lg:text-5xl"> GLORIOUS PROJECTS </span>
               </h1>
@@ -172,11 +170,11 @@ const page = () => {
           </div>
           <div className="border-b w-4/5 border-2 border-white-400 mb-8"></div>
           <div className="flex flex-row flex-wrap gap-5 items-center justify-around w-screen font-popins">
-          <div className="flex flex-col md:gap-3 justify-center items-center min-w-44 ">
+          <div className="flex flex-col md:gap-3 justify-center items-center min-w-96 ">
           <Num n={100} isloaded={isloaded} />
           <h1 className="text-white  not-italic font-normal leading-[60px] text-3xl md:text-6xl"> Projects</h1>
           </div>
-          <div className="flex flex-col gap-3 justify-center items-center min-w-44">
+          <div className="flex flex-col gap-3 justify-center items-center min-w-96">
           <Num n={15489219} isloaded={isloaded} />
           <h1 className="text-white not-italic font-normal leading-[60px] text-3xl md:text-6xl">Area Delivered</h1>
           </div>

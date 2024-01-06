@@ -1,64 +1,85 @@
 "use client";
 import { useState, useEffect } from "react";
+import { useSpring, animated } from "@react-spring/web";
+import ImageGallery from "../../../components/Services"
 
 function page() {
-  const team = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+  const team = [
+    "/images/servicesbg1.jpeg",
+    "/images/servicesbg2.jpeg",
+    "/images/servicesbg3.jpeg",
+    "/images/servicesbg4.jpeg",
+    "/images/servicesbg5.jpeg",
+  ];
   const [currentProgress, setCurrentProgress] = useState(0);
-  const strokeWidth = 20;
+  const strokeWidth = 5;
   const radius = 200;
   const circumference = 2 * Math.PI * radius;
   const dummy = [
-    "dummy 1",
-    "dummy 2",
-    "dummy 3",
-    "dummy 4",
-    "dummy 5",
-    "dummy 6",
-    "dummy 7",
-    "dummy 8",
-    "dummy 9",
+    "Commercial",
+    "Industrial",
+    "Educational",
+    "Residental",
+    "Interior",
   ];
 
-  useEffect(() => {setInterval(() => {
-      let direction = 1;
+  useEffect(() => {
+    setInterval(() => {
       setCurrentProgress((prevProgress) => {
-        if (prevProgress === 100 || prevProgress === 0) {
-          direction = -1 * direction;
+        if (prevProgress < 100) {
+          return (prevProgress += 0.1);
         }
-        return prevProgress + direction;
+        return 0;
       });
-    },250);
+    }, 50);
   }, []);
 
   const strokeDashoffset =
     circumference - (currentProgress / 100) * circumference;
+
+
+    const springProps = useSpring({
+      from:{opacity:0},
+      to:{opacity:1},
+      reset:currentProgress%20===0,
+      config:{tension:280,friction:30}
+    });
+
+
   return (
     <div className=" overflow-x-hidden relative">
       <div className=" absolute h-screen inset-0 flex items-center justify-center">
-        <div className=" relative w-[400px] -rotate-12 h-[400px] z-[1] border-4 border-white border-opacity-50 rounded-full">
-          {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((item, index) => {
-            const theta = ((2 * Math.PI) / 9) * index;
-            const x = radius * Math.cos(theta); // subtract 10 (half of child div size) to center
-            const y = radius * Math.sin(theta); // subtract 10 (half of child div size) to center
+        <div className=" relative w-[400px] h-[400px] z-[1] -rotate-90 rounded-full">
+          {team.map((item, index) => {
+            const theta = ((2 * Math.PI) / team.length) * index;
+            const x = radius * Math.cos(theta);
+            const y = radius * Math.sin(theta);
             return (
               <div
                 key={item}
-                className="absolute w-16 h-16 border-2 border-white z-10 -translate-x-1/2 -translate-y-1/2 rounded-full bg-no-repeat  bg-cover  md:bg-center "
+                className="absolute w-16 h-16 border-4 z-10 -translate-x-1/2 -translate-y-1/2 rounded-full bg-no-repeat  bg-cover  md:bg-center cursor-pointer "
                 style={{
                   top: `calc(50% + ${y}px)`,
                   left: `calc(50% + ${x}px)`,
-                  backgroundImage:"url('/images/projbg.jpg')"
+                  backgroundImage: `url('/images/servicesbg${index + 1}.jpeg')`,
+                  borderColor:
+                    Math.floor(currentProgress / 20) === index
+                      ? "#0487C9"
+                      : "#fff",
                 }}
+                onClick={() => setCurrentProgress(20 * index)}
               ></div>
             );
           })}
         </div>
       </div>
-      <div
+      <animated.div
         className=" relative h-screen bg-no-repeat  bg-cover  md:bg-center "
         style={{
-          backgroundImage:
-            "linear-gradient(0deg, rgba(0, 0, 0, 0.50) 0%, rgba(0, 0, 0, 0.50) 10%), url('/images/projbg.jpg')",
+          backgroundImage: `linear-gradient(0deg, rgba(0, 0, 0, 0.50) 0%, rgba(0, 0, 0, 0.50) 10%), url('/images/servicesbg${
+            Math.floor(currentProgress / 20) + 1
+          }.jpeg')`,
+          ...springProps
         }}
       >
         <svg
@@ -72,7 +93,7 @@ function page() {
             fill="#0487C98A"
             className=" z-10"
             strokeWidth={strokeWidth}
-            r={radius - strokeWidth/1.25}
+            r={radius - strokeWidth / 0.5}
             cx={radius + strokeWidth}
             cy={radius + strokeWidth}
           />
@@ -85,25 +106,37 @@ function page() {
             SilverHeights
           </text>
           <text
-            x={radius/2+30}
-            y={-1*radius}
+            x={radius / 2 + 50}
+            y={-1 * radius}
             fill="white"
             className=" rotate-90 text-2xl transition-all duration-200 ease-out"
-          
-          >{dummy[(Math.round(currentProgress / 11 -0.5)%dummy.length)]}</text>
+          >
+            {dummy[Math.floor(currentProgress / 20)]}
+          </text>
           <circle
-            className=" transition-all duration-150 ease-out"
-            stroke="#24A6E0"
+            stroke="#fff"
             fill="transparent"
             strokeWidth={strokeWidth}
-            strokeDasharray={circumference + " " + circumference}
             style={{ strokeDashoffset }}
             r={radius}
             cx={radius + strokeWidth}
             cy={radius + strokeWidth}
           />
+          <circle
+            className=" transition-all z-10 duration-150 ease-out"
+            style={{
+              strokeDasharray: `${circumference} ${circumference}`,
+              strokeDashoffset: strokeDashoffset,
+            }}
+            stroke="#24A6E0"
+            fill="transparent"
+            strokeWidth={strokeWidth}
+            r={radius}
+            cx={radius + strokeWidth}
+            cy={radius + strokeWidth}
+          />
         </svg>
-      </div>
+      </animated.div>
       <div className=" flex flex-col justify-center py-20 px-10 md:px-32">
         <h1 className="text-[#1E1F4B] text-lg sm:text-2xl md:text-4xl not-italic font-bold leading-[3.25rem] tracking-[0.0125rem] capitalize font-popins ps-5 ">
           We create world-className Architectural Designs
@@ -187,43 +220,7 @@ function page() {
           </div>
         </div>
       </div>
-      <div className="flex flex-col items-center justify-center my-10">
-        <h1 className="text-[#03014C] text-center text-[2.5rem] not-italic font-extrabold leading-[normal] capitalize font-popins">
-          Let's hear
-          <br />
-          What they says
-        </h1>
-        <div className="flex flex-row justify-around w-full">
-          <h1 className="text-[#1B4896] text-center text-[6.25rem] not-italic font-extrabold leading-[normal] font-montserrat">
-            &#8220;
-          </h1>
-          <h2 className="text-[#1B4896] text-center text-[6.25rem] not-italic font-extrabold leading-[normal] font-montserrat">
-            &#8221;
-          </h2>
-        </div>
-        <h2 className="text-[#03014C] max-w-[40%] text-center text-base not-italic font-normal leading-[normal] font-popins -translate-y-10">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident
-          vero suscipit dignissimos amet temporibus possimus dolor saepe vel, at
-          perspiciatis sit in! Repellendus nobis doloribus molestias iure nulla
-          ut voluptate optio, nostrum deleniti in cupiditate ipsa dolorem
-          aliquam quis maxime numquam. Non similique accusantium delectus dolor
-          ea inventore blanditiis dolore.
-        </h2>
-        <div
-          className=" flex flex-row gap-44 h-[130px] justify-center overflow-visible items-center relative"
-          id="carousal"
-        >
-          {team.map((_, i) => (
-            <div className="aspect-square rounded-full overflow-hidden" key={i}>
-              <img
-                src="/images/projbg.jpg"
-                alt=""
-                className=" w-full h-full object-cover rounded-full"
-              />
-            </div>
-          ))}
-        </div>
-      </div>
+      <ImageGallery />
       <div className=" flex flex-row p-20 justify-around flex-wrap-reverse gap-5 md:gap-10">
         <div className=" flex flex-col px-10 min-w-96 max-w-[50%] flex-1 items-start justify-between ">
           <h1 className="text-[#1E1F4B] text-xl md:text-[2.5rem] not-italic font-bold leading-[3.25rem] tracking-[0.0125rem] capitalize font-popins">
@@ -265,7 +262,7 @@ function page() {
               />
               <button
                 type="submit"
-                className="text-white absolute end-2.5 bottom-2.5 bg-[#1B4896] hover:bg-blue-950 hover:transition-colors transition-colors focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-xl text-sm px-10 py-2"
+                className="text-white absolute end-2.5 bottom-2.5 bg-[#1B4896] hover:bg-blue-950 hover:transition-colors transition-colors focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-xl text-xs md:text-sm px-2 md:px-10 py-3 md:py-2"
                 style={{
                   boxShadow: "0px 6px 20px 0px rgba(112,111,229,0.50)",
                 }}

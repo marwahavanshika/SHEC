@@ -8,9 +8,10 @@ body{
 .head-image {
     height: 90vh;
     border: 10px;
+    width: 100vw;
 }
 
-.parent  {
+.par  {
     position: relative;
 }
 
@@ -47,7 +48,7 @@ body{
         height: 40px;
         width: 40px;
         position: relative;
-        left: 300px;
+        left: 340px;
 }
 /* @media screen and (max-width: 768px) {
     .img-text {
@@ -59,7 +60,9 @@ body{
     display: grid;
     /* align-items: center; */
     justify-content: center;
-    grid-template-columns: 400px 400px 400px;
+    justify-items: center;
+    /* grid-template-columns: 400px 400px 400px; */
+    grid-template-columns: 1fr 1fr 1fr;
     column-gap: 50px;
     row-gap: 50px;
 }
@@ -73,12 +76,22 @@ body{
     left: 300px;
 }
 
-.horizontal-container{
+.horizontal-container1{
     display: grid;
     row-gap: 20px;
     justify-content: center;
     align-items: center;
     top: 100px;
+    margin-top: -20px;
+}
+
+.horizontal-container2{
+    display: grid;
+    row-gap: 20px;
+    justify-content: center;
+    align-items: center;
+    top: 100px;
+    margin-right: 28px;
 }
 
 .flex{
@@ -93,4 +106,185 @@ body{
 .rec-img {
     height: 107px;
     width: 257px;
+}
+
+@media  screen and (max-width: 431px) {
+    
+    
+    .blog-container{
+        grid-template-columns: 350px;
+        margin-left: -4px;
+    }
+    .view{
+        margin-bottom: 30px;
+        margin-right: 140px;
+    }
+    .horizontal-container2{
+        display: none;
+    }
+
+    .img-text {
+        position: absolute;
+        top: 304px;
+        color: white;
+        left: 31px;
+        font-size: 36px;
+        font-variant: small-caps;
+        font-family: 'Poppins'
+    }
+    .img-text p {
+        position: relative;
+        left: 57px;
+        top: -27px;
+        font-weight: 200;
+    }
+    .head-image{
+        height: 50vh;
+    }
+
+    .par{
+        height: 50vh;
+    }
+    .blog-card{
+        background-color: black;
+        border-radius: 50%;
+        height: 40px;
+        width: 40px;
+        position: relative;
+        left: 265px;
+}
+.tablet{
+    align-items: center;
+    flex-direction: column;
+    margin-right: 30px;
+
+}
+.horizontal-container1{
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 0px;
+    width: 80%;
+    gap: 30px;
+}
+}
+
+@media  screen and (min-width:431px) and ( max-width:770px) {
+    .blog-container{
+        grid-template-columns: 300px 300px;
+    }
+    .blog-card{
+        background-color: black;
+        border-radius: 50%;
+        height: 40px;
+        width: 40px;
+        position: relative;
+        left: 230px;
+}
+.view{
+    margin-bottom: 40px;
+}
+    .img-text p {
+        position: relative;
+        left: 81px;
+        top: -46px;
+        font-weight: 200;
+    }
+    .img-text {
+        position: absolute;
+        top: 204px;
+        color: white;
+        left: 70px;
+        font-size: 53px;
+        font-variant: small-caps;
+        font-family: 'Poppins';
+    }
+
+    .horizontal-container2{
+        display: none;
+    }
+    .tablet{
+        align-items: center;
+        flex-direction: column;
+        margin-right: 40px;
+
+    }
+    .horizontal-container1{
+        grid-template-columns: 1fr 1fr 1fr;
+        padding: 0px;
+        width: 80%;
+        gap: 30px;
+    }
+
+    .head-image{
+        height: 50vh;
+    }
+
+    .par{
+        height: 50vh;
+    }
+}
+
+@media screen and (min-width: 771px) and (max-width: 1024px ) {
+    .img-text {
+        position: absolute;
+        top: 208px;
+        color: white;
+        left: 115px;
+        font-size: 56px;
+        font-variant: small-caps;
+        font-family: 'Poppins';
+    }
+    .img-text p {
+        position: relative;
+        left: 91px;
+        top: -49px;
+        font-weight: 200;
+    }
+    .blog-container{
+        grid-template-columns: 250px 250px 250px;
+    }
+    .blog-card{
+        background-color: black;
+        border-radius: 50%;
+        height: 40px;
+        width: 40px;
+        position: relative;
+        left: 185px;
+}
+.par{
+    height: 50vh;
+}
+.horizontal-container1{
+    display: grid;
+    row-gap: 20px;
+    justify-content: center;
+    align-items: center;
+    top: 100px;
+    margin-top: -5px;
+}
+.horizontal-container2{
+    margin-right: -72px;
+    row-gap: 0px;
+    margin-left: 0.5rem;
+}
+.hor-card{
+    width: 90%;
+}
+.cat-parent{
+    width: 90%;
+    margin-left: 2rem;
+}
+.hor-img{
+    height: 80px;
+    width: 80px;
+}
+.hor-card{
+    margin-right: 10px;
+}
+.rec-img {
+    height: 89px;
+    width: 171px;
+}
+.head-image{
+    height: 50vh;
+}
 }
