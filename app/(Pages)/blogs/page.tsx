@@ -7,38 +7,47 @@ import Horizontalcard from './blogcomponents/Horizontalcard';
 const blogs = [{
     blogTitle: "Noteworthy technology acquisitions 2021",
     blogDesc: "Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.",
+    imgLink: "https://th.bing.com/th/id/OIP.EybiWqiOiFo0-ElRBOIcZwHaE6?rs=1&pid=ImgDetMain",
     },
     {
         blogTitle: "Noteworthy technology acquisitions 2022",
         blogDesc: "Here are the biggest enterprise technology acquisitions of 2022 so far, in reverse chronological order.",
+        imgLink: "https://th.bing.com/th/id/OIP.njy20nuszFbgcqduqmwrMwHaEc?w=279&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7",
     },
     {
         blogTitle: "Noteworthy technology acquisitions 2023",
         blogDesc: "Here are the biggest enterprise technology acquisitions of 2023 so far, in reverse chronological order.",
+        imgLink: "https://th.bing.com/th?id=OIP.jCzdXmf9tTw3XJrlDpSIfwHaEo&w=316&h=197&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2",
     },
     {
         blogTitle: "Noteworthy technology acquisitions 2022",
         blogDesc: "Here are the biggest enterprise technology acquisitions of 2022 so far, in reverse chronological order.",
+        imgLink: "https://th.bing.com/th/id/OIP.qi0wAeRr-mA3XgqNXLlRwgHaEt?w=287&h=182&c=7&r=0&o=5&dpr=1.3&pid=1.7",
     },
     {
         blogTitle: "Noteworthy technology acquisitions 2023",
         blogDesc: "Here are the biggest enterprise technology acquisitions of 2023 so far, in reverse chronological order.",
+        imgLink: "https://th.bing.com/th/id/OIP.ONdWb-361QXutLQpVovOKQHaE7?w=276&h=184&c=7&r=0&o=5&dpr=1.3&pid=1.7",
     },
     {
         blogTitle: "Noteworthy technology acquisitions 2023",
         blogDesc: "Here are the biggest enterprise technology acquisitions of 2023 so far, in reverse chronological order.",
+        imgLink: "https://th.bing.com/th/id/OIP.cDYCNFAUvDmF0IoD0Vch8QHaEo?w=254&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7",
     },
     {
         blogTitle: "Noteworthy technology acquisitions 2023",
         blogDesc: "Here are the biggest enterprise technology acquisitions of 2023 so far, in reverse chronological order.",
+        imgLink: "https://th.bing.com/th/id/OIP.NY8REHIdABqsxUIwvyPBsQHaEK?w=321&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7",
     },
     {
         blogTitle: "Noteworthy technology acquisitions 2023",
         blogDesc: "Here are the biggest enterprise technology acquisitions of 2023 so far, in reverse chronological order.",
+        imgLink: "https://th.bing.com/th/id/OIP.aCWCKQt2dK3W24twF_jykgHaDt?w=307&h=175&c=7&r=0&o=5&dpr=1.3&pid=1.7",
     },
     {
         blogTitle: "Noteworthy technology acquisitions 2023",
         blogDesc: "Here are the biggest enterprise technology acquisitions of 2023 so far, in reverse chronological order.",
+        imgLink: "https://th.bing.com/th/id/OIP.N_p4YdO91wJD5vvih7PZKwHaE6?w=261&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7",
     }
 ]
 
@@ -72,7 +81,7 @@ const horizontal = [{
 export default function Blog () {
     {/*const an = ["1","2","3","4","5"];*/}
     return (
-        <>
+        <div className='pt-[80px]'>
             <div className="par text-center flex justify-center  bg-no-repeat  bg-cover h-screen md:bg-center w-full">
                 <Image src="/head.jpg" alt="head" width="1519"  height="0" className='head-image' />
             </div>
@@ -98,6 +107,7 @@ export default function Blog () {
                     <Card 
                         title={blog.blogTitle}
                         desc={blog.blogDesc}
+                        lnk={blog.imgLink}
                     />
                 ))
                 }
@@ -184,7 +194,7 @@ export default function Blog () {
                 
             </div>
   
-        </>
+        </div>
    
     );
 };
