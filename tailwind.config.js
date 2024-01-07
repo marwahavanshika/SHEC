@@ -15,7 +15,8 @@ module.exports = {
       fontFamily:{
         popins:['Popins','sans-serif'],
         roboto:['Roboto','sans-serif'],
-        montserrat:['montserrat','Popins','sans-serif']
+        montserrat:['montserrat','Popins','sans-serif'],
+        almarai:['Almarai', 'sans-serif']
       }
     },
   },

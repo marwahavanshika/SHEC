@@ -13,7 +13,7 @@ function page() {
   ];
   const [currentProgress, setCurrentProgress] = useState(0);
   const strokeWidth = 5;
-  const radius = 200;
+  const [radius, setradius] = useState(200)
   const circumference = 2 * Math.PI * radius;
   const dummy = [
     "Commercial",
@@ -32,6 +32,9 @@ function page() {
         return 0;
       });
     }, 50);
+    if(window.innerWidth<=1024){
+      setradius(100);
+    }
   }, []);
 
   const strokeDashoffset =
@@ -70,13 +73,8 @@ function page() {
                 <div
                   className=" absolute text-center rotate-90 text-white"
                   style={{
-                    top:
-                      index <= 2
-                        ? `calc(50% + ${y + 42 * index}px)`
-                        : index === 3
-                        ? `calc(50% + ${y - 40 * index}px)`
-                        : `calc(50% + ${y - 20 * index}px)`,
-                    left: `calc(50% + ${x}px)`,
+                    top: (index<=1)?`calc(50% + ${y+5}px)`:(index==2)?`calc(50% + ${y+70}px)`:`calc(50% + ${y-80}px)`,
+                    left: (index<=1)?`calc(50% + ${x+10}px)`:(index==2)?`calc(50% + ${x-10}px)`:`calc(50% + ${x-20}px)`,
                   }}
                 >
                   {dummy[index]}
@@ -97,7 +95,7 @@ function page() {
           height={1000}
           src={`/images/servicesbg${Math.floor(currentProgress / 20) + 1}.jpg`}
           alt=""
-          className="w-full h-full absolute inset-0 -z-10"
+          className="w-full h-full absolute inset-0 -z-10 object-cover"
         />
         <svg
           width={radius * 2 + strokeWidth * 2}
@@ -118,7 +116,7 @@ function page() {
             x={radius / 2}
             y={-1.25 * radius}
             fill="white"
-            className=" not-italic font-bold leading-[5.81638rem] tracking-[0.02406rem] rotate-90 text-xl lg:text-4xl font-popins"
+            className=" not-italic font-bold leading-[5.81638rem] tracking-[0.02406rem] rotate-90 text-base lg:text-4xl font-popins"
           >
             SilverHeights
           </text>
@@ -126,7 +124,7 @@ function page() {
             x={radius / 2 + 50}
             y={-1 * radius}
             fill="white"
-            className=" rotate-90 text-base lg:text-2xl transition-all duration-200 ease-out"
+            className=" rotate-90 text-sm lg:text-2xl transition-all duration-200 ease-out"
           >
             {dummy[Math.floor(currentProgress / 20)]}
           </text>

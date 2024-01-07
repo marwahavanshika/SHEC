@@ -82,7 +82,7 @@ export default function Home() {
             <ParallaxLayer
               className=" relative flex items-center justify-start"
             >
-              <Image src={'/head.jpg'} alt={'Main'} width={1000} height={1000} className=" absolute w-screen h-screen" />
+              <Image src={'/head.jpg'} alt={'Main'} width={1000} height={1000} className=" absolute w-screen h-screen object-cover" />
               <Heading />
             </ParallaxLayer>
             <ParallaxLayer
@@ -225,7 +225,7 @@ export default function Home() {
             </ParallaxLayer>
             <ParallaxLayer
               offset={6}
-              className={"flex flex-col items-center justify-around "}
+              className={"flex flex-col items-center justify-center "}
               // speed={0.25}
             >
               <h2

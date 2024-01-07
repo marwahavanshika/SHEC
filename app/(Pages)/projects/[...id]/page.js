@@ -20,7 +20,7 @@ const page = ({ params }) => {
       <div
         className=" h-screen w-screen bg-cover bg-center flex items-center justify-start relative"
       >
-        <Image width={1000} height={1000} alt="bg" src={'/head.jpg'} className=" absolute w-full h-full inset-0"/>
+        <Image width={1000} height={1000} alt="bg" src={'/head.jpg'} className=" absolute w-full h-full inset-0 object-cover"/>
         <Heading />
       </div>
       <div className="flex flex-col py-2 ps-2 md:p-10 items-center md:items-stretch gap-5 justify-center mt-5 md:flex-row">

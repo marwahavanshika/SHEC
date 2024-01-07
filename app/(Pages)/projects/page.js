@@ -104,7 +104,8 @@ categories.forEach((category) => {
           width={1000}
           height={1000}
           src={"/images/projbg.jpg"}
-          className=" -z-10 absolute w-full h-full inset-0"
+          alt="Projects"
+          className=" -z-10 absolute w-full h-full inset-0 object-cover"
         />
         <div className="flex flex-col items-center justify-evenly ">
           <div className="flex flex-col justify-center items-center text-center  max-w-7xl   my-8 py-4 px-10">
