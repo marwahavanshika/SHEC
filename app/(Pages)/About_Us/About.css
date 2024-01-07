@@ -40,6 +40,16 @@
     height: 390.95px;
     
 }
+.client-container {
+    display: grid;
+    /* align-items: center; */
+    justify-content: center;
+    justify-items: center;
+    /* grid-template-columns: 400px 400px 400px; */
+    grid-template-columns: 300px 300px 300px;
+    column-gap: 20px;
+    row-gap: 50px;
+}
 
 /* .ceo-img{
     width: 240px;
@@ -53,7 +63,41 @@
 }
 
 @media screen and (max-width:430px) {
-    
+    .img-text {
+        position: absolute;
+        top: 330px;
+        color: white;
+        left: 5px;
+        font-size: 50px;
+        font-variant: small-caps;
+        font-family: 'Poppins';
+    }
+    .img-text p {
+        position: relative;
+        left: 112px;
+        top: -41px;
+        font-weight: 200;
+    }
+    .Licence{
+        display: grid;
+    }
+    .licence-container{
+        grid-template-columns: 270px;
+    }
+    .certi{
+        display: grid;
+        grid-template-columns: 270px;
+        row-gap: 50px;
+    }
+    .client-container{
+        display: grid;
+        grid-template-columns: 270px;
+    }
+    .provide{
+        display: grid;
+        grid-template-columns: 270px;
+        row-gap: 30px;
+    }
 }
 
 @media screen and (min-width: 431px) and (max-width: 770px) {
@@ -79,6 +123,34 @@
         font-variant: small-caps;
         font-family: 'Poppins';
     }
+    .client-container {
+        display: grid;
+        /* align-items: center; */
+        justify-content: center;
+        justify-items: center;
+        /* grid-template-columns: 400px 400px 400px; */
+        grid-template-columns: 300px 300px;
+        column-gap: 20px;
+        row-gap: 50px;
+    }
+    .img-text p {
+        position: relative;
+        left: 158px;
+        top: -58px;
+        font-weight: 200;
+    }
+    .ceo-card{
+        display: flex;
+        margin-left: 13px;
+    }
+    .ceo-img-div{
+        margin-left: -95px;
+        height: 57vh;
+    }
+    .ceo-thought{
+        margin-right: -84px;
+        height: 57vh;
+    }
 }
 
 @media screen and (min-width: 771px) and (max-width: 1024px) {
@@ -97,5 +169,15 @@
     .ceo-card {
         width: 864.91px;
         height: 418.95px;
+    }
+    .client-container {
+        display: grid;
+        /* align-items: center; */
+        justify-content: center;
+        justify-items: center;
+        /* grid-template-columns: 400px 400px 400px; */
+        grid-template-columns: 300px 300px 300px;
+        column-gap: 20px;
+        row-gap: 50px;
     }
 }
