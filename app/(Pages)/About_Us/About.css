@@ -62,20 +62,20 @@
     box-shadow: 16.187px 11.331px 32.373px 0px rgba(0, 0, 0, 0.08);
 }
 
-@media screen and (max-width:430px) {
+@media screen and (max-width:431px) {
     .img-text {
         position: absolute;
-        top: 330px;
+        top: 220px;
         color: white;
         left: 5px;
-        font-size: 50px;
+        font-size: 45px;
         font-variant: small-caps;
         font-family: 'Poppins';
     }
     .img-text p {
         position: relative;
-        left: 112px;
-        top: -41px;
+        left: 85px;
+        top: -35px;
         font-weight: 200;
     }
     .Licence{
@@ -98,9 +98,26 @@
         grid-template-columns: 270px;
         row-gap: 30px;
     }
+    .what{
+        margin-top: -75px;
+    }
+    .cer img{
+        height: 350px;
+    }
+    .ceo-main{
+        margin-left: 52px;
+    width: 74%;
+    margin-bottom: 350px;
+    }
+    .ceo-thought{
+        box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+    }
+    .head-image{
+        height: 55vh;
+    }
 }
 
-@media screen and (min-width: 431px) and (max-width: 770px) {
+@media screen and (min-width: 432px) and (max-width: 770px) {
     .cer{
         margin-bottom: 30px;
     }
