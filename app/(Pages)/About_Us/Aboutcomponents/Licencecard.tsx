@@ -4,17 +4,18 @@ import Image from 'next/image';
 
 
 interface LicencecardProps {
+    lnk: string;
     title: string;
     desc: string;
     timeline: string;
 }
 
-const Licencecard: React.FC<LicencecardProps> = ({title, desc,timeline}) => {
+const Licencecard: React.FC<LicencecardProps> = ({lnk,title, desc,timeline}) => {
   return (
     <div>
     <div className=" ">
               <a href="#">
-                  <Image  src="/images/licence1.jpg" alt="category" width="299" height="0" />
+                  <Image  src={lnk} alt="category" width="299" height="0" />
               </a>
               <div className="p-5 pl-0  w-72">
                   <a href="#">
