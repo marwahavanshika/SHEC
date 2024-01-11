@@ -7,6 +7,7 @@
 
 .parent  {
     position: relative;
+    
 }
 
 .cer img {
@@ -68,7 +69,7 @@
     width: 280px;
     height: 305px;
     border-radius: 1.5rem;
-    background-color: #1B4896;
+    background-color: #1B4896; 
 }
 
 .clients-container {
@@ -138,6 +139,7 @@
             display: grid;
             grid-template-columns: 300px;
             width: 23%;
+            margin-left: -5px;
     }
 }
 

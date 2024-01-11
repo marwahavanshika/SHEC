@@ -6,8 +6,8 @@ interface ClientscardProps {
     lnk: string;
     name: string;
     review: string;
-    rate: string;
-    totalrating: string;
+    rate: number;
+    totalrating: number;
 }
 
 const Clientscard: React.FC<ClientscardProps> = ({lnk,name,review,rate,totalrating}) => {
@@ -26,8 +26,18 @@ const Clientscard: React.FC<ClientscardProps> = ({lnk,name,review,rate,totalrati
                         <a
                         href="#"
                         className="py-2 px-4 text-lg font-semibold text-indigo-200"
-                        ><span className="text-white text-base font-extrabold font-['Manrope'] leading-tight"> {rate}</span>
-                        <span className="text-indigo-200 text-[9.84px] font-extrabold font-['Manrope'] leading-tight">{totalrating}</span>
+                        ><span className="text-white text-base font-extrabold font-['Manrope'] leading-tight">{rate}.0</span><span className="text-white text-[10px] font-extrabold font-['Manrope'] leading-tight">/{totalrating}.0 rating</span>
+                        <span>    </span>
+                            <span className="text-white text-base font-extrabold font-['Manrope'] leading-tight">
+                            {[...Array(rate)].map((_, i) => (
+                                    <span style={{color: 'gold'}}>&#9733;</span>
+                                ))}
+                        </span>
+                        <span className="text-indigo-200 text-base font-extrabold font-['Manrope'] leading-tight">
+                            {[...Array(totalrating - rate)].map((_, i) => (
+                                    <span style={{color: 'grey'}}>&#9733;</span>
+                                ))}
+                        </span>
                         </a>
                     </div>
                     </div>   

@@ -33,43 +33,43 @@ const clients = [{
     imgLink: "https://randomuser.me/api/portraits/men/24.jpg",
     clientName: "Randy Robertson",
     clientReview: "Sapiente occaecati exercitationem quasi eum corporis sit. Aut consectetur maxime debitis quam voluptatem aut consequatur voluptatum.",
-    clientRate: "5.0",
-    ClientTotalrating: "/5.0 rating     *  *  *  *  * ",
+    clientRate: 5,
+    ClientTotalrating: 5,
     },
     {
         imgLink: "https://images.unsplash.com/photo-1611342799915-5dd9f1665d04?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
         clientName: "Letcia Kutch",
         clientReview: "Sapiente occaecati exercitationem quasi eum corporis sit. Aut consectetur maxime debitis quam voluptatem aut consequatur voluptatum.",
-        clientRate: "5.0",
-        ClientTotalrating: "/5.0 rating  *  *  *  *  * ",
+        clientRate: 4,
+        ClientTotalrating: 5,
     },
     {
         imgLink: "https://images.unsplash.com/photo-1477118476589-bff2c5c4cfbb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=200&q=200",
         clientName: "Randy Robertson",
         clientReview: "Sapiente occaecati exercitationem quasi eum corporis sit. Aut consectetur maxime debitis quam voluptatem aut consequatur voluptatum.",
-        clientRate: "5.0",
-        ClientTotalrating: "/5.0 rating  *  *  *  *  * ",
+        clientRate: 5,
+        ClientTotalrating: 5,
     },
     {
         imgLink: "/images/cl-jeet.jpg",
         clientName: "Mohd. Jeetraj Ali",
         clientReview: "My house is now lakh times better than 7 star hotel. Maldives and Lakshadweep has no comparison before my house.I am very rich now.",
-        clientRate: "5.0",
-        ClientTotalrating: "/5.0 rating  *  *  *  *  * ",
+        clientRate: 5,
+        ClientTotalrating: 5,
     },
     {
         imgLink: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/profile-sample3.jpg",
         clientName: "Randy Robertson",
         clientReview: "Sapiente occaecati exercitationem quasi eum corporis sit. Aut consectetur maxime debitis quam voluptatem aut consequatur voluptatum.",
-        clientRate: "5.0",
-        ClientTotalrating: "/5.0 rating  *  *  *  *  * ",
+        clientRate: 4,
+        ClientTotalrating: 5,
     },
     {
         imgLink: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/profile-sample6.jpg",
         clientName: "Randy Robertson",
         clientReview: "Sapiente occaecati exercitationem quasi eum corporis sit. Aut consectetur maxime debitis quam voluptatem aut consequatur voluptatum.",
-        clientRate: "5.0",
-        ClientTotalrating: "/5.0 rating  *  *  *  *   * ",
+        clientRate: 4,
+        ClientTotalrating: 5,
     }
 ]
 
@@ -77,7 +77,7 @@ export default function AboutUs () {
     return (
         <>
             <div className="parent text-center">
-                <Image src="/images/About_first.jpg" alt="head" width="1519"  height="0" className='head-image' />
+                <Image src="/images/About_first.jpg" alt="head" width="1519"  height="0" className='head-image w-full' />
             </div>
 
             <div className='img-text text-center'>
@@ -95,7 +95,7 @@ export default function AboutUs () {
                 <p className="font-normal text-sm md:text-base lg:text-lg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam unde tempora reiciendis quae vitae.</p>
             </div>
 
-            <div className='provide  md:w-[85%] ml-[53px] lg:mr-[55px] xl:mr-[0px] flex flex-1 lg:w-[90%] gap-x-8 mb-20 md:mb-16 lg:mb-36 '>
+            <div className='provide  md:w-[85%] ml-[50px] lg:mr-[55px] xl:mr-[0px] flex flex-1 lg:w-[90%] gap-x-8 mb-20 md:mb-16 lg:mb-36 '>
                 <div className="parent text-center">
                     <Image src="/images/bldg1.jpg" alt="bldg1"   width="367" height="0" className='about-image1 cursor-pointer' />
                 </div>
