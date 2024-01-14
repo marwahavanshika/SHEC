@@ -84,7 +84,7 @@ function page() {
                         ? "-100px -30px"
                         : index === 4
                         ? "-40px 20px"
-                        : "0 0",
+                        : "0 10px",
                   }}
                 >
                   {dummy[index]}
@@ -162,7 +162,7 @@ function page() {
           />
         </svg>
       </div>
-      <div className=" flex flex-col justify-center py-20 px-10 md:px-32">
+      <div className=" flex flex-col justify-center py-24 px-10 md:px-32">
         <h1 className="text-[#1E1F4B] text-lg sm:text-2xl md:text-4xl not-italic font-bold leading-[3.25rem] tracking-[0.0125rem] capitalize font-popins ps-5 ">
           We create world-className Architectural Designs
         </h1>

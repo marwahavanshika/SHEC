@@ -30,7 +30,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="text-gray-600 body-font bg-[#1B4896] mt-10">
+    <footer className="text-gray-600 body-font bg-[#1d3969] mt-10">
       <div className="container px-10 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
         <div className="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left items-center justify-center">
           <Link
@@ -42,9 +42,8 @@ export default function Footer() {
               height={1000}
               src={"/images/logo.png"}
               alt="Logo"
-              className=" object-cover w-full h-full"
+              className=" object-cover w-[300px] brightness-150"
             />
-            {/* <span className="ml-3 text-xl">Tailblocks</span> */}
           </Link>
           <p className=" text-center text-white font-popins text-xl font-bold">
             You ask it <br /> <span className=" ms-16">we build it</span>
@@ -93,7 +92,7 @@ export default function Footer() {
               ))}
             </nav>
           </div>
-          <div>
+          <div className="lg:w-1/4 md:w-1/2 w-full px-4">
             <h1 className="text-white text-[17.737px] not-italic font-bold leading-[normal] font-almarai mb-2">
               Social
             </h1>

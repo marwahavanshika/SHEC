@@ -151,10 +151,9 @@ const ImageGallery = () => {
             <animated.div
               style={{
                 ...props,
-                height: h[index],
                 border: index === 2 ? "4px solid darkblue" : "0px",
               }}
-              className=" p-2 aspect-square overflow-hidden rounded-full"
+              className=" p-2 aspect-square h-24 lg:h-36 overflow-hidden rounded-full"
               key={index}
             >
               <Image

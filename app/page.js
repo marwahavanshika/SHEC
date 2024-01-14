@@ -194,7 +194,7 @@ export default function Home() {
 
             <ParallaxLayer
               offset={5}
-              className={" flex flex-col items-center pt-20 justify-center"}
+              className={" flex flex-col items-center pt-20 justify-evenly"}
               // speed={0.25}
             >
               <h2
@@ -206,7 +206,7 @@ export default function Home() {
               </h2>
               <h1
                 className={
-                  "text-black text-center shrink text-4xl md:text-[2.4875rem] not-italic font-semibold leading-[2.9375rem] font-sans"
+                  "text-black text-center -translate-y-10 shrink text-4xl md:text-[2.4875rem] not-italic font-semibold leading-[2.9375rem] font-sans"
                 }
               >
                 Our Past Projects
@@ -298,12 +298,7 @@ export default function Home() {
                 <Contact />
               </div>
               <div className="w-[28.07725rem] h-[36.0625rem] min-h-96 shrink">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5267467.328243882!2d79.79308074695561!3d24.895329786126055!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd5b347eb62d%3A0x52c2b7494e204dce!2sNew%20Delhi%2C%20Delhi!5e0!3m2!1sen!2sin!4v1703830862216!5m2!1sen!2sin"
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  className={"w-full h-full rounded-md"}
-                ></iframe>
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3608.2195202023954!2d55.31301597523728!3d25.263199877668477!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f5cccbfa289f7%3A0x7a65f36431f1f1e6!2sSilver%20Heights%20Engineering%20Consultants!5e0!3m2!1sen!2sin!4v1705237294394!5m2!1sen!2sin" width="600" height="450" allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade" className=" w-full h-full rounded-md"></iframe>
               </div>
             </ParallaxLayer>
             <ParallaxLayer
