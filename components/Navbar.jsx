@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export default function Navbar() {
   const links = [
@@ -13,7 +13,7 @@ export default function Navbar() {
   const [isCopied, setisCopied] = useState(false);
   const [isOpen, setisOpen] = useState(false);
   const handleclick = () => {
-    navigator.clipboard.writeText("+971 50 9999 611 050 9999 611");
+    navigator.clipboard.writeText("+971 50 9999 611");
     setisCopied(true);
     setTimeout(() => {
       setisCopied(false);
@@ -21,9 +21,9 @@ export default function Navbar() {
   };
   const handlescroll = () => {};
   return (
-    <header className=" h-20 fixed w-full z-20 bg-white shadow-2xl">
-      <div className=" hidden lg:block h-full w-full relative">
-        <div className=" h-3/4 px-20 w-full mt-5 top-0 flex items-center justify-between flex-row ">
+    <header className={" h-20 fixed w-full z-20 bg-white shadow-2xl"}>
+      <div className={" hidden lg:block h-full w-full relative"}>
+        <div className={" h-3/4 px-20 w-full mt-5 top-0 flex items-center justify-between flex-row "}>
           <Link href={"/"}>
             <Image
               alt="logo"
@@ -33,10 +33,10 @@ export default function Navbar() {
               className={"w-[150px] h-[75px]"}
             />
           </Link>
-          <div className=" hidden lg:flex relative flex-row gap-5 justify-center h-full items-center">
+          <div className={" hidden lg:flex relative flex-row gap-5 justify-center h-full items-center"}>
             <button
               onClick={() => handleclick()}
-              className=" h-2/3 peer w-[150px] flex transition-all duration-200 ease-out items-center justify-center rounded-3xl bg-[#1B4896]"
+              className={" h-2/3 peer w-[150px] flex transition-all duration-200 ease-out items-center justify-center rounded-3xl bg-[#1B4896]"}
             >
               <svg
                 width="27"
@@ -59,7 +59,7 @@ export default function Navbar() {
                 050 9999 611
               </div>
             </button>
-            <div className=" absolute hidden rounded-md peer-hover:flex w-32 h-14 transition-all duration-200 ease-out border-[3px] border-[#1B4896] bg-white -bottom-full right-1/2 before:absolute before:w-[20px] before:h-[20px] before:content-[''] before:-rotate-[135deg] before:border-l-0 before:border-r-2 before:border-t-0 before:border-b-2 before:border-solid before:border-[#1B4896] before:bg-white before:left-2/4 before:bottom-[85%] items-center justify-center text-sm text-[#1B4896]  ">
+            <div className={" absolute hidden rounded-md peer-hover:flex w-32 h-14 transition-all duration-200 ease-out border-[3px] border-[#1B4896] bg-white -bottom-full right-1/2 before:absolute before:w-[20px] before:h-[20px] before:content-[''] before:-rotate-[135deg] before:border-l-0 before:border-r-2 before:border-t-0 before:border-b-2 before:border-solid before:border-[#1B4896] before:bg-white before:left-2/4 before:bottom-[85%] items-center justify-center text-sm text-[#1B4896]  "}>
               {isCopied ? (
                 <span className="text-xs">Copied to Clipboard</span>
               ) : (
@@ -69,7 +69,7 @@ export default function Navbar() {
             <div className=" flex flex-col gap-2 justify-end">
               <button
                 onClick={() => handlescroll()}
-                className="h-[30px] w-[110px] cursor-pointer border-2 group flex items-center justify-center border-[#1B4896] text-xs text-[#1B4896] rounded-2xl"
+                className={"h-[30px] w-[110px] cursor-pointer border-2 group flex items-center justify-center border-[#1B4896] text-xs text-[#1B4896] rounded-2xl"}
               >
                 Contact-Us
                 <svg
@@ -78,7 +78,7 @@ export default function Navbar() {
                   viewBox="0 0 24 24"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
-                  className=" group-hover:translate-x-2 group-hover:transition-all group-hover:duration-200 group-hover:ease-out transition-all duration-200 ease-in"
+                  className={" group-hover:translate-x-2 group-hover:transition-all group-hover:duration-200 group-hover:ease-out transition-all duration-200 ease-in"}
                 >
                   <path
                     d="M15.586 10.657L11.636 6.70704C11.4538 6.51844 11.353 6.26584 11.3553 6.00364C11.3576 5.74144 11.4628 5.49063 11.6482 5.30522C11.8336 5.11981 12.0844 5.01465 12.3466 5.01237C12.6088 5.01009 12.8614 5.11088 13.05 5.29304L18.707 10.95C18.8002 11.0427 18.8741 11.1529 18.9246 11.2742C18.9751 11.3955 19.001 11.5256 19.001 11.657C19.001 11.7884 18.9751 11.9186 18.9246 12.0399C18.8741 12.1612 18.8002 12.2714 18.707 12.364L13.05 18.021C12.9578 18.1166 12.8474 18.1927 12.7254 18.2451C12.6034 18.2976 12.4722 18.3251 12.3394 18.3263C12.2066 18.3274 12.0749 18.3021 11.952 18.2519C11.8291 18.2016 11.7175 18.1273 11.6236 18.0334C11.5297 17.9395 11.4555 17.8279 11.4052 17.705C11.3549 17.5821 11.3296 17.4504 11.3307 17.3176C11.3319 17.1849 11.3595 17.0536 11.4119 16.9316C11.4643 16.8096 11.5405 16.6993 11.636 16.607L15.586 12.657H6C5.73478 12.657 5.48043 12.5517 5.29289 12.3641C5.10536 12.1766 5 11.9223 5 11.657C5 11.3918 5.10536 11.1375 5.29289 10.9499C5.48043 10.7624 5.73478 10.657 6 10.657H15.586Z"
@@ -181,7 +181,7 @@ export default function Navbar() {
         </svg>
       </div>
       <div
-        className="h-screen shadow-2xl z-50 w-[50vw] absolute top-0 right-0 bg-white flex items-center flex-col justify-start transition-transform duration-500 ease-out gap-10"
+        className="h-screen shadow-2xl z-50 w-screen absolute top-0 right-0 bg-white flex items-center flex-col justify-start transition-transform duration-[1000ms] ease-out gap-10"
         style={{ transform: isOpen ? "translateX(0%)" : "translateX(110%)" }}
       >
         <svg
@@ -208,15 +208,24 @@ export default function Navbar() {
             </svg>
           </g>
         </svg>
-        <nav className="  h-[200px] w-[min(110px,90%)] min-w-[110px] mt-32 flex flex-col gap-5 ">
+        <nav className="  h-[200px] w-[min(150px,90%)] min-w-[150px] mt-32 flex flex-col gap-5 ">
+          <Link
+            href={"/"}
+            className={
+              "w-full h-full grid place-items-center border-2 border-[#1B4896] bg-[#1B4896] rounded text-white hover:bg-white hover:text-[#1B4896] hover:border-2 hover:border-[#1B4896] transition-colors duration-200 ease-out hover:font-semibold "
+            }
+            onClick={() => setisOpen(false)}
+          >
+            Home
+          </Link>
           {links.map((value, i) => (
             <Link
               href={`/${value.link}`}
               key={i}
               className={
-                "w-[min(110px,90%)] min-w-[110px] h-full grid place-items-center border-2 border-[#1B4896] bg-[#1B4896] rounded text-white hover:bg-white hover:text-[#1B4896] hover:border-2 hover:border-[#1B4896] transition-colors duration-200 ease-out hover:font-semibold "
+                "w-full h-full grid place-items-center border-2 border-[#1B4896] bg-[#1B4896] rounded text-white hover:bg-white hover:text-[#1B4896] hover:border-2 hover:border-[#1B4896] transition-colors duration-200 ease-out hover:font-semibold "
               }
-              onClick={()=>setisOpen(false)}
+              onClick={() => setisOpen(false)}
             >
               <span>{value.name}</span>
             </Link>

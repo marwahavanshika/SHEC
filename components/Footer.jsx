@@ -40,7 +40,7 @@ export default function Footer() {
             <Image
               width={1000}
               height={1000}
-              src={"/images/logo2.png"}
+              src={"/images/logo.png"}
               alt="Logo"
               className=" object-cover w-full h-full"
             />

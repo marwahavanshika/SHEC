@@ -98,7 +98,7 @@ export default function Home() {
                   Welcome, SHEC
                 </h1>
                 <h1 className={"text-xl md:text-lg lg:text-xl mb-16 md:mb-28"}>
-                  we bet you, you will wish to book all
+                  We Design, You Delight.
                 </h1>
                 <p className={"text-[#0487C9] text-lg md:text-2xl lg:text-3xl"}>
                   SHEC is an innovative engineering consultancy with a creative

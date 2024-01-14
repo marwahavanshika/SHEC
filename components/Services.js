@@ -140,7 +140,7 @@ const ImageGallery = () => {
         </h2>
       </div>
       <animated.h2
-        className="text-[#03014C] max-w-[50%] text-center text-xs md:text-base not-italic font-normal leading-[normal] font-popins -translate-y-10"
+        className="text-[#03014C] max-w-[50%] text-center text-xs md:text-base not-italic font-normal leading-[normal] font-popins"
         style={springReview}
       >
         {helper[(Index - 2 + helper.length) % helper.length].review}

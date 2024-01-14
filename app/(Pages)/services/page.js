@@ -13,7 +13,7 @@ function page() {
   ];
   const [currentProgress, setCurrentProgress] = useState(0);
   const strokeWidth = 5;
-  const [radius, setradius] = useState(200)
+  const [radius, setradius] = useState(200);
   const circumference = 2 * Math.PI * radius;
   const dummy = [
     "Commercial",
@@ -32,7 +32,7 @@ function page() {
         return 0;
       });
     }, 50);
-    if(window.innerWidth<=1024){
+    if (window.innerWidth <= 1024) {
       setradius(100);
     }
   }, []);
@@ -70,15 +70,25 @@ function page() {
                     className=" rotate-90 w-full h-full"
                   />
                 </div>
-                <div
-                  className=" absolute text-center rotate-90 text-white"
+                <span
+                  className=" absolute lg:text-lg text-xs rotate-90 text-white"
                   style={{
-                    top: (index<=1)?`calc(50% + ${y+5}px)`:(index==2)?`calc(50% + ${y+70}px)`:`calc(50% + ${y-80}px)`,
-                    left: (index<=1)?`calc(50% + ${x+10}px)`:(index==2)?`calc(50% + ${x-10}px)`:`calc(50% + ${x-20}px)`,
+                    top: `calc(50% + ${y}px)`,
+                    left: `calc(50% + ${x}px)`,
+                    margin:
+                      index === 1
+                        ? "20px 15px"
+                        : index === 2
+                        ? "80px -30px"
+                        : index === 3
+                        ? "-100px -30px"
+                        : index === 4
+                        ? "-40px 20px"
+                        : "0 0",
                   }}
                 >
                   {dummy[index]}
-                </div>
+                </span>
               </div>
             );
           })}
@@ -124,7 +134,7 @@ function page() {
             x={radius / 2 + 50}
             y={-1 * radius}
             fill="white"
-            className=" rotate-90 text-sm lg:text-2xl transition-all duration-200 ease-out"
+            className=" rotate-90 text-xs lg:text-2xl transition-all duration-200 ease-out"
           >
             {dummy[Math.floor(currentProgress / 20)]}
           </text>
