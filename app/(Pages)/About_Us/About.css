@@ -7,6 +7,7 @@
 
 .parent  {
     position: relative;
+    
 }
 
 .cer img {
@@ -15,7 +16,7 @@
 
 .img-text {
     position: absolute;
-    top: 340px;
+    top: 200px;
     color: white;
     /* font-weight: thin; */
     left: 134px;
@@ -40,15 +41,12 @@
     height: 390.95px;
     
 }
-.client-container {
-    display: grid;
-    /* align-items: center; */
-    justify-content: center;
-    justify-items: center;
-    /* grid-template-columns: 400px 400px 400px; */
-    grid-template-columns: 300px 300px 300px;
-    column-gap: 20px;
-    row-gap: 50px;
+
+.ceo-container
+{
+    border-radius: 3xl;
+    color: #000;
+    background-color: #f3f2f2;
 }
 
 /* .ceo-img{
@@ -62,24 +60,48 @@
     box-shadow: 16.187px 11.331px 32.373px 0px rgba(0, 0, 0, 0.08);
 }
 
-@media screen and (max-width:430px) {
+.client-div{
+    width: 17%;
+    margin-left: 70px;
+}
+
+.cl-div{
+    width: 280px;
+    height: 305px;
+    border-radius: 1.5rem;
+    background-color: #1B4896; 
+}
+
+.clients-container {
+    display: grid;
+    /* align-items: center; */
+    justify-content: center;
+    justify-items: center;
+    /* grid-template-columns: 400px 400px 400px; */
+    grid-template-columns: 300px 300px 300px;
+    column-gap: 25px;
+    row-gap: 0px;
+}
+
+@media screen and (max-width:431px) {
     .img-text {
         position: absolute;
-        top: 330px;
+        top: 220px;
         color: white;
         left: 5px;
-        font-size: 50px;
+        font-size: 45px;
         font-variant: small-caps;
         font-family: 'Poppins';
     }
     .img-text p {
         position: relative;
-        left: 112px;
-        top: -41px;
+        left: 85px;
+        top: -35px;
         font-weight: 200;
     }
     .Licence{
         display: grid;
+        margin-left: -7px;
     }
     .licence-container{
         grid-template-columns: 270px;
@@ -89,18 +111,39 @@
         grid-template-columns: 270px;
         row-gap: 50px;
     }
-    .client-container{
-        display: grid;
-        grid-template-columns: 270px;
-    }
     .provide{
         display: grid;
         grid-template-columns: 270px;
         row-gap: 30px;
     }
+    .what{
+        margin-top: -75px;
+    }
+    .cer img{
+        height: 350px;
+    }
+    .ceo-main{
+        margin-left: 50px;
+    width: 74%;
+    margin-bottom: 350px;
+    }
+    .ceo-thought{
+        border-bottom-right-radius: 1.5rem; /* 24px */
+        border-bottom-left-radius: 1.5rem; /* 24px */
+        box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+    }
+    .head-image{
+        height: 55vh;
+    }
+    .clients-container{
+            display: grid;
+            grid-template-columns: 300px;
+            width: 23%;
+            margin-left: -5px;
+    }
 }
 
-@media screen and (min-width: 431px) and (max-width: 770px) {
+@media screen and (min-width: 432px) and (max-width: 770px) {
     .cer{
         margin-bottom: 30px;
     }
@@ -123,16 +166,7 @@
         font-variant: small-caps;
         font-family: 'Poppins';
     }
-    .client-container {
-        display: grid;
-        /* align-items: center; */
-        justify-content: center;
-        justify-items: center;
-        /* grid-template-columns: 400px 400px 400px; */
-        grid-template-columns: 300px 300px;
-        column-gap: 20px;
-        row-gap: 50px;
-    }
+    
     .img-text p {
         position: relative;
         left: 158px;
@@ -150,6 +184,13 @@
     .ceo-thought{
         margin-right: -84px;
         height: 57vh;
+    }
+    .clients-container {
+        width: 60%;
+        display: grid;
+        grid-template-columns: 300px 300px;
+        column-gap: 40px;
+        margin-bottom: 20px;
     }
 }
 
@@ -170,14 +211,7 @@
         width: 864.91px;
         height: 418.95px;
     }
-    .client-container {
-        display: grid;
-        /* align-items: center; */
-        justify-content: center;
-        justify-items: center;
-        /* grid-template-columns: 400px 400px 400px; */
-        grid-template-columns: 300px 300px 300px;
-        column-gap: 20px;
-        row-gap: 50px;
+    .clients-container{
+        width: 71%;
     }
 }
