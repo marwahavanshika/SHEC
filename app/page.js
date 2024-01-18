@@ -54,23 +54,23 @@ export default function Home() {
   }, [page, parallaxRef]);
   
   const secondsection = [
-    "Master Planing",
-    "Architectural Design",
-    "Structural Design",
-    "Supervision",
-    "Interior Design",
-    "MEP Design",
-    "Authorities Approval",
-    "Project Management",
-    "Landscape Design",
+    "Strategic Scheming",
+    "Structural Conception",
+    "Framework Engineering ",
+    "Oversight",
+    "Interior Décor",
+    "Building Design",
+    "Regulatory Endorsement",
+    "Project Administration",
+    "Outdoor"
   ];
 
   return (
     <>
-      {isloading ? (
+      {isloading && false ? (
         <LoadingScreen />
       ) : (
-        <animated.div style={props} className=" h-screen">
+        <animated.div  className=" h-screen">
           <Parallax pages={8} ref={parallaxRef}>
             <ParallaxLayer
               className="z-20"
@@ -95,16 +95,13 @@ export default function Home() {
                 <h1
                   className={"text-4xl md:text-5xl lg:text-7xl mb-4 font-bold"}
                 >
-                  Welcome, SHEC
+                  EMBRACE SHEC
                 </h1>
                 <h1 className={"text-xl md:text-lg lg:text-xl mb-16 md:mb-28"}>
-                  We Design, You Delight.
+                  We Create, You Enchant
                 </h1>
                 <p className={"text-[#0487C9] text-lg md:text-2xl lg:text-3xl"}>
-                  SHEC is an innovative engineering consultancy with a creative
-                  team of architects, designers, planners, and engineers
-                  offering diverse professional services beyond traditional
-                  boundaries.
+                SHEC stands as a pioneering engineering consultancy, featuring a dynamic team of architects, designers, planners, and engineers, providing a comprehensive array of innovative professional services.
                 </p>
               </div>
               <div
@@ -209,7 +206,7 @@ export default function Home() {
                   "text-black text-center -translate-y-10 shrink text-4xl md:text-[2.4875rem] not-italic font-semibold leading-[2.9375rem] font-sans"
                 }
               >
-                Our Past Projects
+                Previous Endeavours
               </h1>
               <Gallery />
               <h4>
@@ -230,17 +227,17 @@ export default function Home() {
             >
               <h2
                 className={
-                  "text-black text-center text-xl md:text-[1.2125rem] not-italic font-medium leading-[normal] tracking-[0.18188rem] uppercase"
+                  "text-black text-center text-xl md:text-[1.2125rem] not-italic font-medium leading-[normal] tracking-[0.18188rem] uppercase px-3"
                 }
               >
-                WHAT'S TRENDING
+                Discover the Latest in Real Estate:
               </h2>
               <h1
                 className={
-                  "text-black text-center text-3xl md:text-[2.4875rem] not-italic font-semibold leading-[2.9375rem]"
+                  "text-black text-center text-3xl md:text-[2.4875rem] not-italic font-semibold px-5 leading-[2.9375rem]"
                 }
               >
-                Latest Blogs & Posts
+                Explore Our Blog for Expert Insights!
               </h1>
               <div
                 className={
