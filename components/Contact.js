@@ -1,37 +1,71 @@
+import { useState } from "react";
+
 function Contact() {
+  const [Data, setData] = useState({});
+  const [Select, setSelect] = useState("Internet");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const newData = {
+      ...Data,
+      ["Source"]: Select,
+    };
+    try {
+      const res = await fetch("http://localhost:3000/api/contacts", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newData),
+      });
+      if (res.status === 500) {
+        throw new Error("Error");
+      } else {
+        console.log(res);
+      }
+    } catch (error) {
+      alert("An Error Occurred Try After Sometime")
+      console.error(error);
+    }
+  };
+  const handleChange = (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
+    setData((prev) => ({ ...prev, [name]: value }));
+  };
+
   return (
-    <form className="flex flex-col p-4 gap-5 md:gap-10">
-      {["Name", "Email", "Phone No."].map((label, i) => (
+    <form className="flex flex-col p-4 gap-5 md:gap-10" onSubmit={handleSubmit}>
+      {["Name", "Email", "Phone"].map((label, i) => (
         <div className="relative flex-1 flex h-10" key={i}>
           <input
             className="peer w-[90%] h-full bg-transparent text-blue-gray-700 font-sans font-normal outline outline-1 focus:outline-0 disabled:bg-blue-gray-50 disabled:border-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 border-t-transparent focus:border-t-transparent text-sm px-3 py-2.5 focus:border-[#0487C9]"
             placeholder=" "
             required
+            onChange={(e) => handleChange(e)}
+            name={label}
           />
           <label className="flex w-[90%] h-full select-none pointer-events-none absolute left-0 font-popins !overflow-visible truncate peer-placeholder-shown:text-blue-gray-500 leading-tight peer-focus:leading-tight peer-disabled:text-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500 transition-all -top-1.5 peer-placeholder-shown:text-sm text-[11px] peer-focus:text-[11px] before:content[' '] before:block before:box-border before:w-2.5 before:h-1.5 before:mt-[6.5px] before:mr-1 peer-placeholder-shown:before:border-transparent before:rounded-tl-md before:border-t peer-focus:before:border-t-2 before:border-l peer-focus:before:border-l-2 before:pointer-events-none before:transition-all peer-disabled:before:border-transparent after:content[' '] after:block after:flex-grow after:box-border after:w-2.5 after:h-1.5 after:mt-[6.5px] after:ml-1 peer-placeholder-shown:after:border-transparent after:rounded-tr-md after:border-t peer-focus:after:border-t-2 after:border-r peer-focus:after:border-r-2 after:pointer-events-none after:transition-all peer-disabled:after:border-transparent peer-placeholder-shown:leading-[3.75] text-blue-gray-400 peer-focus:text-[#0487C9] before:border-blue-gray-200 peer-focus:before:!border-[#0487C9] after:border-blue-gray-200 peer-focus:after:!border-[#0487C9] text-[#828282] text-[0.7975rem] not-italic font-normal leading-[1.36713rem] tracking-[0.008rem]">
             {label}
-            {i == 1 ? <></> : <span className="text-red-500">*</span>}
           </label>
         </div>
       ))}
       <div>
         <select
           id="countries"
-          defaultValue={"How did you find us?"}            
+          defaultValue={"How did you find us?"}
+          name="Source"
+          onChange={(e) => setSelect(e.target.value)}
           className="text-black  w-[90%] min-w-[200px] shrink h-10 outline outline-1 text-[0.7975rem] not-italic font-normal leading-[1.36713rem] tracking-[0.008rem] font-[Montserrat]"
         >
-          <option
-            hidden
-          >
-            How did you find us?
-          </option>
-          <option value="FB">Facebook</option>
-          <option value="IN">Instagram</option>
-          <option value="X">Twitter</option>
-          <option value="TK">Tik-Tok</option>
+          <option value="Facebook">Facebook</option>
+          <option value="Instagram">Instagram</option>
+          <option value="Twitter">Twitter</option>
+          <option value="Tik-Tok">Tik-Tok</option>
         </select>
       </div>
       <button
+        type="submit"
         className={
           "h-10 w-[90%] min-w-[150px] bg-[#1B4896] px-2 text-white text-[0.91144rem] not-italic font-bold leading-[normal] uppercase font-[Montserrat] rounded"
         }
@@ -100,7 +134,7 @@ function Contact() {
             </span>
           </h1>
         </div>
-        <div className={'flex flex-col md:flex-row gap-5'}>
+        <div className={"flex flex-col md:flex-row gap-5"}>
           <svg
             width="26"
             height="27"
@@ -121,7 +155,7 @@ function Contact() {
             EMAIL
             <br />
             <span className="text-[#1b4896] text-[0.74056rem] not-italic font-normal leading-[1.13931rem] tracking-[0.01481rem] font-[Montserrat]">
-            info@shec.ae
+              info@shec.ae
             </span>
           </h1>
         </div>

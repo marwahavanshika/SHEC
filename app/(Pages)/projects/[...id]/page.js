@@ -2,8 +2,22 @@ import Image from "next/image";
 import Link from "next/link";
 import Heading from "../../../../components/Heading";
 
+export const dynamicParams = false
+
+export function generateStaticParams() {
+  return [
+    { id: ["COMMERCIAL", "1"] },
+    { id: ["COMMERCIAL", "2"] },
+    { id: ["INDUSTRIAL", "1"] },
+    { id: ["PUBLIC_BUILDINGS", "1"] },
+    { id: ["RESIDENTIAL", "1"] },
+    { id: ["RESIDENTIAL", "2"] },
+  ];
+}
+
 const page = ({ params }) => {
-  const im = "/images/" + params.id.join("/");
+  const { id }= params;
+  const im = "/images/" + id.join("/");
 
   const validFirstValues = [
     "COMMERCIAL",
@@ -13,20 +27,24 @@ const page = ({ params }) => {
   ];
 
   const next = validFirstValues.filter((value) => {
-    return value != params.id[0];
+    return value != id[0];
   });
   return (
     <>
-      <div
-        className=" h-screen w-screen bg-cover bg-center flex items-center justify-start relative"
-      >
-        <Image width={1000} height={1000} alt="bg" src={'/head.jpg'} className=" absolute w-full h-full inset-0 object-cover"/>
+      <div className=" h-screen w-screen bg-cover bg-center flex items-center justify-start relative">
+        <Image
+          width={1000}
+          height={1000}
+          alt="bg"
+          src={"/head.jpg"}
+          className=" absolute w-full h-full inset-0 object-cover"
+        />
         <Heading />
       </div>
       <div className="flex flex-col py-2 ps-2 md:p-10 items-center md:items-stretch gap-5 justify-center mt-5 md:flex-row">
         <div className="flex flex-col h-1/2 md:h-full w-full min-w-[70%] md:min-w-[45%] gap-5 flex-grow">
           <h1 className="text-[#214181] text-sm md:text-xl not-italic font-medium leading-[normal] tracking-[2.91px] font-popins">
-            INTERIOR DESIGN
+            {id[0]}
           </h1>
           <h2 className="text-[#2B2B2B] text-2xl md:text-5xl capitalize not-italic font-semibold leading-[47px]">
             we offer a complete A to Z services encompassing world className
@@ -174,7 +192,7 @@ const page = ({ params }) => {
                   {value}
                 </div>
                 <div className="text-[#808080] text-base not-italic font-normal leading-[1.625rem] font-popins">
-                  GETMAX
+                  SilverHeights
                 </div>
               </div>
             ))}

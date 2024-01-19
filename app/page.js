@@ -67,10 +67,10 @@ export default function Home() {
 
   return (
     <>
-      {isloading && false ? (
+      {isloading ? (
         <LoadingScreen />
       ) : (
-        <animated.div  className=" h-screen">
+        <animated.div style={props} className=" h-screen">
           <Parallax pages={8} ref={parallaxRef}>
             <ParallaxLayer
               className="z-20"
@@ -241,12 +241,12 @@ export default function Home() {
               </h1>
               <div
                 className={
-                  "flex flex-row items-center gap-10 md:gap-20 mt-10 justify-center"
+                  "flex flex-row items-start gap-10 md:gap-20 mt-10 justify-center"
                 }
               >
-                <Card />
-                <Card className={"hidden md:block"} />
-                <Card className={"hidden xl:block"} />
+                <Card title={'Real Estate Trends 2024'} desc={"Explore the evolving landscape of real estate in 2024. From emerging market trends to shifting buyer preferences, our latest blog unveils the key insights that can guide your decisions in this dynamic industry. Stay ahead of the curve and discover what's shaping the future of real estate."} />
+                <Card className={"hidden md:block"} title={"Navigating the Market"} desc={"Expert Tips - Embark on a journey through the intricacies of the real estate market with our expert tips. From negotiation strategies to identifying lucrative opportunities, empower yourself with the knowledge needed for real estate success."} />
+                <Card className={"hidden xl:block"} title={"Latest Insights in Real Estate"} desc={"Stay informed with our curated collection of the latest insights in the real estate realm. Whether you're looking to buy, sell, or invest, these insights offer a concise yet comprehensive guide to the current happenings in the real estate world."} />
               </div>
               <h3>
                 <Link
@@ -289,8 +289,7 @@ export default function Home() {
                     " text-black text-sm md:text-[0.7975rem] not-italic font-semibold leading-[1.36713rem] tracking-[0.008rem] font-popins"
                   }
                 >
-                  Connect with us for seamless collaboration and expert
-                  solutions - where innovation meets excellence.
+                  Connect with Us for Exclusive Updates, Personalized Advice, Daily Inspiration, VIP Access: Receive Early Listings and Special Offers, Real Estate Events and Webinars.
                 </h2>
                 <Contact />
               </div>

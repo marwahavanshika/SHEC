@@ -12,6 +12,7 @@ function page() {
     "/images/servicesbg5.jpg",
   ];
   const [currentProgress, setCurrentProgress] = useState(0);
+  const [Email, setEmail] = useState("")
   const strokeWidth = 5;
   const [radius, setradius] = useState(200);
   const circumference = 2 * Math.PI * radius;
@@ -22,7 +23,37 @@ function page() {
     "Residental",
     "Interior",
   ];
+  const dummy2=[
+    "Tailored Commercial Excellence",
+    "Discover elegance with Silver Heights Interiors.",
+    "Discover the epitome of refined living at Silver Heights Residential.",
+    "Elevate your educational journey with us.",
+    "Discover unmatched industrial solutions at Silver Heights."
+  ]
 
+  const handleSubmit = async (e)=>{
+    e.preventDefault();
+    try {
+      const Data = {
+        Email:Email
+      }
+      const res = await fetch("http://localhost:3000/api/letter", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(Data),
+      });
+      if (res.status === 500) {
+        throw new Error("Error");
+      } else {
+        console.log(res);
+      }
+    } catch (error) {
+      alert("An Error Occurred Try After Sometime")
+      console.error(error);
+    }
+  }
   useEffect(() => {
     setInterval(() => {
       setCurrentProgress((prevProgress) => {
@@ -122,7 +153,7 @@ function page() {
             cx={radius + strokeWidth}
             cy={radius + strokeWidth}
           />
-          <text
+          {/* <text
             x={radius / 2}
             y={-1.25 * radius}
             fill="white"
@@ -137,7 +168,7 @@ function page() {
             className=" rotate-90 text-xs lg:text-2xl transition-all duration-200 ease-out"
           >
             {dummy[Math.floor(currentProgress / 20)]}
-          </text>
+          </text> */}
           <circle
             stroke="#fff"
             fill="transparent"
@@ -162,18 +193,21 @@ function page() {
           />
         </svg>
       </div>
+      <div className=" h-screen w-screen z-20 absolute top-0 left-0 flex flex-col items-center justify-center pointer-events-none">
+        <h1 className=" not-italic font-bold leading-[5.81638rem] tracking-[0.02406rem] text-white text-base lg:text-4xl font-popins">SilverHeights</h1>
+        <h2 style={{width:`${(radius)}px`}} className=" text-xs text-center lg:text-2xl transition-all duration-200 ease-out text-white">{dummy2[Math.floor(currentProgress/20)]}</h2>
+      </div>
       <div className=" flex flex-col justify-center py-24 px-10 md:px-32">
         <h1 className="text-[#1E1F4B] text-lg sm:text-2xl md:text-4xl not-italic font-bold leading-[3.25rem] tracking-[0.0125rem] capitalize font-popins ps-5 ">
-          We create world-className Architectural Designs
+        Creating Architectural Marvels Worldwide 
         </h1>
         <h2 className="text-[#2E3E5C] text-sm sm:text-base md:text-xl not-italic font-normal leading-9 font-popins opacity-80">
-          By information about design the world to the best architects, heatc
-          helping By information
+        Unleashing Architectural Potential through Heatc's Insights
         </h2>
         <div className="grid max-lg:grid-rows-[50%_50%] lg:grid-cols-[50%_50%] gap-5">
           <div className="flex flex-col gap-3">
             <Image
-              src={"/images/COMMERCIAL/EXTERIOR/1/1.jpg"}
+              src={"/images/COMMERCIAL/1/1.jpg"}
               width={1000}
               height={1000}
               alt=""
@@ -194,7 +228,7 @@ function page() {
           <div className=" grid grid-cols-[50%_50%] gap-5">
             <div className="flex flex-col gap-3">
               <Image
-                src={"/images/COMMERCIAL/EXTERIOR/1/2.jpg"}
+                src={"/images/COMMERCIAL/1/2.jpg"}
                 width={1000}
                 height={1000}
                 alt=""
@@ -209,7 +243,7 @@ function page() {
             </div>
             <div className="flex flex-col gap-3">
               <Image
-                src={"/images/COMMERCIAL/EXTERIOR/1/1.jpg"}
+                src={"/images/COMMERCIAL/1/1.jpg"}
                 width={1000}
                 height={1000}
                 alt=""
@@ -224,7 +258,7 @@ function page() {
             </div>
             <div className="flex flex-col gap-3">
               <Image
-                src={"/images/COMMERCIAL/EXTERIOR/1/3.jpg"}
+                src={"/images/COMMERCIAL/1/3.jpg"}
                 width={1000}
                 height={1000}
                 alt=""
@@ -239,7 +273,7 @@ function page() {
             </div>
             <div className="flex flex-col gap-3">
               <Image
-                src={"/images/COMMERCIAL/EXTERIOR/1/4.jpg"}
+                src={"/images/COMMERCIAL/1/4.jpg"}
                 width={1000}
                 height={1000}
                 alt=""
@@ -266,7 +300,7 @@ function page() {
             and availability.
           </h2>
 
-          <form className=" w-full">
+          <form onSubmit={handleSubmit} className=" w-full">
             <div className="relative w-full">
               <div className="absolute inset-y-0 start-0 flex items-center mx-3 pointer-events-none">
                 <svg
@@ -289,7 +323,8 @@ function page() {
                 </svg>
               </div>
               <input
-                type="search"
+                onChange={(e)=>setEmail(e.target.value)}
+                type="email"
                 id="default-search"
                 className="block w-full p-5 ps-10 text-sm text-gray-900 border border-gray-300 rounded bg-[rgba(27,72,150,0.1)] placeholder:text-[#2E3E5C] focus:ring-blue-500 focus:border-blue-500"
                 placeholder="Enter your email address"

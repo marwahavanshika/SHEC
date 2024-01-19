@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 
 const CopyButton = () => {
-  const [isCopied, setisCopied] = useState(true);
+  const [isCopied, setisCopied] = useState(false);
   const handleclick = () => {
     navigator.clipboard.writeText("+971 50 9999 611");
     setisCopied(true);
@@ -17,7 +17,7 @@ const CopyButton = () => {
       <button
         onClick={handleclick}
         className={
-          " h-1/2 peer w-[150px] flex transition-all duration-200 ease-out items-center justify-center rounded-3xl bg-[#fff]"
+          " h-1/2 group w-[150px] flex transition-all relative duration-200 ease-out items-center justify-center rounded-3xl bg-[#fff]"
         }
       >
         <svg
@@ -35,10 +35,17 @@ const CopyButton = () => {
             />
           </g>
         </svg>
-        <div className=" text-xs text-[#1B4896] transition ease-out duration-300" onMouseEnter={()=>setisCopied(false)} onMouseLeave={()=>setisCopied(true)}>
-          {isCopied ? <>+971 50 9999 611
-          <br />
-          050 9999 611</>:<span className="text-xs">Click to Copy</span>}
+        <div
+          className=" text-xs text-[#1B4896] transition ease-out duration-300"
+        >
+          <>
+            +971 50 9999 611
+            <br />
+            050 9999 611
+          </>
+        </div>
+        <div className=" absolute bottom-[-20px] text-sm text-[#1B4896] left-5px hidden group-hover:block transition delay-100 ease-out duration-300">
+          {isCopied ? <>Copied to Clipboard</> : <>Click to copy</>}
         </div>
       </button>
     </>
@@ -127,20 +134,20 @@ export default function Navbar() {
         />
       </Link>
       <div className=" hidden lg:flex flex-row items-center gap-1 justify-stretch h-full">
-      {links.map((link, i) => (
-        <Link
-          href={link.link}
-          key={i}
-          className={
-            " h-1/2 w-[140px] hidden lg:grid hover:bg-white hover:text-[#1B4896] hover:border-[3px] hover:border-[#1B4896]  place-items-center bg-[#1B4896] text-white font-popins rounded-md transition-colors duration-200 ease-out hover:font-semibold mx-3"
-          }
-        >
-          {link.name}
-        </Link>
-      ))}
-      <Email />
-      <CopyButton />
-      <Contact />
+        {links.map((link, i) => (
+          <Link
+            href={link.link}
+            key={i}
+            className={
+              " h-1/2 w-[140px] hidden lg:grid hover:bg-white hover:text-[#1B4896] hover:border-[3px] hover:border-[#1B4896]  place-items-center bg-[#1B4896] text-white font-popins rounded-md transition-colors duration-200 ease-out hover:font-semibold mx-3"
+            }
+          >
+            {link.name}
+          </Link>
+        ))}
+        <Email />
+        <CopyButton />
+        <Contact />
       </div>
       {/* Mobile Nav start */}
       <svg
@@ -215,32 +222,32 @@ export default function Navbar() {
           </g>
         </svg>
         <div>
-        <nav className="  h-[200px] w-[min(150px,90%)] min-w-[150px] mt-32 flex items-center justify-center flex-col gap-5 ">
-          <Link
-            href={"/"}
-            className={
-              "w-full h-full grid place-items-center border-2 border-[#1B4896] bg-[#1B4896] rounded text-white hover:bg-white hover:text-[#1B4896] hover:border-2 hover:border-[#1B4896] transition-colors duration-200 ease-out hover:font-semibold "
-            }
-            onClick={() => setisOpen(false)}
-          >
-            Home
-          </Link>
-          {links.map((value, i) => (
+          <nav className="  h-[200px] w-[min(150px,90%)] min-w-[150px] mt-32 flex items-center justify-center flex-col gap-5 ">
             <Link
-              href={`/${value.link}`}
-              key={i}
+              href={"/"}
               className={
                 "w-full h-full grid place-items-center border-2 border-[#1B4896] bg-[#1B4896] rounded text-white hover:bg-white hover:text-[#1B4896] hover:border-2 hover:border-[#1B4896] transition-colors duration-200 ease-out hover:font-semibold "
               }
               onClick={() => setisOpen(false)}
             >
-              <span>{value.name}</span>
+              Home
             </Link>
-          ))}
-          <Email />
-        <CopyButton />
-        <Contact />
-        </nav>
+            {links.map((value, i) => (
+              <Link
+                href={`/${value.link}`}
+                key={i}
+                className={
+                  "w-full h-full grid place-items-center border-2 border-[#1B4896] bg-[#1B4896] rounded text-white hover:bg-white hover:text-[#1B4896] hover:border-2 hover:border-[#1B4896] transition-colors duration-200 ease-out hover:font-semibold "
+                }
+                onClick={() => setisOpen(false)}
+              >
+                <span>{value.name}</span>
+              </Link>
+            ))}
+            <Email />
+            <CopyButton />
+            <Contact />
+          </nav>
         </div>
       </div>
     </header>

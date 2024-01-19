@@ -46,7 +46,8 @@ export default function Footer() {
             />
           </Link>
           <p className=" text-center text-white font-popins text-xl font-bold">
-            You ask it <br /> <span className=" ms-16">we build it</span>
+            Share Your Vision, <br />{" "}
+            <span className=" ms-16"> We Bring It to Life!</span>
           </p>
         </div>
         <div className="flex-grow flex flex-wrap md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left text-center">
@@ -97,7 +98,12 @@ export default function Footer() {
               Social
             </h1>
             <span className="inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start">
-              <a className="text-white">
+              <Link
+                href={
+                  "https://www.facebook.com/share/siD8LAHCnwvc3HUT/?mibextid=%22%22"
+                }
+                className="text-white hover:scale-150 transition ease-out"
+              >
                 <svg
                   fill="currentColor"
                   strokeLinecap="round"
@@ -108,20 +114,30 @@ export default function Footer() {
                 >
                   <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
                 </svg>
-              </a>
-              <a className="ml-7 text-white">
+              </Link>
+              <Link
+                href={"https://X.com"}
+                className="ml-7 text-white hover:scale-150 transition ease-out"
+              >
                 <svg
-                  fill="currentColor"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 48 48"
+                  fill="#0077B5"
+                  stroke="#0077B5"
+                  strokeWidth="2"
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  strokeWidth="2"
                   className="w-5 h-5"
-                  viewBox="0 0 24 24"
                 >
-                  <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
+                  <path d="M45,24c0,11.4-9.6,24-21,24S3,35.4,3,24S12.6,0,24,0S45,12.6,45,24z M10,24h8v16h-8V24z M18,12H10V0h8V12z M34,24 c0,6.6-1.8,12-8,12c-3.6,0-5.4-1.8-6.4-3V24H14V0h8v11c0,0,2.4-4,7-4c6,0,7,4.5,7,11V24z" />
                 </svg>
-              </a>
-              <a className="ml-7 text-white">
+              </Link>
+              <Link
+                href={
+                  "https://www.instagram.com/silver_heights_uae?igsh=MXZnMDZwODN3eTU4ZA=="
+                }
+                className="ml-7 text-white hover:scale-150 transition ease-out"
+              >
                 <svg
                   fill="none"
                   stroke="currentColor"
@@ -134,23 +150,13 @@ export default function Footer() {
                   <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
                   <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
                 </svg>
-              </a>
-              <a className="ml-7 text-white">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  className=" w-10 h-5"
-                  fill="none"
-                >
-                  <path
-                    fillRule="evenodd"
-                    clipRule="evenodd"
-                    d="M27.7529 1.18985C29.0466 1.3615 30.283 2.64278 30.4403 3.97899C30.9973 8.87601 30.9973 13.6246 30.4403 18.5201C30.283 19.8563 29.0466 21.1392 27.7529 21.3093C19.8645 22.3075 11.8869 22.3075 4.00077 21.3093C2.70595 21.1388 1.46956 19.8563 1.31225 18.5201C0.755292 13.6243 0.755292 8.87601 1.31225 3.97899C1.46956 2.64278 2.70595 1.36112 4.00077 1.18985C11.8869 0.1916 19.8641 0.1916 27.7529 1.18985ZM13.3778 6.16433V16.3364L20.8688 11.2505L13.3778 6.16433Z"
-                    fill="white"
-                  />
-                </svg>
-              </a>
-              <a className="ml-7 text-white">
+              </Link>
+              <Link
+                href={
+                  "https://www.tiktok.com/@silverheights.uae?_t=8j4w3PWPJWa&_r=1"
+                }
+                className="ml-7 text-white hover:scale-150 transition ease-out"
+              >
                 <svg
                   fill="#ffffff"
                   className=" w-5 h-5"
@@ -169,7 +175,7 @@ export default function Footer() {
                     <path d="M19.589 6.686a4.793 4.793 0 0 1-3.77-4.245V2h-3.445v13.672a2.896 2.896 0 0 1-5.201 1.743l-.002-.001.002.001a2.895 2.895 0 0 1 3.183-4.51v-3.5a6.329 6.329 0 0 0-5.394 10.692 6.33 6.33 0 0 0 10.857-4.424V8.687a8.182 8.182 0 0 0 4.773 1.526V6.79a4.831 4.831 0 0 1-1.003-.104z"></path>
                   </g>
                 </svg>
-              </a>
+              </Link>
             </span>
           </div>
         </div>

@@ -86,6 +86,7 @@ export default function Gallery() {
             <div
               key={i}
               className="w-6 transition-all duration-500 ease-out relative flex-grow-0"
+              onClick={()=>setopen(i)}
               style={{
                 width: i === open ? "14rem" : "1.5rem",
                 height:
@@ -130,28 +131,30 @@ export default function Gallery() {
           ))}
         </div>
         <div className=" flex flex-row gap-2">
-        <button
-        className={
-          "w-[50px] h-[50px] shadow-[1px_1px_10px_rgba(0,0,0,0.3)] font-popins active:scale-75 z-[2] -mt-5 rounded-[50px] bg-center bg-no-repeat cursor-pointer"
-        }
-          onClick={() =>
-            setopen((prev) => {
-              return prev > 0 ? prev - 1 : 6;
-            })
-          }
-        >
-          Left
-        </button>
-        <button
-          className={
-            "w-[50px] h-[50px] shadow-[1px_1px_10px_rgba(0,0,0,0.3)] z-[2] -mt-5 rounded-[50px] bg-center bg-no-repeat cursor-pointer font-popins active:scale-90"
-          }
-          onClick={() =>
-            setopen((prev) => {
-              return (prev + 1) % 7;
-            })
-          }
-        >Right</button>
+          <button
+            className={
+              "w-[50px] h-[50px] shadow-[1px_1px_10px_rgba(0,0,0,0.3)] font-popins active:scale-75 z-[2] -mt-5 rounded-[50px] bg-center bg-no-repeat cursor-pointer"
+            }
+            onClick={() =>
+              setopen((prev) => {
+                return prev > 0 ? prev - 1 : 6;
+              })
+            }
+          >
+            Left
+          </button>
+          <button
+            className={
+              "w-[50px] h-[50px] shadow-[1px_1px_10px_rgba(0,0,0,0.3)] z-[2] -mt-5 rounded-[50px] bg-center bg-no-repeat cursor-pointer font-popins active:scale-90"
+            }
+            onClick={() =>
+              setopen((prev) => {
+                return (prev + 1) % 7;
+              })
+            }
+          >
+            Right
+          </button>
         </div>
       </div>
     </>

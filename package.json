@@ -16,6 +16,7 @@
     "react-dom": "^18",
     "sass": "^1.69.6",
     "scss": "^0.2.4",
+    "serverless-mysql": "^1.5.5",
     "tailwindcss-animated": "^1.0.1"
   },
   "devDependencies": {
