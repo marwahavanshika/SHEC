@@ -82,8 +82,8 @@ const Email = () => {
 
 const Contact = () => {
   return (
-    <button
-      onClick={() => handlescroll()}
+    <Link 
+      href={"/"}
       className={
         "h-[30px] w-[110px] cursor-pointer border-2 group flex items-center justify-center border-[#1B4896] text-xs text-[#1B4896] rounded-2xl"
       }
@@ -104,7 +104,7 @@ const Contact = () => {
           fill="#1B4896"
         />
       </svg>
-    </button>
+    </Link>
   );
 };
 
@@ -117,7 +117,6 @@ export default function Navbar() {
   ];
   const [isOpen, setisOpen] = useState(false);
 
-  const handlescroll = () => {};
   return (
     <header
       className={
@@ -136,7 +135,7 @@ export default function Navbar() {
       <div className=" hidden lg:flex flex-row items-center gap-1 justify-stretch h-full">
         {links.map((link, i) => (
           <Link
-            href={link.link}
+            href={`/${link.link}`}
             key={i}
             className={
               " h-1/2 w-[140px] hidden lg:grid hover:bg-white hover:text-[#1B4896] hover:border-[3px] hover:border-[#1B4896]  place-items-center bg-[#1B4896] text-white font-popins rounded-md transition-colors duration-200 ease-out hover:font-semibold mx-3"
@@ -234,7 +233,7 @@ export default function Navbar() {
             </Link>
             {links.map((value, i) => (
               <Link
-                href={`/${value.link}`}
+                href={`/`}
                 key={i}
                 className={
                   "w-full h-full grid place-items-center border-2 border-[#1B4896] bg-[#1B4896] rounded text-white hover:bg-white hover:text-[#1B4896] hover:border-2 hover:border-[#1B4896] transition-colors duration-200 ease-out hover:font-semibold "

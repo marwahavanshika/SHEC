@@ -47,13 +47,10 @@ const page = ({ params }) => {
             {id[0]}
           </h1>
           <h2 className="text-[#2B2B2B] text-2xl md:text-5xl capitalize not-italic font-semibold leading-[47px]">
-            we offer a complete A to Z services encompassing world className
-            design skills.
+          Turning visions into reality, one project at a time - where innovation meets execution in our showcase of architectural excellence.
           </h2>
           <p className=" text-[#808080] text-sm md:text-base not-italic font-normal leading-[26px]">
-            Donec porttitor euismod dignissim. Nullam a lacinia ipsum, nec
-            dignissim purus. Nulla convallis ipsum molestie nibh malesuada, ac
-            malesuada leo volutpat.
+          Embark on a journey of architectural brilliance at SilverHeights Engineering Consultancy. Our project showcase transforms dreams into reality. With innovation and precision, our team of architects brings creative concepts to life. Explore a portfolio where each structure tells a unique story of functionality and aesthetic allure. Welcome to a world where your vision takes center stage, and each project becomes a testament to our pursuit of design perfection.
           </p>
           <div className=" w-[80%] h-32 shadow-[4px_10px_30px_0px_rgba(0,0,0,0.06)] flex flex-row justify-evenly items-center rounded-[30px]">
             <svg
@@ -82,10 +79,10 @@ const page = ({ params }) => {
             </svg>
             <div className="flex flex-col">
               <p className="text-[#214181] text-[19.4px] not-italic font-medium leading-[normal]">
-                Donec porttitor euismod
+                Designs
               </p>
               <p className="text-[color:var(--Text-Colour-3,#808080)] text-base not-italic font-normal leading-[26px]">
-                Nullam a lacinia ipsum, nec dignissim purus. Nulla
+                are so elegent that no one can match
               </p>
             </div>
           </div>
@@ -121,10 +118,10 @@ const page = ({ params }) => {
             </svg>
             <div className="flex flex-col">
               <p className="text-[#214181] text-[19.4px] not-italic font-medium leading-[normal]">
-                Donec porttitor euismod
+                Style
               </p>
               <p className="text-[color:var(--Text-Colour-3,#808080)] text-base not-italic font-normal leading-[26px]">
-                Nullam a lacinia ipsum, nec dignissim purus. Nulla
+                are so beautiful that no one can beat
               </p>
             </div>
           </div>

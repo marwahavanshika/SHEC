@@ -91,8 +91,8 @@ export default function AboutUs () {
                 <br/>
                 <br/>
                 <br />
-                <h3 className="font-bold lg:font-[600px] xl:font-bold text-3xl/[60px] md:text-4xl/[30px] lg:text-4xl/[30px] xl:text-5xl/[60px] mb-2 md:mb-4 lg:mb-4 xl:mb-6">What we provide</h3>
-                <p className="font-normal text-sm md:text-base lg:text-lg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam unde tempora reiciendis quae vitae.</p>
+                <h3 className="font-bold lg:font-[600px] xl:font-bold text-3xl/[60px] md:text-4xl/[30px] lg:text-4xl/[30px] xl:text-5xl/[60px] mb-2 md:mb-4 lg:mb-4 xl:mb-6">What We Bring to the Table</h3>
+                <p className="font-normal text-sm md:text-base lg:text-lg">Your Dreams, Our Expertise:</p>
             </div>
 
             <div className='provide  md:w-[85%] ml-[50px] lg:mr-[55px] xl:mr-[0px] flex flex-1 lg:w-[90%] gap-x-8 mb-20 md:mb-16 lg:mb-36 '>

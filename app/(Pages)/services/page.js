@@ -12,7 +12,7 @@ function page() {
     "/images/servicesbg5.jpg",
   ];
   const [currentProgress, setCurrentProgress] = useState(0);
-  const [Email, setEmail] = useState("")
+  const [Email, setEmail] = useState("");
   const strokeWidth = 5;
   const [radius, setradius] = useState(200);
   const circumference = 2 * Math.PI * radius;
@@ -23,20 +23,20 @@ function page() {
     "Residental",
     "Interior",
   ];
-  const dummy2=[
+  const dummy2 = [
     "Tailored Commercial Excellence",
     "Discover elegance with Silver Heights Interiors.",
     "Discover the epitome of refined living at Silver Heights Residential.",
     "Elevate your educational journey with us.",
-    "Discover unmatched industrial solutions at Silver Heights."
-  ]
+    "Discover unmatched industrial solutions at Silver Heights.",
+  ];
 
-  const handleSubmit = async (e)=>{
+  const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const Data = {
-        Email:Email
-      }
+        Email: Email,
+      };
       const res = await fetch("http://localhost:3000/api/letter", {
         method: "POST",
         headers: {
@@ -50,14 +50,14 @@ function page() {
         console.log(res);
       }
     } catch (error) {
-      alert("An Error Occurred Try After Sometime")
+      alert("An Error Occurred Try After Sometime");
       console.error(error);
     }
-  }
+  };
   useEffect(() => {
     setInterval(() => {
       setCurrentProgress((prevProgress) => {
-        if (prevProgress < 100) {
+        if (prevProgress < 99) {
           return (prevProgress += 0.1);
         }
         return 0;
@@ -153,22 +153,6 @@ function page() {
             cx={radius + strokeWidth}
             cy={radius + strokeWidth}
           />
-          {/* <text
-            x={radius / 2}
-            y={-1.25 * radius}
-            fill="white"
-            className=" not-italic font-bold leading-[5.81638rem] tracking-[0.02406rem] rotate-90 text-base lg:text-4xl font-popins"
-          >
-            SilverHeights
-          </text>
-          <text
-            x={radius / 2 + 50}
-            y={-1 * radius}
-            fill="white"
-            className=" rotate-90 text-xs lg:text-2xl transition-all duration-200 ease-out"
-          >
-            {dummy[Math.floor(currentProgress / 20)]}
-          </text> */}
           <circle
             stroke="#fff"
             fill="transparent"
@@ -194,24 +178,31 @@ function page() {
         </svg>
       </div>
       <div className=" h-screen w-screen z-20 absolute top-0 left-0 flex flex-col items-center justify-center pointer-events-none">
-        <h1 className=" not-italic font-bold leading-[5.81638rem] tracking-[0.02406rem] text-white text-base lg:text-4xl font-popins">SilverHeights</h1>
-        <h2 style={{width:`${(radius)}px`}} className=" text-xs text-center lg:text-2xl transition-all duration-200 ease-out text-white">{dummy2[Math.floor(currentProgress/20)]}</h2>
+        <h1 className=" not-italic font-bold leading-[5.81638rem] tracking-[0.02406rem] text-white text-base lg:text-4xl font-popins">
+          SilverHeights
+        </h1>
+        <h2
+          style={{ width: `${radius}px` }}
+          className=" text-[0.5rem] text-center lg:text-xl transition-all duration-500 ease-out text-white"
+        >
+          {dummy2[Math.floor(currentProgress / 20)]}
+        </h2>
       </div>
       <div className=" flex flex-col justify-center py-24 px-10 md:px-32">
         <h1 className="text-[#1E1F4B] text-lg sm:text-2xl md:text-4xl not-italic font-bold leading-[3.25rem] tracking-[0.0125rem] capitalize font-popins ps-5 ">
-        Creating Architectural Marvels Worldwide 
+          Creating Architectural Marvels Worldwide
         </h1>
         <h2 className="text-[#2E3E5C] text-sm sm:text-base md:text-xl not-italic font-normal leading-9 font-popins opacity-80">
-        Unleashing Architectural Potential through Heatc's Insights
+          Unleashing Architectural Potential through Heatc's Insights
         </h2>
         <div className="grid max-lg:grid-rows-[50%_50%] lg:grid-cols-[50%_50%] gap-5">
           <div className="flex flex-col gap-3">
             <Image
-              src={"/images/COMMERCIAL/1/1.jpg"}
+              src={"/images/RESIDENTIAL/2/1.jpg"}
               width={1000}
               height={1000}
               alt=""
-              className=" h-full w-full rounded-lg"
+              className=" h-full w-full rounded-lg object-cover"
             />
             <h1 className="text-[#2e3e5c] text-xs md:text-sm not-italic font-normal leading-[1.625rem] font-popins opacity-80">
               Interior Design - June 20, 2022
@@ -220,22 +211,22 @@ function page() {
               Interior Redesign
             </h2>
             <h3 className="text-[#2E3E5C] text-xs md:text-sm not-italic font-normal leading-[1.625rem] font-popins">
-              By information about design the world to the best instructors,
-              heatc helping By information about design the world to the best
-              instructors, heatc helping
+              "Transforming spaces into timeless masterpieces - where innovation
+              meets elegance, our architectural prowess redefines interior
+              design excellence."
             </h3>
           </div>
           <div className=" grid grid-cols-[50%_50%] gap-5">
             <div className="flex flex-col gap-3">
               <Image
-                src={"/images/COMMERCIAL/1/2.jpg"}
+                src={"/images/PUBLIC_BUILDINGS/1/1.jpg"}
                 width={1000}
                 height={1000}
                 alt=""
-                className=" h-full w-full rounded-md"
+                className=" h-full w-full rounded-md object-cover"
               />
               <h1 className="text-[#2e3e5c] text-xs md:text-sm not-italic font-normal leading-[1.625rem] font-popins opacity-80">
-                Commercial Design - June 20, 2022
+                Public Design - June 20, 2022
               </h1>
               <h2 className="text-[#2e3e5c] text-sm md:text-lg not-italic font-bold leading-7 capitalize font-popins">
                 Public Gathering Building Designs
@@ -258,11 +249,11 @@ function page() {
             </div>
             <div className="flex flex-col gap-3">
               <Image
-                src={"/images/COMMERCIAL/1/3.jpg"}
+                src={"/images/INDUSTRIAL/1/3.jpg"}
                 width={1000}
                 height={1000}
                 alt=""
-                className=" h-full w-full rounded-md"
+                className=" aspect-square w-full rounded-md object-cover"
               />
               <h1 className="text-[#2e3e5c] text-xs md:text-sm not-italic font-normal leading-[1.625rem] font-popins opacity-80">
                 Industrial Design - June 20, 2022
@@ -323,7 +314,7 @@ function page() {
                 </svg>
               </div>
               <input
-                onChange={(e)=>setEmail(e.target.value)}
+                onChange={(e) => setEmail(e.target.value)}
                 type="email"
                 id="default-search"
                 className="block w-full p-5 ps-10 text-sm text-gray-900 border border-gray-300 rounded bg-[rgba(27,72,150,0.1)] placeholder:text-[#2E3E5C] focus:ring-blue-500 focus:border-blue-500"
@@ -373,7 +364,8 @@ function page() {
               Planning
             </h1>
             <h2 className="text-[#2e3e5c] text-base not-italic font-normal leading-7 font-popins opacity-80">
-              Sometimes features require a short description
+              where creativity
+              shapes the future of design.
             </h2>
           </div>
           <div className="flex flex-col">
@@ -433,7 +425,8 @@ function page() {
               Interior Design
             </h1>
             <h2 className="text-[#2e3e5c] text-base not-italic font-normal leading-7 font-popins opacity-80">
-              Sometimes features require a short description
+              where creativity
+              shapes the future of design.
             </h2>
           </div>
         </div>
@@ -479,7 +472,8 @@ function page() {
               Modeling
             </h1>
             <h2 className="text-[#2e3e5c] text-base not-italic font-normal leading-7 font-popins opacity-80">
-              Sometimes features require a short description
+              our modeling expertise breathes
+              life into architectural dreams.
             </h2>
           </div>
           <div className="flex flex-col">
@@ -512,7 +506,8 @@ function page() {
               Structural Design
             </h1>
             <h2 className="text-[#2e3e5c] text-base not-italic font-normal leading-7 font-popins opacity-80">
-              Sometimes features require a short description
+              our structural designs
+              redefine resilience and innovation in every foundation.
             </h2>
           </div>
         </div>
